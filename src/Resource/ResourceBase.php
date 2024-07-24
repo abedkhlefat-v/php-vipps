@@ -206,12 +206,15 @@ abstract class ResourceBase implements ResourceInterface, SerializableInterface
      */
     protected function getRequest()
     {
-        return $this->app->getClient()->getRequestFactory()->createRequest(
+        $request = $this->app->getClient()->getRequestFactory()->createRequest(
             $this->getMethod(),
-            $this->getUri($this->getPath()),
-            $this->getHeaders(),
-            $this->getBody()
-        );
+            $this->getUri($this->getPath()));
+        $body = $this->app->getClient()->getStreamFactory()->createStream($this->getBody());
+        $request = $request->withBody($body);
+        foreach ($this->getHeaders() as $header => $value) {
+            $request = $request->withAddedHeader($header, $value);
+        }
+        return $request;
     }
 
     /**

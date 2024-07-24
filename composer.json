@@ -15,6 +15,7 @@
     },
     "require-dev": {
         "guzzlehttp/guzzle": "^7",
+        "php-http/guzzle7-adapter": "^1",
         "phpunit/phpunit": ">=5 <9",
         "symfony/yaml": "^2.0",
         "symfony/filesystem": "^3.1",

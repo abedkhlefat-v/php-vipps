@@ -23,7 +23,7 @@ class GetToken extends ResourceBase
     /**
      * @var string
      */
-    protected $path = '/accessToken/get';
+    protected string $path = '/accesstoken/get';
 
     /**
      * GetToken constructor.

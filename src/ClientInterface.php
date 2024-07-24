@@ -4,6 +4,7 @@ namespace zaporylie\Vipps;
 
 use Psr\Http\Client\ClientInterface as HttpClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
+use Psr\Http\Message\StreamFactoryInterface;
 use zaporylie\Vipps\Authentication\TokenStorageInterface;
 
 interface ClientInterface
@@ -69,9 +70,16 @@ interface ClientInterface
     public function setHttpClient(?HttpClientInterface $httpClient);
 
     /**
-     * Gets messageFactory value.
+     * Gets requestFactoru value.
      *
      * @return \Psr\Http\Message\RequestFactoryInterface
      */
     public function getRequestFactory(): RequestFactoryInterface;
+
+    /**
+     * Gets streamFactory value.
+     *
+     * @return \Psr\Http\Message\StreamFactoryInterface
+     */
+    public function getStreamFactory(): StreamFactoryInterface;
 }
