@@ -16,14 +16,6 @@ parameters:
 			path: src/Exceptions/VippsException.php
 
 		-
-			message: """
-				#^Call to deprecated method getOrderStatus\\(\\) of class zaporylie\\\\Vipps\\\\Api\\\\PaymentInterface\\:
-				Get order status was deprecated and can be removed in version 3\\.0\\.$#
-			"""
-			count: 1
-			path: test/Integration/Api/PaymentsTest.php
-
-		-
 			message: "#^Call to an undefined static method zaporylie\\\\Vipps\\\\Endpoint\\:\\:error\\(\\)\\.$#"
 			count: 1
 			path: test/Unit/ClientTest.php
