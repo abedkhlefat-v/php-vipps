@@ -65,7 +65,7 @@ class GetTokenTest extends ResourceTestBase
      */
     public function testPath()
     {
-        $this->assertEquals('/accessToken/get', $this->resource->getPath());
+        $this->assertEquals('/accesstoken/get', $this->resource->getPath());
     }
 
     /**

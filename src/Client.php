@@ -10,6 +10,7 @@ use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Discovery\Psr18ClientDiscovery;
 use Psr\Http\Client\ClientInterface as HttpClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
+use Psr\Http\Message\StreamFactoryInterface;
 use zaporylie\Vipps\Authentication\TokenMemoryCacheStorage;
 use zaporylie\Vipps\Authentication\TokenStorageInterface;
 use zaporylie\Vipps\Exceptions\Client\InvalidArgumentException;
@@ -31,6 +32,11 @@ class Client implements ClientInterface
      * @var \Psr\Http\Message\RequestFactoryInterface
      */
     protected $requestFactory;
+
+    /**
+     * @var \Psr\Http\Message\StreamFactoryInterface
+     */
+    protected StreamFactoryInterface $streamFactory;
 
     /**
      * @var string
@@ -191,6 +197,17 @@ class Client implements ClientInterface
             $this->requestFactory = Psr17FactoryDiscovery::findRequestFactory();
         }
         return $this->requestFactory;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getStreamFactory(): StreamFactoryInterface
+    {
+        if (!isset($this->streamFactory)) {
+            $this->streamFactory = Psr17FactoryDiscovery::findStreamFactory();
+        }
+        return $this->streamFactory;
     }
 
     /**
