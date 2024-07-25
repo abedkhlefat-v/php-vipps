@@ -81,7 +81,8 @@ class EPayment extends ApiBase implements EPaymentInterface
     /**
      * {@inheritDoc}
      */
-    public function createPayment(CreatePaymentRequest $request, ?string $idempotency_key): CreatePaymentResponse {
+    public function createPayment(CreatePaymentRequest $request, ?string $idempotency_key): CreatePaymentResponse
+    {
         // Ensure idempotency key is set.
         $idempotency_key = $idempotency_key ?? IdempotencyKeyFactory::generate();
         // @todo: Validate data.
@@ -92,7 +93,8 @@ class EPayment extends ApiBase implements EPaymentInterface
     /**
      * {@inheritDoc}
      */
-    public function getPayment(string $reference): GetPaymentResponse {
+    public function getPayment(string $reference): GetPaymentResponse
+    {
         $resource = new GetPayment($this->app, $this->getSubscriptionKey(), $reference);
         return $resource->call();
     }
@@ -100,7 +102,8 @@ class EPayment extends ApiBase implements EPaymentInterface
     /**
      * {@inheritDoc}
      */
-    public function getPaymentEvents(string $reference): array {
+    public function getPaymentEvents(string $reference): array
+    {
         $resource = new GetPaymentEvents($this->app, $this->getSubscriptionKey(), $reference);
         return $resource->call();
     }
@@ -108,7 +111,11 @@ class EPayment extends ApiBase implements EPaymentInterface
     /**
      * {@inheritDoc}
      */
-    public function cancelPayment(string $reference, CancelModificationRequest $request, ?string $idempotency_key): PaymentAdjustResponse {
+    public function cancelPayment(
+        string $reference,
+        CancelModificationRequest $request,
+        ?string $idempotency_key
+    ): PaymentAdjustResponse {
         // Ensure idempotency key is set.
         $idempotency_key = $idempotency_key ?? IdempotencyKeyFactory::generate();
         $resource = new CancelPayment($this->app, $this->getSubscriptionKey(), $idempotency_key, $reference, $request);
@@ -136,5 +143,4 @@ class EPayment extends ApiBase implements EPaymentInterface
         $resource = new RefundPayment($this->app, $this->getSubscriptionKey(), $idempotency_key, $reference, $request);
         return $resource->call();
     }
-
 }

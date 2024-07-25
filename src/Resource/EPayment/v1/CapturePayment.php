@@ -38,8 +38,13 @@ class CapturePayment extends PaymentResourceBase
      * @param string $idempotency_key
      * @param \zaporylie\Vipps\Model\EPayment\v1\CaptureModificationRequest $request
      */
-    public function __construct(VippsInterface $vipps, string $subscription_key, string $idempotency_key, string $reference, CaptureModificationRequest $request)
-    {
+    public function __construct(
+        VippsInterface $vipps,
+        string $subscription_key,
+        string $idempotency_key,
+        string $reference,
+        CaptureModificationRequest $request
+    ) {
         parent::__construct($vipps, $subscription_key);
         $this->headers['Idempotency-Key'] = $idempotency_key;
         $this->id = $reference;

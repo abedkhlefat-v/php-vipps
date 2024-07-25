@@ -37,8 +37,13 @@ class CancelPayment extends PaymentResourceBase
      * @param string $idempotency_key
      * @param \zaporylie\Vipps\Model\EPayment\v1\CancelModificationRequest $request
      */
-    public function __construct(VippsInterface $vipps, string $subscription_key, string $idempotency_key, string $reference, CancelModificationRequest $request)
-    {
+    public function __construct(
+        VippsInterface $vipps,
+        string $subscription_key,
+        string $idempotency_key,
+        string $reference,
+        CancelModificationRequest $request
+    ) {
         parent::__construct($vipps, $subscription_key);
         $this->headers['Idempotency-Key'] = $idempotency_key;
         $this->id = $reference;
