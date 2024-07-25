@@ -4,7 +4,7 @@
 /build
 .idea
 composer.lock
-/examples/settings.yml
+/examples/config.yml
 *.p12
 *.pem
 *.crt
