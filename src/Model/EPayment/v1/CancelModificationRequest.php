@@ -25,7 +25,8 @@ class CancelModificationRequest
      *
      * @return $this
      */
-    public function setCancelTransactionOnly(bool $cancelTransactionOnly) {
+    public function setCancelTransactionOnly(bool $cancelTransactionOnly)
+    {
         $this->cancelTransactionOnly = $cancelTransactionOnly;
         return $this;
     }

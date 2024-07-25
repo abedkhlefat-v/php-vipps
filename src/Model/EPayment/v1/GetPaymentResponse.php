@@ -4,7 +4,8 @@ namespace zaporylie\Vipps\Model\EPayment\v1;
 
 use JMS\Serializer\Annotation as Serializer;
 
-class GetPaymentResponse {
+class GetPaymentResponse
+{
 
     /**
      * @var \zaporylie\Vipps\Model\EPayment\v1\Aggregate
@@ -63,7 +64,8 @@ class GetPaymentResponse {
      *
      * @return \zaporylie\Vipps\Model\EPayment\v1\Aggregate
      */
-    public function getAggregate(): Aggregate {
+    public function getAggregate(): Aggregate
+    {
         return $this->aggregate;
     }
 
@@ -72,7 +74,8 @@ class GetPaymentResponse {
      *
      * @return \zaporylie\Vipps\Model\EPayment\v1\Amount
      */
-    public function getAmount(): Amount {
+    public function getAmount(): Amount
+    {
         return $this->amount;
     }
 
@@ -81,7 +84,8 @@ class GetPaymentResponse {
      *
      * @return \zaporylie\Vipps\Model\EPayment\v1\PaymentMethodResponse
      */
-    public function getPaymentMethod(): PaymentMethodResponse {
+    public function getPaymentMethod(): PaymentMethodResponse
+    {
         return $this->paymentMethod;
     }
 
@@ -90,7 +94,8 @@ class GetPaymentResponse {
      *
      * @return \zaporylie\Vipps\Model\EPayment\v1\ProfileResponse
      */
-    public function getProfile(): ProfileResponse {
+    public function getProfile(): ProfileResponse
+    {
         return $this->profile;
     }
 
@@ -99,7 +104,8 @@ class GetPaymentResponse {
      *
      * @return string
      */
-    public function getPspReference(): string {
+    public function getPspReference(): string
+    {
         return $this->pspReference;
     }
 
@@ -108,7 +114,8 @@ class GetPaymentResponse {
      *
      * @return string
      */
-    public function getRedirectUrl(): string {
+    public function getRedirectUrl(): string
+    {
         return $this->redirectUrl;
     }
 
@@ -117,7 +124,8 @@ class GetPaymentResponse {
      *
      * @return string
      */
-    public function getReference(): string {
+    public function getReference(): string
+    {
         return $this->reference;
     }
 
@@ -126,7 +134,8 @@ class GetPaymentResponse {
      *
      * @return string
      */
-    public function getState(): string {
+    public function getState(): string
+    {
         return $this->state;
     }
 }

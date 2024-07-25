@@ -24,7 +24,8 @@ class CaptureModificationRequest
      *
      * @return $this
      */
-    public function setModificationAmount(Amount $modificationAmount) {
+    public function setModificationAmount(Amount $modificationAmount)
+    {
         $this->modificationAmount = $modificationAmount;
         return $this;
     }

@@ -61,7 +61,8 @@ class EventLog
      *
      * @return string
      */
-    public function getReference(): string {
+    public function getReference(): string
+    {
         return $this->reference;
     }
 
@@ -70,7 +71,8 @@ class EventLog
      *
      * @return string
      */
-    public function getPspReference(): string {
+    public function getPspReference(): string
+    {
         return $this->pspReference;
     }
 
@@ -79,7 +81,8 @@ class EventLog
      *
      * @return \zaporylie\Vipps\Model\EPayment\v1\Amount
      */
-    public function getAmount(): Amount {
+    public function getAmount(): Amount
+    {
         return $this->amount;
     }
 
@@ -88,7 +91,8 @@ class EventLog
      *
      * @return string
      */
-    public function getIdempotencyKey(): string {
+    public function getIdempotencyKey(): string
+    {
         return $this->idempotencyKey;
     }
 
@@ -97,7 +101,8 @@ class EventLog
      *
      * @return string
      */
-    public function getName(): string {
+    public function getName(): string
+    {
         return $this->name;
     }
 
@@ -106,7 +111,8 @@ class EventLog
      *
      * @return string
      */
-    public function getSuccess(): string {
+    public function getSuccess(): string
+    {
         return $this->success;
     }
 
@@ -115,7 +121,8 @@ class EventLog
      *
      * @return \DateTimeInterface
      */
-    public function getTimeStamp(): \DateTimeInterface {
+    public function getTimeStamp(): \DateTimeInterface
+    {
         return $this->timeStamp;
     }
 }

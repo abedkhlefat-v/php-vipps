@@ -4,7 +4,8 @@ namespace zaporylie\Vipps\Model\EPayment\v1;
 
 use JMS\Serializer\Annotation as Serializer;
 
-class PaymentAdjustResponse {
+class PaymentAdjustResponse
+{
 
     /**
      * @var \zaporylie\Vipps\Model\EPayment\v1\Aggregate
@@ -45,7 +46,8 @@ class PaymentAdjustResponse {
      *
      * @return \zaporylie\Vipps\Model\EPayment\v1\Aggregate
      */
-    public function getAggregate(): Aggregate {
+    public function getAggregate(): Aggregate
+    {
         return $this->aggregate;
     }
 
@@ -54,7 +56,8 @@ class PaymentAdjustResponse {
      *
      * @return \zaporylie\Vipps\Model\EPayment\v1\Amount
      */
-    public function getAmount(): Amount {
+    public function getAmount(): Amount
+    {
         return $this->amount;
     }
 
@@ -63,7 +66,8 @@ class PaymentAdjustResponse {
      *
      * @return string
      */
-    public function getPspReference(): string {
+    public function getPspReference(): string
+    {
         return $this->pspReference;
     }
 
@@ -72,7 +76,8 @@ class PaymentAdjustResponse {
      *
      * @return string
      */
-    public function getReference(): string {
+    public function getReference(): string
+    {
         return $this->reference;
     }
 
@@ -81,7 +86,8 @@ class PaymentAdjustResponse {
      *
      * @return string
      */
-    public function getState(): string {
+    public function getState(): string
+    {
         return $this->state;
     }
 }

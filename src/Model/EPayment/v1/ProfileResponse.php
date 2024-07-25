@@ -22,7 +22,8 @@ class ProfileResponse
      *
      * @return string
      */
-    public function getSub(): string {
+    public function getSub(): string
+    {
         return $this->sub;
     }
 }

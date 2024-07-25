@@ -4,7 +4,8 @@ namespace zaporylie\Vipps\Model\EPayment\v1;
 
 use JMS\Serializer\Annotation as Serializer;
 
-class PaymentMethodResponse {
+class PaymentMethodResponse
+{
 
     /**
      * The type of the payment method.
@@ -27,7 +28,8 @@ class PaymentMethodResponse {
      *
      * @return string
      */
-    public function getType(): string {
+    public function getType(): string
+    {
         return $this->type;
     }
 
@@ -36,7 +38,8 @@ class PaymentMethodResponse {
      *
      * @return string
      */
-    public function getCardBin(): string {
+    public function getCardBin(): string
+    {
         return $this->cardBin;
     }
 }

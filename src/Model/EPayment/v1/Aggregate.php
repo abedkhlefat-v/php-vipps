@@ -36,7 +36,8 @@ class Aggregate
      *
      * @return \zaporylie\Vipps\Model\EPayment\v1\Amount
      */
-    public function getAuthorizedAmount(): Amount {
+    public function getAuthorizedAmount(): Amount
+    {
         return $this->authorizedAmount;
     }
 
@@ -47,7 +48,8 @@ class Aggregate
      *
      * @return $this
      */
-    public function setAuthorizedAmount(Amount $authorizedAmount) {
+    public function setAuthorizedAmount(Amount $authorizedAmount)
+    {
         $this->authorizedAmount = $authorizedAmount;
         return $this;
     }
@@ -57,7 +59,8 @@ class Aggregate
      *
      * @return \zaporylie\Vipps\Model\EPayment\v1\Amount
      */
-    public function getCancelledAmount(): Amount {
+    public function getCancelledAmount(): Amount
+    {
         return $this->cancelledAmount;
     }
 
@@ -68,7 +71,8 @@ class Aggregate
      *
      * @return $this
      */
-    public function setCancelledAmount(Amount $cancelledAmount) {
+    public function setCancelledAmount(Amount $cancelledAmount)
+    {
         $this->cancelledAmount = $cancelledAmount;
         return $this;
     }
@@ -78,7 +82,8 @@ class Aggregate
      *
      * @return \zaporylie\Vipps\Model\EPayment\v1\Amount
      */
-    public function getCapturedAmount(): Amount {
+    public function getCapturedAmount(): Amount
+    {
         return $this->capturedAmount;
     }
 
@@ -89,7 +94,8 @@ class Aggregate
      *
      * @return $this
      */
-    public function setCapturedAmount(Amount $capturedAmount) {
+    public function setCapturedAmount(Amount $capturedAmount)
+    {
         $this->capturedAmount = $capturedAmount;
         return $this;
     }
@@ -99,7 +105,8 @@ class Aggregate
      *
      * @return \zaporylie\Vipps\Model\EPayment\v1\Amount
      */
-    public function getRefundedAmount(): Amount {
+    public function getRefundedAmount(): Amount
+    {
         return $this->refundedAmount;
     }
 
@@ -110,7 +117,8 @@ class Aggregate
      *
      * @return $this
      */
-    public function setRefundedAmount(Amount $refundedAmount) {
+    public function setRefundedAmount(Amount $refundedAmount)
+    {
         $this->refundedAmount = $refundedAmount;
         return $this;
     }
