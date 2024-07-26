@@ -40,7 +40,7 @@ class EventLog
      * Strangely timestamps occasionally feature too many microseconds.
      *
      * @var \DateTimeInterface
-     * @Serializer\Type("DateTime<'Y-m-d\TH:i:s.u\Z', '', ['Y-m-d\TH:i:s.u\Z','Y-m-d\TH:i:s.\0u\Z']>")
+     * @Serializer\Type("DateTime<'Y-m-d\TH:i:s.u\Z', '', ['Y-m-d\TH:i:s.u\0\Z', 'Y-m-d\TH:i:s.u\1\Z', 'Y-m-d\TH:i:s.u\2\Z', 'Y-m-d\TH:i:s.u\3\Z', 'Y-m-d\TH:i:s.u\4\Z', 'Y-m-d\TH:i:s.u\5\Z', 'Y-m-d\TH:i:s.u\6\Z', 'Y-m-d\TH:i:s.u\7\Z', 'Y-m-d\TH:i:s.u\8\Z', 'Y-m-d\TH:i:s.u\9\Z', 'Y-m-d\TH:i:s.u\Z']>")
      */
     protected $timestamp;
 
