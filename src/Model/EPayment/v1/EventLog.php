@@ -117,12 +117,12 @@ class EventLog
     }
 
     /**
-     * Gets timeStamp value.
+     * Gets timestamp value.
      *
      * @return \DateTimeInterface
      */
     public function getTimeStamp(): \DateTimeInterface
     {
-        return $this->timeStamp;
+        return $this->timestamp;
     }
 }
