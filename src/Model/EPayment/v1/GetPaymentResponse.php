@@ -60,6 +60,12 @@ class GetPaymentResponse
     protected $reference;
 
     /**
+     * @var array
+     * @Serializer\Type("array")
+     */
+    protected $metadata;
+
+    /**
      * Gets aggregate value.
      *
      * @return \zaporylie\Vipps\Model\EPayment\v1\Aggregate
@@ -137,5 +143,14 @@ class GetPaymentResponse
     public function getState(): string
     {
         return $this->state;
+    }
+
+    /**
+     * Gets metadata value.
+     *
+     * @return array
+     */
+    public function getMetadata(): array {
+        return $this->metadata;
     }
 }

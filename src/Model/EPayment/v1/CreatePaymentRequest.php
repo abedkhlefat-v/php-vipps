@@ -111,6 +111,13 @@ class CreatePaymentRequest
     protected $receipt;
 
     /**
+     * @var array
+     * @Serializer\Type("array")
+     */
+    protected $metadata;
+
+
+    /**
      * Gets amount value.
      *
      * @return \zaporylie\Vipps\Model\EPayment\v1\Amount
@@ -434,6 +441,18 @@ class CreatePaymentRequest
     public function setReceipt(Receipt $receipt)
     {
         $this->receipt = $receipt;
+        return $this;
+    }
+
+    /**
+     * Sets metadata variable.
+     *
+     * @param array $metadata
+     *
+     * @return $this
+     */
+    public function setMetadata(array $metadata) {
+        $this->metadata = $metadata;
         return $this;
     }
 }
