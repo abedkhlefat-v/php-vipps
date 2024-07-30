@@ -12,10 +12,10 @@ try {
         'vipps_system_name' => 'vipps_zaporylie_example',
         'vipps_system_version' => \zaporylie\Vipps\Client::VERSION,
     ]);
-    $vipps = new \zaporylie\Vipps\Vipps($client);
-    $authorization = new \zaporylie\Vipps\Api\Authorization($client, $settings['subscription_key']);
+
+    $authorization = new \zaporylie\Vipps\Api\Authorization($client);
     $authorization->getToken($settings['client_secret']);
-    $payment = new \zaporylie\Vipps\Api\v1\Webhook($client, $settings['subscription_key'], $settings['merchant_serial_number']);
+    $payment = new \zaporylie\Vipps\Api\v1\Webhook($client);
     $request = new \zaporylie\Vipps\Model\Webhook\v1\RegisterWebhookRequest();
     $request->setUrl("https://eoncxehuh2o2qyq.m.pipedream.net/");
     $request->setEvents([

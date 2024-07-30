@@ -46,13 +46,13 @@ class CreatePayment extends PaymentResourceBase
     }
 
     /**
-     * @return \zaporylie\Vipps\Model\Payment\ResponseInitiatePayment
+     * @return \zaporylie\Vipps\Model\EPayment\v1\CreatePaymentResponse
      */
     public function call()
     {
         $response = $this->makeCall();
         $body = $response->getBody()->getContents();
-        /** @var \zaporylie\Vipps\Model\Payment\ResponseInitiatePayment $responseObject */
+        /** @var \zaporylie\Vipps\Model\EPayment\v1\CreatePaymentResponse $responseObject */
         $responseObject = $this
             ->getSerializer()
             ->deserialize(

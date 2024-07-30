@@ -35,43 +35,6 @@ class RecurringPayment extends ApiBase implements RecurringPaymentInterface
 {
 
     /**
-     * @var string
-     */
-    protected $merchantSerialNumber;
-
-    /**
-     * Gets merchantSerialNumber value.
-     *
-     * @return string
-     */
-    public function getMerchantSerialNumber()
-    {
-        if (empty($this->merchantSerialNumber)) {
-            throw new InvalidArgumentException('Missing merchant serial number');
-        }
-        return $this->merchantSerialNumber;
-    }
-
-    /**
-     * Payment constructor.
-     *
-     * Payments API needs one extra param - merchant serial number.
-     *
-     * @param \zaporylie\Vipps\ClientInterface $client
-     * @param string $subscription_key
-     * @param $merchant_serial_number
-     * @param $custom_path
-     */
-    public function __construct(
-        ClientInterface $client,
-        $subscription_key,
-        $merchant_serial_number
-    ) {
-        parent::__construct($client, $subscription_key);
-        $this->merchantSerialNumber = $merchant_serial_number;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function createAgreement(RequestCreateAgreement $request, ?string $idempotency_key = null): ResponseCreateAgreement {

@@ -14,16 +14,6 @@ class UserInfo extends ApiBase implements UserInfoInterface
 {
 
     /**
-     * UserInfo constructor.
-     *
-     * @param \zaporylie\Vipps\ClientInterface $client
-     */
-    public function __construct(ClientInterface $client)
-    {
-        $this->client = $client;
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function userInfo($sub)

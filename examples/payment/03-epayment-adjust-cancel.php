@@ -12,10 +12,10 @@ try {
         'vipps_system_name' => 'vipps_zaporylie_example',
         'vipps_system_version' => \zaporylie\Vipps\Client::VERSION,
     ]);
-    $vipps = new \zaporylie\Vipps\Vipps($client);
-    $authorization = new \zaporylie\Vipps\Api\Authorization($client, $settings['subscription_key']);
+
+    $authorization = new \zaporylie\Vipps\Api\Authorization($client);
     $authorization->getToken($settings['client_secret']);
-    $payment = new \zaporylie\Vipps\Api\v1\EPayment($client, $settings['subscription_key'], $settings['merchant_serial_number']);
+    $payment = new \zaporylie\Vipps\Api\v1\EPayment($client);
     $result = $payment->cancelPayment('test-12121212-3', new \zaporylie\Vipps\Model\EPayment\v1\CancelModificationRequest(), 'costam');
     echo '<pre>';
     var_dump($result);

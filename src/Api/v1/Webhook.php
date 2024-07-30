@@ -35,56 +35,6 @@ class Webhook extends ApiBase implements WebhookInterface
 {
 
     /**
-     * @var string
-     */
-    protected $merchantSerialNumber;
-
-    /**
-     * @var string
-     */
-    protected $version;
-
-    /**
-     * Gets merchantSerialNumber value.
-     *
-     * @return string
-     */
-    public function getMerchantSerialNumber()
-    {
-        if (empty($this->merchantSerialNumber)) {
-            throw new InvalidArgumentException('Missing merchant serial number');
-        }
-        return $this->merchantSerialNumber;
-    }
-
-    /**
-     * @return string
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
-     * Webhook constructor.
-     *
-     * Webhook API needs one extra param - merchant serial number.
-     *
-     * @param \zaporylie\Vipps\ClientInterface $client
-     * @param string $subscription_key
-     * @param $merchant_serial_number
-     */
-    public function __construct(
-        ClientInterface $client,
-        $subscription_key,
-        $merchant_serial_number
-    ) {
-        parent::__construct($client, $subscription_key);
-        $this->merchantSerialNumber = $merchant_serial_number;
-        $this->version = 'v1';
-    }
-
-    /**
      * {@inheritDoc}
      */
     public function registerWebhook(RegisterWebhookRequest $request): RegisterWebhookResponse

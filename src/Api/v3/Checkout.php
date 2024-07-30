@@ -41,63 +41,6 @@ class Checkout extends ApiBase implements CheckoutInterface
 {
 
     /**
-     * @var string
-     */
-    protected $merchantSerialNumber;
-
-    /**
-     * @var string
-     */
-    protected $version;
-
-    /**
-     * @var string
-     */
-    protected $clientSecret;
-
-    /**
-     * Gets merchantSerialNumber value.
-     *
-     * @return string
-     */
-    public function getMerchantSerialNumber()
-    {
-        if (empty($this->merchantSerialNumber)) {
-            throw new InvalidArgumentException('Missing merchant serial number');
-        }
-        return $this->merchantSerialNumber;
-    }
-
-    /**
-     * @return string
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
-     * Webhook constructor.
-     *
-     * Webhook API needs one extra param - merchant serial number.
-     *
-     * @param \zaporylie\Vipps\ClientInterface $client
-     * @param string $subscription_key
-     * @param $merchant_serial_number
-     */
-    public function __construct(
-        ClientInterface $client,
-        string $subscription_key,
-        string $merchant_serial_number,
-        string $client_secret
-    ) {
-        parent::__construct($client, $subscription_key);
-        $this->merchantSerialNumber = $merchant_serial_number;
-        $this->version = 'v3';
-        $this->clientSecret = $client_secret;
-    }
-
-    /**
      * {@inheritDoc}
      */
     public function createCheckoutSession(CreateCheckoutSessionRequest $request): CreateCheckoutSessionResponse

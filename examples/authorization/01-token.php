@@ -12,8 +12,8 @@ try {
         'vipps_system_name' => 'vipps_zaporylie_example',
         'vipps_system_version' => \zaporylie\Vipps\Client::VERSION,
     ]);
-    $vipps = new \zaporylie\Vipps\Vipps($client);
-    $authorization = new \zaporylie\Vipps\Api\Authorization($client, $settings['subscription_key']);
+
+    $authorization = new \zaporylie\Vipps\Api\Authorization($client);
     $result = $authorization->getToken($settings['client_secret']);
     echo '<pre>';
     var_dump($result);

@@ -18,10 +18,10 @@ $client = new \zaporylie\Vipps\Client($settings['client_id'], $settings['client_
     'vipps_system_name' => 'vipps_zaporylie_example',
     'vipps_system_version' => \zaporylie\Vipps\Client::VERSION,
 ]);
-    $vipps = new \zaporylie\Vipps\Vipps($client);
-    $authorization = new \zaporylie\Vipps\Api\Authorization($client, $settings['subscription_key']);
+
+    $authorization = new \zaporylie\Vipps\Api\Authorization($client);
     $authorization->getToken($settings['client_secret']);
-    $checkout = new \zaporylie\Vipps\Api\v3\Checkout($client, $settings['subscription_key'], $settings['merchant_serial_number'], $settings['client_secret']);
+    $checkout = new \zaporylie\Vipps\Api\v3\Checkout($client);
     $request = new \zaporylie\Vipps\Model\Checkout\v3\CreateCheckoutSessionRequest();
     $request->setType('PAYMENT');
     $request->setMerchantInfo((new \zaporylie\Vipps\Model\Checkout\v3\MerchantInfo())

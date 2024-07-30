@@ -12,10 +12,10 @@ try {
         'vipps_system_name' => 'vipps_zaporylie_example',
         'vipps_system_version' => \zaporylie\Vipps\Client::VERSION,
     ]);
-    $vipps = new \zaporylie\Vipps\Vipps($client);
-    $authorization = new \zaporylie\Vipps\Api\Authorization($client, $settings['subscription_key']);
+
+    $authorization = new \zaporylie\Vipps\Api\Authorization($client);
     $authorization->getToken($settings['client_secret']);
-    $payment = new \zaporylie\Vipps\Api\v1\EPayment($client, $settings['subscription_key'], $settings['merchant_serial_number']);
+    $payment = new \zaporylie\Vipps\Api\v1\EPayment($client);
     $result = $payment->createPayment((new \zaporylie\Vipps\Model\EPayment\v1\CreatePaymentRequest())
         ->setAmount((new \zaporylie\Vipps\Model\EPayment\v1\Amount())->setValue(1000)->setCurrency('NOK'))
         ->setPaymentMethod((new \zaporylie\Vipps\Model\EPayment\v1\PaymentMethod())->setType('WALLET'))
