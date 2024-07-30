@@ -5,7 +5,7 @@ namespace zaporylie\Vipps\Resource\Checkout\v3;
 use zaporylie\Vipps\Model\Checkout\v3\CreateCheckoutSessionRequest;
 use zaporylie\Vipps\Model\Checkout\v3\CreateCheckoutSessionResponse;
 use zaporylie\Vipps\Resource\HttpMethod;
-use zaporylie\Vipps\Resource\Payment\PaymentResourceBase;
+use zaporylie\Vipps\Resource\PaymentResourceBase;
 use zaporylie\Vipps\VippsInterface;
 
 /**

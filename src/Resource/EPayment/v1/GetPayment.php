@@ -4,7 +4,7 @@ namespace zaporylie\Vipps\Resource\EPayment\v1;
 
 use zaporylie\Vipps\Model\EPayment\v1\GetPaymentResponse;
 use zaporylie\Vipps\Resource\HttpMethod;
-use zaporylie\Vipps\Resource\Payment\PaymentResourceBase;
+use zaporylie\Vipps\Resource\PaymentResourceBase;
 use zaporylie\Vipps\VippsInterface;
 
 class GetPayment extends PaymentResourceBase
