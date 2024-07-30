@@ -70,6 +70,11 @@ abstract class ResourceBase implements ResourceInterface, SerializableInterface
 
         $this->headers['Ocp-Apim-Subscription-Key'] = $subscription_key;
 
+        $this->headers['Vipps-System-Name'] = $this->app->getClient()->getVippsSystemName();
+        $this->headers['Vipps-System-Version'] = $this->app->getClient()->getVippsSystemVersion();
+        $this->headers['Vipps-System-Plugin-Name'] = $this->app->getClient()->getVippsSystemPluginName();
+        $this->headers['Vipps-System-Plugin-Version'] = $this->app->getClient()->getVippsSystemPluginVersion();
+
         // Initiate serializer.
         if (class_exists(AnnotationRegistry::class) && method_exists(AnnotationRegistry::class, 'registerLoader')) {
             AnnotationRegistry::registerLoader('class_exists');

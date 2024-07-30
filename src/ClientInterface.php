@@ -54,6 +54,34 @@ interface ClientInterface
     public function setEndpoint(EndpointInterface $endpoint);
 
     /**
+     * Gets vippsSystemName value.
+     *
+     * @return string
+     */
+    public function getVippsSystemName(): string;
+
+    /**
+     * Gets vippsSystemVersion value.
+     *
+     * @return string
+     */
+    public function getVippsSystemVersion(): string;
+
+    /**
+     * Gets vippsSystemPluginName value.
+     *
+     * @return string
+     */
+    public function getVippsSystemPluginName(): string;
+
+    /**
+     * Gets vippsSystemPluginVersion value.
+     *
+     * @return string
+     */
+    public function getVippsSystemPluginVersion(): string;
+
+    /**
      * Gets httpClient value.
      *
      * @return \Psr\Http\Client\ClientInterface

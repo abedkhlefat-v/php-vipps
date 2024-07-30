@@ -18,6 +18,8 @@ use zaporylie\Vipps\Exceptions\Client\InvalidArgumentException;
 class Client implements ClientInterface
 {
 
+    const VERSION = '3.x-dev';
+
     /**
      * @var \Psr\Http\Client\ClientInterface
      */
@@ -59,6 +61,26 @@ class Client implements ClientInterface
     protected $clientId;
 
     /**
+     * @var string
+     */
+    protected $vippsSystemName;
+
+    /**
+     * @var string
+     */
+    protected $vippsSystemVersion;
+
+    /**
+     * @var string
+     */
+    protected $vippsSystemPluginName;
+
+    /**
+     * @var string
+     */
+    protected $vippsSystemPluginVersion;
+
+    /**
      * VippsClient constructor.
      *
      * @param string $client_id
@@ -68,6 +90,15 @@ class Client implements ClientInterface
     {
         // Set Client ID.
         $this->setClientId($client_id);
+
+        $this->vippsSystemPluginName = 'zaporylie/vipps';
+        $this->vippsSystemPluginVersion = static::VERSION;
+
+        if (!isset($options['vipps_system_name'], $options['vipps_system_version'])) {
+            throw new \InvalidArgumentException('Missing vipps_system_name and/or vipps_system_version');
+        }
+        $this->vippsSystemName = $options['vipps_system_name'];
+        $this->vippsSystemVersion = $options['vipps_system_version'];
 
         // Set or discover http client.
         $this->setHttpClient(isset($options['http_client']) ? $options['http_client'] : null);
@@ -176,6 +207,42 @@ class Client implements ClientInterface
     public function getHttpClient(): HttpClientInterface
     {
         return $this->httpClient;
+    }
+
+    /**
+     * Gets vippsSystemName value.
+     *
+     * @return string
+     */
+    public function getVippsSystemName(): string {
+        return $this->vippsSystemName;
+    }
+
+    /**
+     * Gets vippsSystemVersion value.
+     *
+     * @return string
+     */
+    public function getVippsSystemVersion(): string {
+        return $this->vippsSystemVersion;
+    }
+
+    /**
+     * Gets vippsSystemPluginName value.
+     *
+     * @return string
+     */
+    public function getVippsSystemPluginName(): string {
+        return $this->vippsSystemPluginName;
+    }
+
+    /**
+     * Gets vippsSystemPluginVersion value.
+     *
+     * @return string
+     */
+    public function getVippsSystemPluginVersion(): string {
+        return $this->vippsSystemPluginVersion;
     }
 
     /**
