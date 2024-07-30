@@ -9,19 +9,13 @@ use JMS\Serializer\Annotation as Serializer;
  *
  * @package Vipps\Model\RecurringPayment
  */
-class RequestRefundCharge
+class RequestCaptureCharge
 {
     /**
      * @var int
      * @Serializer\Type("integer")
      */
     protected $amount;
-
-    /**
-     * @var string
-     * @Serializer\Type("string")
-     */
-    protected $description;
 
     /**
      * Sets amount variable.
@@ -33,19 +27,6 @@ class RequestRefundCharge
     public function setAmount(int $amount)
     {
         $this->amount = $amount;
-        return $this;
-    }
-
-    /**
-     * Sets description variable.
-     *
-     * @param string $description
-     *
-     * @return $this
-     */
-    public function setDescription(string $description)
-    {
-        $this->description = $description;
         return $this;
     }
 }

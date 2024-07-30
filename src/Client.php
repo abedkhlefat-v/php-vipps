@@ -91,7 +91,7 @@ class Client implements ClientInterface
         // Set Client ID.
         $this->setClientId($client_id);
 
-        $this->vippsSystemPluginName = 'zaporylie/vipps';
+        $this->vippsSystemPluginName = 'zaporylie/vipps (PHP)';
         $this->vippsSystemPluginVersion = static::VERSION;
 
         if (!isset($options['vipps_system_name'], $options['vipps_system_version'])) {

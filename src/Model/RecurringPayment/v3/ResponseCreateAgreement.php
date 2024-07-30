@@ -16,13 +16,13 @@ class ResponseCreateAgreement
      * @var string
      * @Serializer\Type("string")
      */
-    protected $agreementResource;
+    protected $agreementId;
 
     /**
      * @var string
      * @Serializer\Type("string")
      */
-    protected $agreementId;
+    protected $uuid;
 
     /**
      * @var string
@@ -31,19 +31,18 @@ class ResponseCreateAgreement
     protected $vippsConfirmationUrl;
 
     /**
-     * @var string
+     * @var string|null
      * @Serializer\Type("string")
      */
     protected $chargeId;
 
     /**
-     * Gets agreementResource value.
+     * Gets uuid value.
      *
      * @return string
      */
-    public function getAgreementResource()
-    {
-        return $this->agreementResource;
+    public function getUuid(): string {
+        return $this->uuid;
     }
 
     /**
@@ -51,7 +50,7 @@ class ResponseCreateAgreement
      *
      * @return string
      */
-    public function getAgreementId()
+    public function getAgreementId(): string
     {
         return $this->agreementId;
     }
@@ -61,7 +60,7 @@ class ResponseCreateAgreement
      *
      * @return string
      */
-    public function getVippsConfirmationUrl()
+    public function getVippsConfirmationUrl(): string
     {
         return $this->vippsConfirmationUrl;
     }
@@ -69,9 +68,9 @@ class ResponseCreateAgreement
     /**
      * Gets chargeId value.
      *
-     * @return string
+     * @return string|null
      */
-    public function getChargeId()
+    public function getChargeId(): ?string
     {
         return $this->chargeId;
     }

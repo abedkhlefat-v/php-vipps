@@ -14,7 +14,7 @@ class RequestUpdateAgreement
 
     /**
      * @var \zaporylie\Vipps\Model\RecurringPayment\v3\Pricing
-     * @Serializer\Type("zaporylie\Vipps\Model\RecurringPayment\Pricing")
+     * @Serializer\Type("zaporylie\Vipps\Model\RecurringPayment\v3\Pricing")
      */
     protected $pricing;
 

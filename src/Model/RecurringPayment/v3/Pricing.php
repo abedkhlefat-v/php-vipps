@@ -5,93 +5,118 @@ namespace zaporylie\Vipps\Model\RecurringPayment\v3;
 use JMS\Serializer\Annotation as Serializer;
 
 /**
- * Class InitialCharge.
+ * Class Pricing.
  *
  * @package Vipps\Model\RecurringPayment
  */
 class Pricing
 {
-  /**
-   * @var int
-   * @Serializer\Type("integer")
-   */
-  protected $amount;
 
-  /**
-   * @var string
-   * @Serializer\Type("string")
-   */
-  protected $currency;
+    /**
+     * @var string
+     * @Serializer\Type("string")
+     */
+    protected $type;
 
-  /**
-   * @var string
-   * @Serializer\Type("string")
-   */
-  protected $type;
+    /**
+     * @var string
+     * @Serializer\Type("string")
+     */
+    protected $currency;
 
-  /**
-   * Gets amount value.
-   *
-   * @return int
-   */
-  public function getAmount(): int {
-    return $this->amount;
-  }
+    /**
+     * @var int
+     * @Serializer\Type("integer")
+     */
+    protected $amount;
 
-  /**
-   * Gets currency value.
-   *
-   * @return string
-   */
-  public function getCurrency(): string {
-    return $this->currency;
-  }
+    /**
+     * @var int
+     * @Serializer\Type("integer")
+     */
+    protected $suggestedMaxAmount;
 
-  /**
-   * Gets type value.
-   *
-   * @return string
-   */
-  public function getType(): string {
-    return $this->type;
-  }
+    /**
+     * Sets amount variable.
+     *
+     * @param int $amount
+     *
+     * @return $this
+     */
+    public function setAmount(int $amount) {
+        $this->amount = $amount;
+        return $this;
+    }
 
-  /**
-   * Sets amount variable.
-   *
-   * @param int $amount
-   *
-   * @return $this
-   */
-  public function setAmount($amount)
-  {
-    $this->amount = $amount;
-    return $this;
-  }
+    /**
+     * Gets amount value.
+     *
+     * @return int
+     */
+    public function getAmount(): int {
+        return $this->amount;
+    }
 
-  /**
-   * Sets currency variable.
-   *
-   * @param string $currency
-   *
-   * @return $this
-   */
-  public function setCurrency($currency)
-  {
-    $this->currency = $currency;
-    return $this;
-  }
+    /**
+     * Sets suggestedMaxAmount variable.
+     *
+     * @param int $suggestedMaxAmount
+     *
+     * @return $this
+     */
+    public function setSuggestedMaxAmount(int $suggestedMaxAmount) {
+        $this->suggestedMaxAmount = $suggestedMaxAmount;
+        return $this;
+    }
 
-  /**
-   * Sets transactionType variable.
-   *
-   * @param string $transactionType
-   *
-   * @return $this
-   */
-  public function setType($transactionType)
-  {
-    $this->transactionType = $transactionType;
-    return $this;
-  }
+    /**
+     * Gets suggestedMaxAmount value.
+     *
+     * @return int
+     */
+    public function getSuggestedMaxAmount(): int {
+        return $this->suggestedMaxAmount;
+    }
+
+    /**
+     * Sets type variable.
+     *
+     * @param string $type
+     *
+     * @return $this
+     */
+    public function setType(string $type) {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * Gets type value.
+     *
+     * @return string
+     */
+    public function getType(): string {
+        return $this->type;
+    }
+
+    /**
+     * Sets currency variable.
+     *
+     * @param string $currency
+     *
+     * @return $this
+     */
+    public function setCurrency(string $currency) {
+        $this->currency = $currency;
+        return $this;
+    }
+
+    /**
+     * Gets currency value.
+     *
+     * @return string
+     */
+    public function getCurrency(): string {
+        return $this->currency;
+    }
 }

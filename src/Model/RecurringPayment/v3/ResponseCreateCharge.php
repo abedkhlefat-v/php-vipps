@@ -23,7 +23,7 @@ class ResponseCreateCharge
      *
      * @return string
      */
-    public function getChargeId()
+    public function getChargeId(): string
     {
         return $this->chargeId;
     }

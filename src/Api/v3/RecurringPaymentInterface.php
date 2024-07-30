@@ -2,10 +2,15 @@
 
 namespace zaporylie\Vipps\Api\v3;
 
+use zaporylie\Vipps\Model\RecurringPayment\v3\RequestCaptureCharge;
 use zaporylie\Vipps\Model\RecurringPayment\v3\RequestCreateAgreement;
 use zaporylie\Vipps\Model\RecurringPayment\v3\RequestCreateCharge;
 use zaporylie\Vipps\Model\RecurringPayment\v3\RequestRefundCharge;
 use zaporylie\Vipps\Model\RecurringPayment\v3\RequestUpdateAgreement;
+use zaporylie\Vipps\Model\RecurringPayment\v3\ResponseCreateAgreement;
+use zaporylie\Vipps\Model\RecurringPayment\v3\ResponseCreateCharge;
+use zaporylie\Vipps\Model\RecurringPayment\v3\ResponseGetAgreement;
+use zaporylie\Vipps\Model\RecurringPayment\v3\ResponseGetCharge;
 
 /**
  * Interface PaymentInterface
@@ -17,74 +22,75 @@ interface RecurringPaymentInterface
 
     /**
      * @param \zaporylie\Vipps\Model\RecurringPayment\v3\RequestCreateAgreement
+     * @param string|null $idempotency_key
      *
      * @return \zaporylie\Vipps\Model\RecurringPayment\v3\ResponseCreateAgreement
      */
-    public function createAgreement(RequestCreateAgreement $requestCreateAgreement);
+    public function createAgreement(RequestCreateAgreement $requestCreateAgreement, ?string $idempotency_key): ResponseCreateAgreement;
 
     /**
      * @return \zaporylie\Vipps\Model\RecurringPayment\v3\ResponseGetAgreement[]
      */
-    public function getAgreements();
+    public function getAgreements(): array;
 
     /**
+     * @param string $agreement_id
+     *
      * @return \zaporylie\Vipps\Model\RecurringPayment\v3\ResponseGetAgreement
      */
-    public function getAgreement($agreement_id);
+    public function getAgreement(string $agreement_id): ResponseGetAgreement;
 
     /**
-     * @param $agreement_id
+     * @param string $agreement_id
      * @param \zaporylie\Vipps\Model\RecurringPayment\v3\RequestUpdateAgreement $request
-     *
-     * @return \zaporylie\Vipps\Model\RecurringPayment\v3\ResponseUpdateAgreement
+     * @param
      */
-    public function updateAgreement($agreement_id, RequestUpdateAgreement $request);
+    public function updateAgreement(string $agreement_id, RequestUpdateAgreement $request, ?string $idempotency_key): void;
 
     /**
-     * @param $agreement_id
+     * @param string $agreement_id
      *
-     * @return \zaporylie\Vipps\Model\RecurringPayment\v3\Charge[]
+     * @return \zaporylie\Vipps\Model\RecurringPayment\v3\ResponseGetCharge[]
      */
-    public function getCharges($agreement_id);
+    public function getCharges(string $agreement_id): array;
 
     /**
-     * @param $agreement_id
-     * @param $charge_id
+     * @param string $agreement_id
+     * @param string $charge_id
      *
-     * @return \zaporylie\Vipps\Model\RecurringPayment\v3\Charge
+     * @return \zaporylie\Vipps\Model\RecurringPayment\v3\ResponseGetCharge
      */
-    public function getCharge($agreement_id, $charge_id);
+    public function getCharge(string $agreement_id, string $charge_id): ResponseGetCharge;
 
     /**
-     * @param $agreement_id
+     * @param string $agreement_id
      * @param \zaporylie\Vipps\Model\RecurringPayment\v3\RequestCreateCharge $request
+     * @param string|null $idempotency_key
      *
      * @return \zaporylie\Vipps\Model\RecurringPayment\v3\ResponseCreateCharge
      */
-    public function createCharge($agreement_id, RequestCreateCharge $request);
+    public function createCharge(string $agreement_id, RequestCreateCharge $request, ?string $idempotency_key): ResponseCreateCharge;
 
     /**
      * @param string $agreement_id
      * @param string $charge_id
-     *
-     * @return string
+     * @param string|null $idempotency_key
      */
-    public function cancelCharge($agreement_id, $charge_id);
+    public function cancelCharge(string $agreement_id, string $charge_id, ?string $idempotency_key): void;
 
     /**
      * @param string $agreement_id
      * @param string $charge_id
-     *
-     * @return string
+     * @param \zaporylie\Vipps\Model\RecurringPayment\v3\RequestCaptureCharge $request
+     * @param string|null $idempotency_key
      */
-    public function captureCharge($agreement_id, $charge_id);
+    public function captureCharge(string $agreement_id, string $charge_id, RequestCaptureCharge $request, ?string $idempotency_key): void;
 
     /**
      * @param string $agreement_id
      * @param string $charge_id
      * @param \zaporylie\Vipps\Model\RecurringPayment\v3\RequestRefundCharge $requestObject
-     *
-     * @return string
+     * @param string|null $idempotency_key
      */
-    public function refundCharge($agreement_id, $charge_id, RequestRefundCharge $requestObject);
+    public function refundCharge(string $agreement_id, string $charge_id, RequestRefundCharge $requestObject, ?string $idempotency_key): void;
 }

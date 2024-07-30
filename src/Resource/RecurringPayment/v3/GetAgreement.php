@@ -29,9 +29,9 @@ class GetAgreement extends RecurringPaymentResourceBase
      *
      * @param \zaporylie\Vipps\VippsInterface $vipps
      * @param string $subscription_key
-     * @param $agreement_id
+     * @param string $agreement_id
      */
-    public function __construct(VippsInterface $vipps, $subscription_key, $agreement_id)
+    public function __construct(VippsInterface $vipps, string $subscription_key, string $agreement_id)
     {
         parent::__construct($vipps, $subscription_key);
         $this->id = $agreement_id;

@@ -4,10 +4,16 @@ namespace zaporylie\Vipps\Api\v3;
 
 use zaporylie\Vipps\Api\ApiBase;
 use zaporylie\Vipps\Exceptions\Api\InvalidArgumentException;
+use zaporylie\Vipps\Model\RecurringPayment\v3\RequestCaptureCharge;
 use zaporylie\Vipps\Model\RecurringPayment\v3\RequestCreateAgreement;
 use zaporylie\Vipps\Model\RecurringPayment\v3\RequestCreateCharge;
 use zaporylie\Vipps\Model\RecurringPayment\v3\RequestRefundCharge;
 use zaporylie\Vipps\Model\RecurringPayment\v3\RequestUpdateAgreement;
+use zaporylie\Vipps\Model\RecurringPayment\v3\ResponseCreateAgreement;
+use zaporylie\Vipps\Model\RecurringPayment\v3\ResponseCreateCharge;
+use zaporylie\Vipps\Model\RecurringPayment\v3\ResponseGetAgreement;
+use zaporylie\Vipps\Model\RecurringPayment\v3\ResponseGetCharge;
+use zaporylie\Vipps\Resource\IdempotencyKeyFactory;
 use zaporylie\Vipps\Resource\RecurringPayment\v3\CancelCharge;
 use zaporylie\Vipps\Resource\RecurringPayment\v3\CaptureCharge;
 use zaporylie\Vipps\Resource\RecurringPayment\v3\CreateAgreement;
@@ -68,9 +74,9 @@ class RecurringPayment extends ApiBase implements RecurringPaymentInterface
     /**
      * {@inheritdoc}
      */
-    public function createAgreement(RequestCreateAgreement $request)
-    {
-        $resource = new CreateAgreement($this->app, $this->getSubscriptionKey(), $request);
+    public function createAgreement(RequestCreateAgreement $request, ?string $idempotency_key): ResponseCreateAgreement {
+        $idempotency_key = $idempotency_key ?? IdempotencyKeyFactory::generate();
+        $resource = new CreateAgreement($this->app, $this->getSubscriptionKey(), $idempotency_key, $request);
         $response = $resource->call();
         return $response;
     }
@@ -78,8 +84,7 @@ class RecurringPayment extends ApiBase implements RecurringPaymentInterface
     /**
      * {@inheritdoc}
      */
-    public function getAgreements()
-    {
+    public function getAgreements(): array {
         $resource = new GetAgreements($this->app, $this->getSubscriptionKey());
         $response = $resource->call();
         return $response;
@@ -88,8 +93,7 @@ class RecurringPayment extends ApiBase implements RecurringPaymentInterface
     /**
      * {@inheritdoc}
      */
-    public function getAgreement($agreement_id)
-    {
+    public function getAgreement(string $agreement_id): ResponseGetAgreement {
         $resource = new GetAgreement($this->app, $this->getSubscriptionKey(), $agreement_id);
         $response = $resource->call();
         return $response;
@@ -98,18 +102,20 @@ class RecurringPayment extends ApiBase implements RecurringPaymentInterface
     /**
      * {@inheritdoc}
      */
-    public function updateAgreement($agreement_id, RequestUpdateAgreement $request)
-    {
-        $resource = new UpdateAgreement($this->app, $this->getSubscriptionKey(), $agreement_id, $request);
+    public function updateAgreement(
+        string $agreement_id,
+        RequestUpdateAgreement $request,
+        ?string $idempotency_key
+    ): void {
+        $idempotency_key = $idempotency_key ?? IdempotencyKeyFactory::generate();
+        $resource = new UpdateAgreement($this->app, $this->getSubscriptionKey(), $agreement_id, $idempotency_key, $request);
         $response = $resource->call();
-        return $response;
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getCharges($agreement_id)
-    {
+    public function getCharges($agreement_id): array {
         $resource = new GetCharges($this->app, $this->getSubscriptionKey(), $agreement_id);
         $response = $resource->call();
         return $response;
@@ -118,8 +124,7 @@ class RecurringPayment extends ApiBase implements RecurringPaymentInterface
     /**
      * {@inheritDoc}
      */
-    public function getCharge($agreement_id, $charge_id)
-    {
+    public function getCharge(string $agreement_id, string $charge_id): ResponseGetCharge {
         $resource = new GetCharge($this->app, $this->getSubscriptionKey(), $agreement_id, $charge_id);
         $response = $resource->call();
         return $response;
@@ -128,9 +133,13 @@ class RecurringPayment extends ApiBase implements RecurringPaymentInterface
     /**
      * {@inheritDoc}
      */
-    public function createCharge($agreement_id, RequestCreateCharge $request)
-    {
-        $resource = new CreateCharge($this->app, $this->getSubscriptionKey(), $agreement_id, $request);
+    public function createCharge(
+        string $agreement_id,
+        RequestCreateCharge $request,
+        ?string $idempotency_key
+    ): ResponseCreateCharge {
+        $idempotency_key = $idempotency_key ?? IdempotencyKeyFactory::generate();
+        $resource = new CreateCharge($this->app, $this->getSubscriptionKey(), $agreement_id, $idempotency_key, $request);
         $response = $resource->call();
         return $response;
     }
@@ -138,36 +147,49 @@ class RecurringPayment extends ApiBase implements RecurringPaymentInterface
     /**
      * {@inheritDoc}
      */
-    public function cancelCharge($agreement_id, $charge_id)
+    public function cancelCharge(
+        string $agreement_id,
+        string $charge_id,
+        ?string $idempotency_key
+    ):void
     {
-        $resource = new CancelCharge($this->app, $this->getSubscriptionKey(), $agreement_id, $charge_id);
+        $idempotency_key = $idempotency_key ?? IdempotencyKeyFactory::generate();
+        $resource = new CancelCharge($this->app, $this->getSubscriptionKey(), $agreement_id, $charge_id, $idempotency_key);
         $response = $resource->call();
-        return $response;
     }
 
     /**
      * {@inheritDoc}
      */
-    public function captureCharge($agreement_id, $charge_id)
-    {
-        $resource = new CaptureCharge($this->app, $this->getSubscriptionKey(), $agreement_id, $charge_id);
+    public function captureCharge(
+        $agreement_id,
+        $charge_id,
+        RequestCaptureCharge $request,
+        ?string $idempotency_key
+    ): void {
+        $idempotency_key = $idempotency_key ?? IdempotencyKeyFactory::generate();
+        $resource = new CaptureCharge($this->app, $this->getSubscriptionKey(), $agreement_id, $charge_id, $idempotency_key, $request);
         $response = $resource->call();
-        return $response;
     }
 
     /**
      * {@inheritDoc}
      */
-    public function refundCharge($agreement_id, $charge_id, RequestRefundCharge $requestObject)
-    {
+    public function refundCharge(
+        string $agreement_id,
+        string $charge_id,
+        RequestRefundCharge $requestObject,
+        ?string $idempototency_key
+    ): void {
+        $idempotency_key = $idempotency_key ?? IdempotencyKeyFactory::generate();
         $resource = new RefundCharge(
             $this->app,
             $this->getSubscriptionKey(),
             $agreement_id,
             $charge_id,
+            $idempototency_key,
             $requestObject
         );
         $response = $resource->call();
-        return $response;
     }
 }

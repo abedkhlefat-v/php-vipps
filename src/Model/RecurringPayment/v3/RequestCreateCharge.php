@@ -23,6 +23,17 @@ class RequestCreateCharge
      */
     protected $transactionType;
 
+
+    /**
+     * Default: "RECURRING".
+     *
+     * Enum: "RECURRING", "UNSCHEDULED".
+     *
+     * @var string
+     * @Serializer\Type("string")
+     */
+    protected $type;
+
     /**
      * @var string
      * @Serializer\Type("string")
@@ -48,13 +59,19 @@ class RequestCreateCharge
     protected $orderId;
 
     /**
+     * @var string
+     * @Serializer\Type("string")
+     */
+    protected $externalIdn;
+
+    /**
      * Sets amount variable.
      *
      * @param int $amount
      *
      * @return $this
      */
-    public function setAmount($amount)
+    public function setAmount(int $amount)
     {
         $this->amount = $amount;
         return $this;
@@ -67,7 +84,7 @@ class RequestCreateCharge
      *
      * @return $this
      */
-    public function setTransactionType($transactionType)
+    public function setTransactionType(string $transactionType)
     {
         $this->transactionType = $transactionType;
         return $this;
@@ -80,7 +97,7 @@ class RequestCreateCharge
      *
      * @return $this
      */
-    public function setDescription($description)
+    public function setDescription(string $description)
     {
         $this->description = $description;
         return $this;
@@ -106,7 +123,7 @@ class RequestCreateCharge
      *
      * @return $this
      */
-    public function setRetryDays($retryDays)
+    public function setRetryDays(int $retryDays)
     {
         $this->retryDays = $retryDays;
         return $this;
@@ -119,9 +136,33 @@ class RequestCreateCharge
      *
      * @return $this
      */
-    public function setOrderId($orderId)
+    public function setOrderId(string $orderId)
     {
         $this->orderId = $orderId;
+        return $this;
+    }
+
+    /**
+     * Sets type variable.
+     *
+     * @param string $type
+     *
+     * @return $this
+     */
+    public function setType(string $type) {
+        $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * Sets externalIdn variable.
+     *
+     * @param string $externalIdn
+     *
+     * @return $this
+     */
+    public function setExternalIdn(string $externalIdn) {
+        $this->externalIdn = $externalIdn;
         return $this;
     }
 }

@@ -21,12 +21,6 @@ class InitialCharge
      * @var string
      * @Serializer\Type("string")
      */
-    protected $currency;
-
-    /**
-     * @var string
-     * @Serializer\Type("string")
-     */
     protected $description;
 
     /**
@@ -42,29 +36,51 @@ class InitialCharge
     protected $orderId;
 
     /**
+     * @var string
+     * @Serializer\Type("string")
+     */
+    protected $externalId;
+
+    /**
+     * Sets externalId variable.
+     *
+     * @param string $externalId
+     *
+     * @return $this
+     */
+    public function setExternalId(string $externalId) {
+        $this->externalId = $externalId;
+        return $this;
+    }
+
+    /**
+     * Gets externalId value.
+     *
+     * @return string
+     */
+    public function getExternalId(): string {
+        return $this->externalId;
+    }
+
+    /**
      * Sets amount variable.
      *
      * @param int $amount
      *
      * @return $this
      */
-    public function setAmount($amount)
-    {
+    public function setAmount(int $amount) {
         $this->amount = $amount;
         return $this;
     }
 
     /**
-     * Sets currency variable.
+     * Gets amount value.
      *
-     * @param string $currency
-     *
-     * @return $this
+     * @return int
      */
-    public function setCurrency($currency)
-    {
-        $this->currency = $currency;
-        return $this;
+    public function getAmount(): int {
+        return $this->amount;
     }
 
     /**
@@ -74,23 +90,18 @@ class InitialCharge
      *
      * @return $this
      */
-    public function setDescription($description)
-    {
+    public function setDescription(string $description) {
         $this->description = $description;
         return $this;
     }
 
     /**
-     * Sets transactionType variable.
+     * Gets description value.
      *
-     * @param string $transactionType
-     *
-     * @return $this
+     * @return string
      */
-    public function setTransactionType($transactionType)
-    {
-        $this->transactionType = $transactionType;
-        return $this;
+    public function getDescription(): string {
+        return $this->description;
     }
 
     /**
@@ -100,9 +111,38 @@ class InitialCharge
      *
      * @return $this
      */
-    public function setOrderId($orderId)
-    {
+    public function setOrderId(string $orderId) {
         $this->orderId = $orderId;
         return $this;
+    }
+
+    /**
+     * Gets orderId value.
+     *
+     * @return string
+     */
+    public function getOrderId(): string {
+        return $this->orderId;
+    }
+
+    /**
+     * Sets transactionType variable.
+     *
+     * @param string $transactionType
+     *
+     * @return $this
+     */
+    public function setTransactionType(string $transactionType) {
+        $this->transactionType = $transactionType;
+        return $this;
+    }
+
+    /**
+     * Gets transactionType value.
+     *
+     * @return string
+     */
+    public function getTransactionType(): string {
+        return $this->transactionType;
     }
 }

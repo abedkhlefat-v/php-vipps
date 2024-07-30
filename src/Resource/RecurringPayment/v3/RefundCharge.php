@@ -32,19 +32,20 @@ class RefundCharge extends RecurringPaymentResourceBase
      * @param string $subscription_key
      * @param string $agreement_id
      * @param string $charge_id
+     * @param string $idempotency_key
      * @param \zaporylie\Vipps\Model\RecurringPayment\v3\RequestRefundCharge $requestObject
      */
     public function __construct(
         VippsInterface $vipps,
-        $subscription_key,
-        $agreement_id,
-        $charge_id,
+        string $subscription_key,
+        string $agreement_id,
+        string $charge_id,
+        string $idempotency_key,
         RequestRefundCharge $requestObject
     ) {
         $this->id = $agreement_id;
         $this->charge_id = $charge_id;
-        // By default RequestID is different for each Resource object.
-        $this->headers['Idempotency-Key'] = IdempotencyKeyFactory::generate();
+        $this->headers['Idempotency-Key'] = $idempotency_key;
         parent::__construct($vipps, $subscription_key);
         $this->body = $this
             ->getSerializer()

@@ -12,10 +12,16 @@ use JMS\Serializer\Annotation as Serializer;
 class CampaignRequest
 {
     /**
+     * @var string
+     * @Serializer\Type("string")
+     */
+    protected $type;
+
+    /**
      * @var int
      * @Serializer\Type("integer")
      */
-    protected $campaignPrice;
+    protected $price;
 
     /**
      * @var \DateTimeInterface
@@ -28,7 +34,7 @@ class CampaignRequest
      *
      * @return  \DateTimeInterface
      */
-    public function getEnd()
+    public function getEnd(): \DateTimeInterface
     {
         return $this->end;
     }
@@ -48,26 +54,44 @@ class CampaignRequest
     }
 
     /**
-     * Get the value of campaignPrice
+     * Gets price value.
      *
-     * @return  int
+     * @return int
      */
-    public function getCampaignPrice()
-    {
-        return $this->campaignPrice;
+    public function getPrice(): int {
+        return $this->price;
     }
 
     /**
-     * Set the value of campaignPrice
+     * Sets price variable.
      *
-     * @param  int  $campaignPrice
+     * @param int $price
      *
-     * @return  self
+     * @return $this
      */
-    public function setCampaignPrice(int $campaignPrice)
-    {
-        $this->campaignPrice = $campaignPrice;
+    public function setPrice(int $price) {
+        $this->price = $price;
+        return $this;
+    }
 
+    /**
+     * Gets type value.
+     *
+     * @return string
+     */
+    public function getType(): string {
+        return $this->type;
+    }
+
+    /**
+     * Sets type variable.
+     *
+     * @param string $type
+     *
+     * @return $this
+     */
+    public function setType(string $type) {
+        $this->type = $type;
         return $this;
     }
 }

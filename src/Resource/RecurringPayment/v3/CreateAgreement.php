@@ -31,12 +31,12 @@ class CreateAgreement extends RecurringPaymentResourceBase
      *
      * @param \zaporylie\Vipps\VippsInterface $vipps
      * @param string $subscription_key
+     * @param string $idempotency_key
      * @param \zaporylie\Vipps\Model\RecurringPayment\v3\RequestCreateAgreement $requestObject
      */
-    public function __construct(VippsInterface $vipps, $subscription_key, RequestCreateAgreement $requestObject)
+    public function __construct(VippsInterface $vipps, string $subscription_key, string $idempotency_key, RequestCreateAgreement $requestObject)
     {
-      // By default RequestID is different for each Resource object.
-      $this->headers['Idempotency-Key'] = IdempotencyKeyFactory::generate();
+      $this->headers['Idempotency-Key'] = $idempotency_key;
       parent::__construct($vipps, $subscription_key);
         $this->body = $this
             ->getSerializer()

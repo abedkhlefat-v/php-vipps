@@ -14,9 +14,15 @@ class Agreement
 
     /**
      * @var \zaporylie\Vipps\Model\RecurringPayment\v3\CampaignRequest
-     * @Serializer\Type("zaporylie\Vipps\Model\RecurringPayment\CampaignRequest")
+     * @Serializer\Type("zaporylie\Vipps\Model\RecurringPayment\v3\CampaignRequest")
      */
     protected $campaign;
+
+    /**
+     * @var \zaporylie\Vipps\Model\RecurringPayment\v3\Pricing
+     * @Serializer\Type("zaporylie\Vipps\Model\RecurringPayment\v3\Pricing")
+     */
+    protected $pricing;
 
     /**
      * @var string
@@ -26,15 +32,9 @@ class Agreement
 
     /**
      * @var \zaporylie\Vipps\Model\RecurringPayment\v3\AgreementInterval
-     * @Serializer\Type("zaporylie\Vipps\Model\RecurringPayment\AgreementInterval")
+     * @Serializer\Type("zaporylie\Vipps\Model\RecurringPayment\v3\AgreementInterval")
      */
     protected $interval;
-
-    /**
-     * @var \zaporylie\Vipps\Model\RecurringPayment\v3\Pricing
-     * @Serializer\Type("zaporylie\Vipps\Model\RecurringPayment\Pricing")
-     */
-    protected $pricing;
 
     /**
      * @var string
@@ -47,6 +47,12 @@ class Agreement
      * @Serializer\Type("string")
      */
     protected $productDescription;
+
+    /**
+     * @var \DateTimeInterface
+     * @Serializer\Type("DateTime<'Y-m-d\TH:i:s\Z'>")
+     */
+    protected $created;
 
     /**
      * @var \DateTimeInterface
@@ -70,6 +76,18 @@ class Agreement
      * @var string
      * @Serializer\Type("string")
      */
+    protected $merchantAgreementUrl;
+
+    /**
+     * @var string
+     * @Serializer\Type("string")
+     */
+    protected $merchantRedirectUrl;
+
+    /**
+     * @var string
+     * @Serializer\Type("string")
+     */
     protected $sub;
 
     /**
@@ -79,17 +97,35 @@ class Agreement
     protected $userinfoUrl;
 
     /**
-     * @var string[]
-     * @Serializer\Type("array<string>")
+     * @var string
+     * @Serializer\Type("string")
      */
-    protected $tags;
+    protected $externalId;
+
+    /**
+     * @var string
+     * @Serializer\Type("string")
+     */
+    protected $countryCode;
+
+    /**
+     * @var string
+     * @Serializer\Type("string")
+     */
+    protected $uuid;
+
+    /**
+     * @var string
+     * @Serializer\Type("string")
+     */
+    protected $vippsConfirmationUrl;
 
     /**
      * Gets campaign value.
      *
      * @return \zaporylie\Vipps\Model\RecurringPayment\v3\CampaignRequest
      */
-    public function getCampaign()
+    public function getCampaign(): CampaignRequest
     {
         return $this->campaign;
     }
@@ -99,7 +135,7 @@ class Agreement
      *
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
@@ -109,7 +145,7 @@ class Agreement
      *
      * @return \zaporylie\Vipps\Model\RecurringPayment\v3\AgreementInterval
      */
-    public function getInterval()
+    public function getInterval(): AgreementInterval
     {
         return $this->interval;
     }
@@ -119,7 +155,7 @@ class Agreement
      *
      * @return \zaporylie\Vipps\Model\RecurringPayment\v3\Pricing
      */
-    public function getPricing()
+    public function getPricing(): Pricing
     {
         return $this->pricing;
     }
@@ -129,7 +165,7 @@ class Agreement
      *
      * @return string
      */
-    public function getProductDescription()
+    public function getProductDescription(): string
     {
         return $this->productDescription;
     }
@@ -137,20 +173,18 @@ class Agreement
     /**
      * Gets start value.
      *
-     * @return string
+     * @return \DateTimeInterface
      */
-    public function getStart()
-    {
+    public function getStart(): \DateTimeInterface {
         return $this->start;
     }
 
     /**
      * Gets stop value.
      *
-     * @return string
+     * @return \DateTimeInterface
      */
-    public function getStop()
-    {
+    public function getStop(): \DateTimeInterface {
         return $this->stop;
     }
 
@@ -159,7 +193,7 @@ class Agreement
      *
      * @return string
      */
-    public function getProductName()
+    public function getProductName(): string
     {
         return $this->productName;
     }
@@ -169,7 +203,7 @@ class Agreement
      *
      * @return string
      */
-    public function getStatus()
+    public function getStatus(): string
     {
         return $this->status;
     }
@@ -179,19 +213,9 @@ class Agreement
      *
      * @return string
      */
-    public function getSub()
+    public function getSub(): string
     {
         return $this->sub;
-    }
-
-    /**
-     * Gets tags value.
-     *
-     * @return string[]
-     */
-    public function getTags()
-    {
-        return $this->tags;
     }
 
     /**
@@ -199,8 +223,71 @@ class Agreement
      *
      * @return string
      */
-    public function getUserInfoUrl()
+    public function getUserInfoUrl(): string
     {
         return $this->userinfoUrl;
+    }
+
+    /**
+     * Gets uuid value.
+     *
+     * @return string
+     */
+    public function getUuid(): string {
+        return $this->uuid;
+    }
+
+    /**
+     * Gets countryCode value.
+     *
+     * @return string
+     */
+    public function getCountryCode(): string {
+        return $this->countryCode;
+    }
+
+    /**
+     * Gets created value.
+     *
+     * @return \DateTimeInterface
+     */
+    public function getCreated(): \DateTimeInterface {
+        return $this->created;
+    }
+
+    /**
+     * Gets externalId value.
+     *
+     * @return string
+     */
+    public function getExternalId(): string {
+        return $this->externalId;
+    }
+
+    /**
+     * Gets merchantAgreementUrl value.
+     *
+     * @return string
+     */
+    public function getMerchantAgreementUrl(): string {
+        return $this->merchantAgreementUrl;
+    }
+
+    /**
+     * Gets merchantRedirectUrl value.
+     *
+     * @return string
+     */
+    public function getMerchantRedirectUrl(): string {
+        return $this->merchantRedirectUrl;
+    }
+
+    /**
+     * Gets vippsConfirmationUrl value.
+     *
+     * @return string
+     */
+    public function getVippsConfirmationUrl(): string {
+        return $this->vippsConfirmationUrl;
     }
 }

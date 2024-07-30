@@ -14,6 +14,7 @@ use Eloquent\Enumeration\AbstractEnumeration;
  */
 class Interval extends AbstractEnumeration
 {
+    const YEAR = 'YEAR';
     const MONTH = 'MONTH';
     const WEEK = 'WEEK';
     const DAY = 'DAY';

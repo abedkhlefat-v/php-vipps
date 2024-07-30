@@ -24,7 +24,7 @@ abstract class RecurringPaymentResourceBase extends AuthorizedResourceBase
     /**
      * {@inheritdoc}
      */
-    public function __construct(\zaporylie\Vipps\VippsInterface $vipps, $subscription_key)
+    public function __construct(\zaporylie\Vipps\VippsInterface $vipps, string $subscription_key)
     {
         parent::__construct($vipps, $subscription_key);
 
@@ -35,12 +35,6 @@ abstract class RecurringPaymentResourceBase extends AuthorizedResourceBase
 
         // Content type for all requests must be set.
         $this->headers['Content-Type'] = 'application/json';
-
-        // By default RequestID is different for each Resource object.
-        $this->headers['X-Request-Id'] = RequestIdFactory::generate();
-
-        // Timestamp is equal to current DateTime.
-        $this->headers['X-TimeStamp'] = (new \DateTime())->format(\DateTime::ISO8601);
     }
 
 

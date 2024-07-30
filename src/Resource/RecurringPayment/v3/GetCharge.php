@@ -3,6 +3,7 @@
 namespace zaporylie\Vipps\Resource\RecurringPayment\v3;
 
 use zaporylie\Vipps\Model\RecurringPayment\v3\Charge;
+use zaporylie\Vipps\Model\RecurringPayment\v3\ResponseGetCharge;
 use zaporylie\Vipps\Resource\HttpMethod;
 
 /**
@@ -23,11 +24,17 @@ class GetCharge extends RecurringPaymentResourceBase
      */
     protected $path = '/recurring/v3/agreements/{id}/charges/{charge_id}';
 
+    /**
+     * @param \zaporylie\Vipps\VippsInterface $vipps
+     * @param string $subscription_key
+     * @param string $agreement_id
+     * @param string $charge_id
+     */
     public function __construct(
         \zaporylie\Vipps\VippsInterface $vipps,
-        $subscription_key,
-        $agreement_id,
-        $charge_id
+        string $subscription_key,
+        string $agreement_id,
+        string $charge_id
     ) {
         parent::__construct($vipps, $subscription_key);
         $this->id = $agreement_id;
@@ -35,18 +42,18 @@ class GetCharge extends RecurringPaymentResourceBase
     }
 
     /**
-     * @return \zaporylie\Vipps\Model\RecurringPayment\v3\Charge
+     * @return \zaporylie\Vipps\Model\RecurringPayment\v3\ResponseGetCharge
      */
     public function call()
     {
         $response = $this->makeCall();
         $body = $response->getBody()->getContents();
-        /** @var \zaporylie\Vipps\Model\RecurringPayment\v3\Charge $responseObject */
+        /** @var \zaporylie\Vipps\Model\RecurringPayment\v3\ResponseGetCharge $responseObject */
         $responseObject = $this
             ->getSerializer()
             ->deserialize(
                 $body,
-                Charge::class,
+                ResponseGetCharge::class,
                 'json'
             );
 
