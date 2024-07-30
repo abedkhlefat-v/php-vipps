@@ -2,10 +2,10 @@
 
 namespace zaporylie\Vipps\Resource\Checkout\v3;
 
+use zaporylie\Vipps\ClientInterface;
 use zaporylie\Vipps\Model\Checkout\v3\GetCheckoutSessionResponse;
 use zaporylie\Vipps\Resource\HttpMethod;
 use zaporylie\Vipps\Resource\PaymentResourceBase;
-use zaporylie\Vipps\VippsInterface;
 
 /**
  * Class CreateCheckoutSession
@@ -28,18 +28,18 @@ class GetCheckoutSession extends PaymentResourceBase
     /**
      * InitiatePayment constructor.
      *
-     * @param \zaporylie\Vipps\VippsInterface $vipps
+     * @param \zaporylie\Vipps\ClientInterface $client
      * @param string $subscription_key
      * @param string $reference
      */
-    public function __construct(VippsInterface $vipps, string $subscription_key, string $client_secret, string $reference)
+    public function __construct(ClientInterface $client, string $reference)
     {
-        parent::__construct($vipps, $subscription_key);
+        parent::__construct($client);
         $this->id = $reference;
 
         // Checkout module requires client_id and client_secret headers.
-        $this->headers['client_id'] = $this->app->getClient()->getClientId();
-        $this->headers['client_secret'] = $client_secret;
+        $this->headers['client_id'] = $this->client->getClientId();
+        $this->headers['client_secret'] = $this->client->getClientSecret();
     }
 
     /**

@@ -2,7 +2,7 @@
 
 namespace zaporylie\Vipps\Resource;
 
-use zaporylie\Vipps\VippsInterface;
+use zaporylie\Vipps\ClientInterface;
 
 /**
  * Class AuthorizedResourceBase
@@ -18,12 +18,12 @@ abstract class AuthorizedResourceBase extends ResourceBase
      * In addition to setting Vipps this base class adds authorization header
      * to each request.
      */
-    public function __construct(VippsInterface $vipps, $subscription_key)
+    public function __construct(ClientInterface $client)
     {
-        parent::__construct($vipps, $subscription_key);
+        parent::__construct($client);
         $this->headers['Authorization'] =
-                $this->app->getClient()->getTokenStorage()->get()->getTokenType()
+                $this->client->getTokenStorage()->get()->getTokenType()
                 .' '.
-                $this->app->getClient()->getTokenStorage()->get()->getAccessToken();
+                $this->client->getTokenStorage()->get()->getAccessToken();
     }
 }

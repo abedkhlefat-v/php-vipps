@@ -2,10 +2,10 @@
 
 namespace zaporylie\Vipps\Resource\Authorization;
 
+use zaporylie\Vipps\ClientInterface;
 use zaporylie\Vipps\Model\Authorization\ResponseGetToken;
 use zaporylie\Vipps\Resource\ResourceBase;
 use zaporylie\Vipps\Resource\HttpMethod;
-use zaporylie\Vipps\VippsInterface;
 
 /**
  * Class GetToken
@@ -28,17 +28,17 @@ class GetToken extends ResourceBase
     /**
      * GetToken constructor.
      *
-     * @param \zaporylie\Vipps\VippsInterface $vipps
+     * @param \zaporylie\Vipps\ClientInterface $client
      * @param string $subscription_key
      * @param string $client_secret
      */
-    public function __construct(VippsInterface $vipps, $subscription_key, $client_secret)
+    public function __construct(ClientInterface $client)
     {
-        parent::__construct($vipps, $subscription_key);
-        // Authorization module requires client_id to be set on "client_id"
-        // header.
-        $this->headers['client_id'] = $this->app->getClient()->getClientId();
-        $this->headers['client_secret'] = $client_secret;
+        parent::__construct($client);
+        // Authorization module requires client_id amd client_secret headers to
+        // be set.
+        $this->headers['client_id'] = $this->client->getClientId();
+        $this->headers['client_secret'] = $this->client->getClientSecret();
     }
 
     /**

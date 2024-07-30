@@ -3,7 +3,7 @@
 namespace zaporylie\Vipps\Api;
 
 use zaporylie\Vipps\Resource\UserInfo\UserInfo as UserInfoResource;
-use zaporylie\Vipps\VippsInterface;
+use zaporylie\Vipps\ClientInterface;
 
 /**
  * Class UserInfo
@@ -16,11 +16,11 @@ class UserInfo extends ApiBase implements UserInfoInterface
     /**
      * UserInfo constructor.
      *
-     * @param \zaporylie\Vipps\VippsInterface $app
+     * @param \zaporylie\Vipps\ClientInterface $client
      */
-    public function __construct(VippsInterface $app)
+    public function __construct(ClientInterface $client)
     {
-        $this->app = $app;
+        $this->client = $client;
     }
 
     /**
@@ -28,7 +28,7 @@ class UserInfo extends ApiBase implements UserInfoInterface
      */
     public function userInfo($sub)
     {
-        $resource = new UserInfoResource($this->app, $sub);
+        $resource = new UserInfoResource($this->client, $sub);
         /** @var \zaporylie\Vipps\Model\UserInfo\ResponseUserInfo $response */
         $response = $resource->call();
         return $response;

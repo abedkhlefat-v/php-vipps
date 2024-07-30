@@ -3,10 +3,10 @@
 namespace zaporylie\Vipps\Resource\UserInfo;
 
 use JMS\Serializer\SerializerBuilder;
+use zaporylie\Vipps\ClientInterface;
 use zaporylie\Vipps\Model\UserInfo\ResponseUserInfo;
 use zaporylie\Vipps\Resource\AuthorizedResourceBase;
 use zaporylie\Vipps\Resource\HttpMethod;
-use zaporylie\Vipps\VippsInterface;
 
 /**
  * Class UserInfo
@@ -29,19 +29,20 @@ class UserInfo extends AuthorizedResourceBase
     /**
      * AbstractResource constructor.
      *
-     * @param \zaporylie\Vipps\VippsInterface $vipps
+     * @param \zaporylie\Vipps\ClientInterface $client
+     * @param string $sub
      */
-    public function __construct(VippsInterface $vipps, $sub)
+    public function __construct(ClientInterface $client, string $sub)
     {
-        $this->app = $vipps;
+        $this->client = $client;
         // Initiate serializer.
         $this->serializer = SerializerBuilder::create()
             ->build();
         $this->id = $sub;
         $this->headers['Authorization'] =
-            $this->app->getClient()->getTokenStorage()->get()->getTokenType()
+            $this->client->getTokenStorage()->get()->getTokenType()
             .' '.
-            $this->app->getClient()->getTokenStorage()->get()->getAccessToken();
+            $this->client->getTokenStorage()->get()->getAccessToken();
     }
 
     /**

@@ -30,7 +30,7 @@ use zaporylie\Vipps\Resource\IdempotencyKeyFactory;
 use zaporylie\Vipps\Resource\Webhook\v1\DeleteWebhook;
 use zaporylie\Vipps\Resource\Webhook\v1\GetWebhooks;
 use zaporylie\Vipps\Resource\Webhook\v1\RegisterWebhook;
-use zaporylie\Vipps\VippsInterface;
+use zaporylie\Vipps\ClientInterface;
 
 /**
  * Class Webhook
@@ -81,17 +81,17 @@ class Checkout extends ApiBase implements CheckoutInterface
      *
      * Webhook API needs one extra param - merchant serial number.
      *
-     * @param \zaporylie\Vipps\VippsInterface $app
+     * @param \zaporylie\Vipps\ClientInterface $client
      * @param string $subscription_key
      * @param $merchant_serial_number
      */
     public function __construct(
-        VippsInterface $app,
+        ClientInterface $client,
         string $subscription_key,
         string $merchant_serial_number,
         string $client_secret
     ) {
-        parent::__construct($app, $subscription_key);
+        parent::__construct($client, $subscription_key);
         $this->merchantSerialNumber = $merchant_serial_number;
         $this->version = 'v3';
         $this->clientSecret = $client_secret;
@@ -102,7 +102,7 @@ class Checkout extends ApiBase implements CheckoutInterface
      */
     public function createCheckoutSession(CreateCheckoutSessionRequest $request): CreateCheckoutSessionResponse
     {
-        $resource = new CreateCheckoutSession($this->app, $this->getSubscriptionKey(), $this->clientSecret, $request);
+        $resource = new CreateCheckoutSession($this->client, $this->clientSecret, $request);
         return $resource->call();
     }
 
@@ -111,7 +111,7 @@ class Checkout extends ApiBase implements CheckoutInterface
      */
     public function getCheckoutSession(string $reference): GetCheckoutSessionResponse
     {
-        $resource = new GetCheckoutSession($this->app, $this->getSubscriptionKey(), $this->clientSecret, $reference);
+        $resource = new GetCheckoutSession($this->client, $this->clientSecret, $reference);
         return $resource->call();
     }
 }

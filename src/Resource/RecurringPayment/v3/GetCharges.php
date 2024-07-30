@@ -2,6 +2,7 @@
 
 namespace zaporylie\Vipps\Resource\RecurringPayment\v3;
 
+use zaporylie\Vipps\ClientInterface;
 use zaporylie\Vipps\Model\RecurringPayment\v3\Charge;
 use zaporylie\Vipps\Resource\HttpMethod;
 
@@ -24,16 +25,14 @@ class GetCharges extends RecurringPaymentResourceBase
     protected $path = '/recurring/v3/agreements/{id}/charges';
 
     /**
-     * @param \zaporylie\Vipps\VippsInterface $vipps
-     * @param string $subscription_key
+     * @param \zaporylie\Vipps\ClientInterface $client
      * @param string $agreement_id
      */
     public function __construct(
-        \zaporylie\Vipps\VippsInterface $vipps,
-        string $subscription_key,
+        ClientInterface $client,
         string $agreement_id
     ) {
-        parent::__construct($vipps, $subscription_key);
+        parent::__construct($client);
         $this->id = $agreement_id;
     }
 

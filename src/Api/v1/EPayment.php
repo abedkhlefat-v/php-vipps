@@ -18,7 +18,7 @@ use zaporylie\Vipps\Resource\EPayment\v1\GetPaymentEvents;
 use zaporylie\Vipps\Resource\EPayment\v1\CancelPayment;
 use zaporylie\Vipps\Resource\EPayment\v1\RefundPayment;
 use zaporylie\Vipps\Resource\IdempotencyKeyFactory;
-use zaporylie\Vipps\VippsInterface;
+use zaporylie\Vipps\ClientInterface;
 
 /**
  * Class EPayment
@@ -64,16 +64,16 @@ class EPayment extends ApiBase implements EPaymentInterface
      *
      * Payments API needs one extra param - merchant serial number.
      *
-     * @param \zaporylie\Vipps\VippsInterface $app
+     * @param \zaporylie\Vipps\ClientInterface $client
      * @param string $subscription_key
      * @param $merchant_serial_number
      */
     public function __construct(
-        VippsInterface $app,
+        ClientInterface $client,
         $subscription_key,
         $merchant_serial_number
     ) {
-        parent::__construct($app, $subscription_key);
+        parent::__construct($client, $subscription_key);
         $this->merchantSerialNumber = $merchant_serial_number;
         $this->version = 'v1';
     }
@@ -81,12 +81,12 @@ class EPayment extends ApiBase implements EPaymentInterface
     /**
      * {@inheritDoc}
      */
-    public function createPayment(CreatePaymentRequest $request, ?string $idempotency_key): CreatePaymentResponse
+    public function createPayment(CreatePaymentRequest $request, ?string $idempotency_key = null): CreatePaymentResponse
     {
         // Ensure idempotency key is set.
         $idempotency_key = $idempotency_key ?? IdempotencyKeyFactory::generate();
         // @todo: Validate data.
-        $resource = new CreatePayment($this->app, $this->getSubscriptionKey(), $idempotency_key, $request);
+        $resource = new CreatePayment($this->client, $idempotency_key, $request);
         return $resource->call();
     }
 
@@ -95,7 +95,7 @@ class EPayment extends ApiBase implements EPaymentInterface
      */
     public function getPayment(string $reference): GetPaymentResponse
     {
-        $resource = new GetPayment($this->app, $this->getSubscriptionKey(), $reference);
+        $resource = new GetPayment($this->client, $reference);
         return $resource->call();
     }
 
@@ -104,7 +104,7 @@ class EPayment extends ApiBase implements EPaymentInterface
      */
     public function getPaymentEvents(string $reference): array
     {
-        $resource = new GetPaymentEvents($this->app, $this->getSubscriptionKey(), $reference);
+        $resource = new GetPaymentEvents($this->client, $reference);
         return $resource->call();
     }
 
@@ -114,33 +114,33 @@ class EPayment extends ApiBase implements EPaymentInterface
     public function cancelPayment(
         string $reference,
         CancelModificationRequest $request,
-        ?string $idempotency_key
+        ?string $idempotency_key = null
     ): PaymentAdjustResponse {
         // Ensure idempotency key is set.
         $idempotency_key = $idempotency_key ?? IdempotencyKeyFactory::generate();
-        $resource = new CancelPayment($this->app, $this->getSubscriptionKey(), $idempotency_key, $reference, $request);
+        $resource = new CancelPayment($this->client, $idempotency_key, $reference, $request);
         return $resource->call();
     }
 
     public function capturePayment(
         string $reference,
         CaptureModificationRequest $request,
-        ?string $idempotency_key
+        ?string $idempotency_key = null
     ): PaymentAdjustResponse {
         // Ensure idempotency key is set.
         $idempotency_key = $idempotency_key ?? IdempotencyKeyFactory::generate();
-        $resource = new CapturePayment($this->app, $this->getSubscriptionKey(), $idempotency_key, $reference, $request);
+        $resource = new CapturePayment($this->client, $idempotency_key, $reference, $request);
         return $resource->call();
     }
 
     public function refundPayment(
         string $reference,
         RefundModificationRequest $request,
-        ?string $idempotency_key
+        ?string $idempotency_key = null
     ): PaymentAdjustResponse {
         // Ensure idempotency key is set.
         $idempotency_key = $idempotency_key ?? IdempotencyKeyFactory::generate();
-        $resource = new RefundPayment($this->app, $this->getSubscriptionKey(), $idempotency_key, $reference, $request);
+        $resource = new RefundPayment($this->client, $idempotency_key, $reference, $request);
         return $resource->call();
     }
 }

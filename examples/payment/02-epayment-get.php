@@ -11,11 +11,15 @@ try {
             'Merchant-Serial-Number' => $settings['merchant_serial_number'],
         ]]
     );
-    $client = new \zaporylie\Vipps\Client($settings['client_id'], ['http_client' => $http_client]);
+    $client = new \zaporylie\Vipps\Client($settings['client_id'], $settings['client_secret'], $settings['subscription_key'], $settings['merchant_serial_number'], [
+        'http_client' => $http_client,
+        'vipps_system_name' => 'vipps_zaporylie_example',
+        'vipps_system_version' => \zaporylie\Vipps\Client::VERSION,
+    ]);
     $vipps = new \zaporylie\Vipps\Vipps($client);
-    $authorization = new \zaporylie\Vipps\Api\Authorization($vipps, $settings['subscription_key']);
+    $authorization = new \zaporylie\Vipps\Api\Authorization($client, $settings['subscription_key']);
     $authorization->getToken($settings['client_secret']);
-    $payment = new \zaporylie\Vipps\Api\v1\EPayment($vipps, $settings['subscription_key'], $settings['merchant_serial_number']);
+    $payment = new \zaporylie\Vipps\Api\v1\EPayment($client, $settings['subscription_key'], $settings['merchant_serial_number']);
     $result = $payment->getPayment('test-12121212-4');
     echo '<pre>';
     var_dump($result);

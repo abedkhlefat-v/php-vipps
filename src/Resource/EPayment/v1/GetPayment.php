@@ -2,10 +2,10 @@
 
 namespace zaporylie\Vipps\Resource\EPayment\v1;
 
+use zaporylie\Vipps\ClientInterface;
 use zaporylie\Vipps\Model\EPayment\v1\GetPaymentResponse;
 use zaporylie\Vipps\Resource\HttpMethod;
 use zaporylie\Vipps\Resource\PaymentResourceBase;
-use zaporylie\Vipps\VippsInterface;
 
 class GetPayment extends PaymentResourceBase
 {
@@ -23,13 +23,12 @@ class GetPayment extends PaymentResourceBase
     /**
      * InitiatePayment constructor.
      *
-     * @param \zaporylie\Vipps\VippsInterface $vipps
-     * @param string $subscription_key
+     * @param \zaporylie\Vipps\ClientInterface $client
      * @param string $reference
      */
-    public function __construct(VippsInterface $vipps, string $subscription_key, string $reference)
+    public function __construct(ClientInterface $client, string $reference)
     {
-        parent::__construct($vipps, $subscription_key);
+        parent::__construct($client);
         $this->id = $reference;
     }
 

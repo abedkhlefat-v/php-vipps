@@ -2,15 +2,9 @@
 
 namespace zaporylie\Vipps\Resource\Webhook\v1;
 
-use zaporylie\Vipps\Model\Authorization\ResponseGetToken;
-use zaporylie\Vipps\Model\EPayment\v1\EventLog;
-use zaporylie\Vipps\Model\Webhook\v1\RegisterWebhookRequest;
-use zaporylie\Vipps\Model\Webhook\v1\RegisterWebhookResponse;
-use zaporylie\Vipps\Model\Webhook\v1\Webhook;
+use zaporylie\Vipps\ClientInterface;
 use zaporylie\Vipps\Resource\AuthorizedResourceBase;
-use zaporylie\Vipps\Resource\ResourceBase;
 use zaporylie\Vipps\Resource\HttpMethod;
-use zaporylie\Vipps\VippsInterface;
 
 /**
  * Class Webhook
@@ -33,13 +27,12 @@ class DeleteWebhook extends AuthorizedResourceBase
     /**
      * GetToken constructor.
      *
-     * @param \zaporylie\Vipps\VippsInterface $vipps
-     * @param string $subscription_key
+     * @param \zaporylie\Vipps\ClientInterface $client
      * @param $reference
      */
-    public function __construct(VippsInterface $vipps, $subscription_key, $reference)
+    public function __construct(ClientInterface $client, $reference)
     {
-        parent::__construct($vipps, $subscription_key);
+        parent::__construct($client);
         $this->id = $reference;
     }
 

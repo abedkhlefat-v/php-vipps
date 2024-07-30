@@ -11,10 +11,10 @@ namespace zaporylie\Vipps\Resource;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use Http\Client\Exception\HttpException;
 use JMS\Serializer\SerializerBuilder;
-use Psr\Http\Client\ClientInterface;
+use Psr\Http\Client\ClientInterface as PsrClientInterface;
 use Psr\Http\Message\RequestInterface;
+use zaporylie\Vipps\ClientInterface;
 use zaporylie\Vipps\Exceptions\VippsException;
-use zaporylie\Vipps\VippsInterface;
 
 /**
  * Class ResourceBase
@@ -24,9 +24,9 @@ abstract class ResourceBase implements ResourceInterface, SerializableInterface
 {
 
     /**
-     * @var VippsInterface
+     * @var \zaporylie\Vipps\ClientInterface
      */
-    protected $app;
+    protected $client;
 
     /**
      * @var array
@@ -61,19 +61,19 @@ abstract class ResourceBase implements ResourceInterface, SerializableInterface
     /**
      * AbstractResource constructor.
      *
-     * @param \zaporylie\Vipps\VippsInterface $vipps
-     * @param string $subscription_key
+     * @param \zaporylie\Vipps\ClientInterface $client
      */
-    public function __construct(VippsInterface $vipps, $subscription_key)
+    public function __construct(ClientInterface $client)
     {
-        $this->app = $vipps;
+        $this->client = $client;
 
-        $this->headers['Ocp-Apim-Subscription-Key'] = $subscription_key;
+        $this->headers['Ocp-Apim-Subscription-Key'] = $this->client->getSubscriptionKey();
+        $this->headers['Merchant-Serial-Number'] = $this->client->getMerchantSerialNumber();
 
-        $this->headers['Vipps-System-Name'] = $this->app->getClient()->getVippsSystemName();
-        $this->headers['Vipps-System-Version'] = $this->app->getClient()->getVippsSystemVersion();
-        $this->headers['Vipps-System-Plugin-Name'] = $this->app->getClient()->getVippsSystemPluginName();
-        $this->headers['Vipps-System-Plugin-Version'] = $this->app->getClient()->getVippsSystemPluginVersion();
+        $this->headers['Vipps-System-Name'] = $this->client->getVippsSystemName();
+        $this->headers['Vipps-System-Version'] = $this->client->getVippsSystemVersion();
+        $this->headers['Vipps-System-Plugin-Name'] = $this->client->getVippsSystemPluginName();
+        $this->headers['Vipps-System-Plugin-Version'] = $this->client->getVippsSystemPluginVersion();
 
         // Initiate serializer.
         if (class_exists(AnnotationRegistry::class) && method_exists(AnnotationRegistry::class, 'registerLoader')) {
@@ -159,7 +159,7 @@ abstract class ResourceBase implements ResourceInterface, SerializableInterface
      */
     public function getUri($path)
     {
-        return $this->app->getClient()->getEndpoint()->getUri()->withPath($path);
+        return $this->client->getEndpoint()->getUri()->withPath($path);
     }
 
     /**
@@ -191,10 +191,9 @@ abstract class ResourceBase implements ResourceInterface, SerializableInterface
     protected function handleRequest(RequestInterface $request)
     {
         // Get client.
-        $client = $this->app->getClient()->getHttpClient();
+        $client = $this->client->getHttpClient();
 
-        // Handle requests, sync precedence.
-        if ($client instanceof ClientInterface) {
+        if ($client instanceof PsrClientInterface) {
             // Send sync request.
             $response = $client->sendRequest($request);
         } else {
@@ -209,11 +208,11 @@ abstract class ResourceBase implements ResourceInterface, SerializableInterface
      */
     protected function getRequest()
     {
-        $request = $this->app->getClient()->getRequestFactory()->createRequest(
+        $request = $this->client->getRequestFactory()->createRequest(
             $this->getMethod(),
             $this->getUri($this->getPath())
         );
-        $body = $this->app->getClient()->getStreamFactory()->createStream($this->getBody());
+        $body = $this->client->getStreamFactory()->createStream($this->getBody());
         $request = $request->withBody($body);
         foreach ($this->getHeaders() as $header => $value) {
             $request = $request->withAddedHeader($header, $value);

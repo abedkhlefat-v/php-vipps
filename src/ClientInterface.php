@@ -6,6 +6,7 @@ use Psr\Http\Client\ClientInterface as HttpClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\StreamFactoryInterface;
 use zaporylie\Vipps\Authentication\TokenStorageInterface;
+use zaporylie\Vipps\Exceptions\Client\InvalidArgumentException;
 
 interface ClientInterface
 {
@@ -26,7 +27,7 @@ interface ClientInterface
      *
      * @return string
      */
-    public function getClientId();
+    public function getClientId(): string;
 
     /**
      * Sets clientId variable.
@@ -34,8 +35,31 @@ interface ClientInterface
      * @param string $clientId
      *
      * @return $this
+     *
+     * @deprecated
      */
     public function setClientId($clientId);
+
+    /**
+     * Gets clientSecret value.
+     *
+     * @return string
+     */
+    public function getClientSecret(): string;
+
+    /**
+     * Gets subscriptionKey value.
+     *
+     * @return string
+     */
+    public function getSubscriptionKey(): string;
+
+    /**
+     * Gets merchantSerialNumber value.
+     *
+     * @return string
+     */
+    public function getMerchantSerialNumber(): string;
 
     /**
      * Gets connection value.

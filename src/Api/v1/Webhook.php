@@ -24,7 +24,7 @@ use zaporylie\Vipps\Resource\IdempotencyKeyFactory;
 use zaporylie\Vipps\Resource\Webhook\v1\DeleteWebhook;
 use zaporylie\Vipps\Resource\Webhook\v1\GetWebhooks;
 use zaporylie\Vipps\Resource\Webhook\v1\RegisterWebhook;
-use zaporylie\Vipps\VippsInterface;
+use zaporylie\Vipps\ClientInterface;
 
 /**
  * Class Webhook
@@ -70,16 +70,16 @@ class Webhook extends ApiBase implements WebhookInterface
      *
      * Webhook API needs one extra param - merchant serial number.
      *
-     * @param \zaporylie\Vipps\VippsInterface $app
+     * @param \zaporylie\Vipps\ClientInterface $client
      * @param string $subscription_key
      * @param $merchant_serial_number
      */
     public function __construct(
-        VippsInterface $app,
+        ClientInterface $client,
         $subscription_key,
         $merchant_serial_number
     ) {
-        parent::__construct($app, $subscription_key);
+        parent::__construct($client, $subscription_key);
         $this->merchantSerialNumber = $merchant_serial_number;
         $this->version = 'v1';
     }
@@ -89,7 +89,7 @@ class Webhook extends ApiBase implements WebhookInterface
      */
     public function registerWebhook(RegisterWebhookRequest $request): RegisterWebhookResponse
     {
-        $resource = new RegisterWebhook($this->app, $this->getSubscriptionKey(), $request);
+        $resource = new RegisterWebhook($this->client, $request);
         return $resource->call();
     }
 
@@ -98,7 +98,7 @@ class Webhook extends ApiBase implements WebhookInterface
      */
     public function getWebhooks(): GetWebhooksResponse
     {
-        $resource = new GetWebhooks($this->app, $this->getSubscriptionKey());
+        $resource = new GetWebhooks($this->client);
         return $resource->call();
     }
 
@@ -107,7 +107,7 @@ class Webhook extends ApiBase implements WebhookInterface
      */
     public function deleteWebhook(string $reference): void
     {
-        $resource = new DeleteWebhook($this->app, $this->getSubscriptionKey(), $reference);
+        $resource = new DeleteWebhook($this->client, $reference);
         $resource->call();
     }
 }

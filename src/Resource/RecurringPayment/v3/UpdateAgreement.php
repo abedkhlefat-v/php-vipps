@@ -2,10 +2,9 @@
 
 namespace zaporylie\Vipps\Resource\RecurringPayment\v3;
 
+use zaporylie\Vipps\ClientInterface;
 use zaporylie\Vipps\Model\RecurringPayment\v3\RequestUpdateAgreement;
 use zaporylie\Vipps\Resource\HttpMethod;
-use zaporylie\Vipps\Resource\IdempotencyKeyFactory;
-use zaporylie\Vipps\VippsInterface;
 
 /**
  * Class UpdateAgreement
@@ -28,21 +27,19 @@ class UpdateAgreement extends RecurringPaymentResourceBase
     /**
      * InitiatePayment constructor.
      *
-     * @param \zaporylie\Vipps\VippsInterface $vipps
-     * @param string $subscription_key
+     * @param \zaporylie\Vipps\ClientInterface $client
      * @param string $agreement_id
      * @param string $idempotency_key
      * @param \zaporylie\Vipps\Model\RecurringPayment\v3\RequestUpdateAgreement $requestObject
      */
     public function __construct(
-        VippsInterface $vipps,
-        string $subscription_key,
+        ClientInterface $client,
         string $agreement_id,
         string $idempotency_key,
         RequestUpdateAgreement $requestObject
     ) {
         $this->headers['Idempotency-Key'] = $idempotency_key;
-        parent::__construct($vipps, $subscription_key);
+        parent::__construct($client);
         $this->id = $agreement_id;
         $this->body = $this
             ->getSerializer()

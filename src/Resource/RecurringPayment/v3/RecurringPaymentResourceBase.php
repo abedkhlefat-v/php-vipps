@@ -5,8 +5,8 @@ namespace zaporylie\Vipps\Resource\RecurringPayment\v3;
 use JMS\Serializer\Naming\IdenticalPropertyNamingStrategy;
 use JMS\Serializer\Naming\SerializedNameAnnotationStrategy;
 use JMS\Serializer\SerializerBuilder;
+use zaporylie\Vipps\ClientInterface;
 use zaporylie\Vipps\Resource\AuthorizedResourceBase;
-use zaporylie\Vipps\Resource\RequestIdFactory;
 
 /**
  * Class PaymentResourceBase
@@ -24,9 +24,9 @@ abstract class RecurringPaymentResourceBase extends AuthorizedResourceBase
     /**
      * {@inheritdoc}
      */
-    public function __construct(\zaporylie\Vipps\VippsInterface $vipps, string $subscription_key)
+    public function __construct(ClientInterface $client)
     {
-        parent::__construct($vipps, $subscription_key);
+        parent::__construct($client);
 
         // Adjust serializer.
         $this->serializer = SerializerBuilder::create()

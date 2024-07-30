@@ -2,9 +2,9 @@
 
 namespace zaporylie\Vipps\Resource\RecurringPayment\v3;
 
+use zaporylie\Vipps\ClientInterface;
 use zaporylie\Vipps\Model\RecurringPayment\v3\ResponseGetAgreement;
 use zaporylie\Vipps\Resource\HttpMethod;
-use zaporylie\Vipps\VippsInterface;
 
 /**
  * Class GetAgreement
@@ -27,13 +27,12 @@ class GetAgreement extends RecurringPaymentResourceBase
     /**
      * InitiatePayment constructor.
      *
-     * @param \zaporylie\Vipps\VippsInterface $vipps
-     * @param string $subscription_key
+     * @param \zaporylie\Vipps\ClientInterface $client
      * @param string $agreement_id
      */
-    public function __construct(VippsInterface $vipps, string $subscription_key, string $agreement_id)
+    public function __construct(ClientInterface $client, string $agreement_id)
     {
-        parent::__construct($vipps, $subscription_key);
+        parent::__construct($client);
         $this->id = $agreement_id;
     }
 

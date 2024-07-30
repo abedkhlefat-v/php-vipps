@@ -15,11 +15,11 @@ interface EPaymentInterface
 
     /**
      * @param \zaporylie\Vipps\Model\EPayment\v1\CreatePaymentRequest $request
-     * @param string $idempotency_key
+     * @param string|null $idempotency_key
      *
      * @return \zaporylie\Vipps\Model\EPayment\v1\CreatePaymentResponse
      */
-    public function createPayment(CreatePaymentRequest $request, ?string $idempotency_key) : CreatePaymentResponse;
+    public function createPayment(CreatePaymentRequest $request, ?string $idempotency_key = null) : CreatePaymentResponse;
 
     /**
      * @param string $reference
@@ -45,7 +45,7 @@ interface EPaymentInterface
     public function cancelPayment(
         string $reference,
         CancelModificationRequest $request,
-        ?string $idempotency_key
+        ?string $idempotency_key = null
     ) : PaymentAdjustResponse;
 
     /**
@@ -58,7 +58,7 @@ interface EPaymentInterface
     public function capturePayment(
         string $reference,
         CaptureModificationRequest $request,
-        ?string $idempotency_key
+        ?string $idempotency_key = null
     ) : PaymentAdjustResponse;
 
     /**
@@ -71,6 +71,6 @@ interface EPaymentInterface
     public function refundPayment(
         string $reference,
         RefundModificationRequest $request,
-        ?string $idempotency_key
+        ?string $idempotency_key = null
     ) : PaymentAdjustResponse;
 }

@@ -2,11 +2,11 @@
 
 namespace zaporylie\Vipps\Resource\EPayment\v1;
 
+use zaporylie\Vipps\ClientInterface;
 use zaporylie\Vipps\Model\EPayment\v1\PaymentAdjustResponse;
 use zaporylie\Vipps\Model\EPayment\v1\RefundModificationRequest;
 use zaporylie\Vipps\Resource\HttpMethod;
 use zaporylie\Vipps\Resource\PaymentResourceBase;
-use zaporylie\Vipps\VippsInterface;
 
 /**
  * Class CancelPayment
@@ -29,19 +29,17 @@ class RefundPayment extends PaymentResourceBase
     /**
      * InitiatePayment constructor.
      *
-     * @param \zaporylie\Vipps\VippsInterface $vipps
-     * @param string $subscription_key
+     * @param \zaporylie\Vipps\ClientInterface $client
      * @param string $idempotency_key
      * @param \zaporylie\Vipps\Model\EPayment\v1\RefundModificationRequest $request
      */
     public function __construct(
-        VippsInterface $vipps,
-        string $subscription_key,
+        ClientInterface $client,
         string $idempotency_key,
         string $reference,
         RefundModificationRequest $request
     ) {
-        parent::__construct($vipps, $subscription_key);
+        parent::__construct($client);
         $this->headers['Idempotency-Key'] = $idempotency_key;
         $this->id = $reference;
         $this->body = $this

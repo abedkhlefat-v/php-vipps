@@ -2,15 +2,11 @@
 
 namespace zaporylie\Vipps\Resource\Webhook\v1;
 
-use zaporylie\Vipps\Model\Authorization\ResponseGetToken;
-use zaporylie\Vipps\Model\EPayment\v1\EventLog;
+use zaporylie\Vipps\ClientInterface;
 use zaporylie\Vipps\Model\Webhook\v1\RegisterWebhookRequest;
 use zaporylie\Vipps\Model\Webhook\v1\RegisterWebhookResponse;
-use zaporylie\Vipps\Model\Webhook\v1\Webhook;
 use zaporylie\Vipps\Resource\AuthorizedResourceBase;
-use zaporylie\Vipps\Resource\ResourceBase;
 use zaporylie\Vipps\Resource\HttpMethod;
-use zaporylie\Vipps\VippsInterface;
 
 /**
  * Class Webhook
@@ -33,12 +29,11 @@ class RegisterWebhook extends AuthorizedResourceBase
     /**
      * GetToken constructor.
      *
-     * @param \zaporylie\Vipps\VippsInterface $vipps
-     * @param string $subscription_key
+     * @param \zaporylie\Vipps\ClientInterface $client
      */
-    public function __construct(VippsInterface $vipps, $subscription_key, RegisterWebhookRequest $request)
+    public function __construct(ClientInterface $client, RegisterWebhookRequest $request)
     {
-        parent::__construct($vipps, $subscription_key);
+        parent::__construct($client);
         $this->body = $this
             ->getSerializer()
             ->serialize(

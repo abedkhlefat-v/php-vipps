@@ -2,11 +2,10 @@
 
 namespace zaporylie\Vipps\Resource\RecurringPayment\v3;
 
+use zaporylie\Vipps\ClientInterface;
 use zaporylie\Vipps\Model\RecurringPayment\v3\RequestCreateCharge;
 use zaporylie\Vipps\Model\RecurringPayment\v3\ResponseCreateCharge;
 use zaporylie\Vipps\Resource\HttpMethod;
-use zaporylie\Vipps\Resource\IdempotencyKeyFactory;
-use zaporylie\Vipps\VippsInterface;
 
 /**
  * Class CreateCharge
@@ -29,22 +28,20 @@ class CreateCharge extends RecurringPaymentResourceBase
     /**
      * InitiatePayment constructor.
      *
-     * @param \zaporylie\Vipps\VippsInterface $vipps
-     * @param string $subscription_key
-     * @param string $agreementId
+     * @param \zaporylie\Vipps\ClientInterface $client
+     * @param string $agreement_id
      * @param string $idempotency_key
      * @param \zaporylie\Vipps\Model\RecurringPayment\v3\RequestCreateCharge $requestObject
      */
     public function __construct(
-        VippsInterface $vipps,
-        string $subscription_key,
-        string $agreementId,
+        ClientInterface $client,
+        string $agreement_id,
         string $idempotency_key,
         RequestCreateCharge $requestObject
     ) {
-        $this->id = $agreementId;
+        $this->id = $agreement_id;
         $this->headers['Idempotency-Key'] = $idempotency_key;
-        parent::__construct($vipps, $subscription_key);
+        parent::__construct($client);
         $this->body = $this
             ->getSerializer()
             ->serialize(

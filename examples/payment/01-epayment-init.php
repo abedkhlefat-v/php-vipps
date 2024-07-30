@@ -7,15 +7,15 @@ $settings = \Symfony\Component\Yaml\Yaml::parse(file_get_contents(__DIR__.'/../c
 
 try {
     $http_client = new \GuzzleHttp\Client();
-    $client = new \zaporylie\Vipps\Client($settings['client_id'], [
+    $client = new \zaporylie\Vipps\Client($settings['client_id'], $settings['client_secret'], $settings['subscription_key'], $settings['merchant_serial_number'], [
         'http_client' => $http_client,
         'vipps_system_name' => 'vipps_zaporylie_example',
         'vipps_system_version' => \zaporylie\Vipps\Client::VERSION,
     ]);
     $vipps = new \zaporylie\Vipps\Vipps($client);
-    $authorization = new \zaporylie\Vipps\Api\Authorization($vipps, $settings['subscription_key']);
+    $authorization = new \zaporylie\Vipps\Api\Authorization($client, $settings['subscription_key']);
     $authorization->getToken($settings['client_secret']);
-    $payment = new \zaporylie\Vipps\Api\v1\EPayment($vipps, $settings['subscription_key'], $settings['merchant_serial_number']);
+    $payment = new \zaporylie\Vipps\Api\v1\EPayment($client, $settings['subscription_key'], $settings['merchant_serial_number']);
     $result = $payment->createPayment((new \zaporylie\Vipps\Model\EPayment\v1\CreatePaymentRequest())
         ->setAmount((new \zaporylie\Vipps\Model\EPayment\v1\Amount())->setValue(1000)->setCurrency('NOK'))
         ->setPaymentMethod((new \zaporylie\Vipps\Model\EPayment\v1\PaymentMethod())->setType('WALLET'))
