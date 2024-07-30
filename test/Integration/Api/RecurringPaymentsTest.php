@@ -3,13 +3,13 @@
 namespace zaporylie\Vipps\Tests\Integration\Api;
 
 use zaporylie\Vipps\Exceptions\VippsException;
-use zaporylie\Vipps\Model\RecurringPayment\InitialCharge;
-use zaporylie\Vipps\Model\RecurringPayment\Interval;
-use zaporylie\Vipps\Model\RecurringPayment\RequestCreateAgreement;
-use zaporylie\Vipps\Model\RecurringPayment\RequestCreateCharge;
-use zaporylie\Vipps\Model\RecurringPayment\RequestRefundCharge;
-use zaporylie\Vipps\Model\RecurringPayment\Status;
-use zaporylie\Vipps\Model\RecurringPayment\TransactionType;
+use zaporylie\Vipps\Model\RecurringPayment\v3\InitialCharge;
+use zaporylie\Vipps\Model\RecurringPayment\v3\Interval;
+use zaporylie\Vipps\Model\RecurringPayment\v3\RequestCreateAgreement;
+use zaporylie\Vipps\Model\RecurringPayment\v3\RequestCreateCharge;
+use zaporylie\Vipps\Model\RecurringPayment\v3\RequestRefundCharge;
+use zaporylie\Vipps\Model\RecurringPayment\v3\Status;
+use zaporylie\Vipps\Model\RecurringPayment\v3\TransactionType;
 use zaporylie\Vipps\Tests\Integration\IntegrationTestBase;
 
 /**
@@ -26,7 +26,7 @@ class RecurringPaymentsTest extends IntegrationTestBase
     protected $merchantSerialNumber = 'test_merchant_serial_number';
 
     /**
-     * @var \zaporylie\Vipps\Api\RecurringPaymentInterface
+     * @var \zaporylie\Vipps\Api\v3\RecurringPaymentInterface
      */
     protected $api;
 
@@ -40,7 +40,7 @@ class RecurringPaymentsTest extends IntegrationTestBase
     }
 
     /**
-     * @covers \zaporylie\Vipps\Api\RecurringPayment::createAgreement()
+     * @covers \zaporylie\Vipps\Api\v3\RecurringPayment::createAgreement()
      */
     public function testValidCreateAgreement()
     {
@@ -80,7 +80,7 @@ class RecurringPaymentsTest extends IntegrationTestBase
     }
 
     /**
-     * @covers \zaporylie\Vipps\Api\RecurringPayment::createAgreement()
+     * @covers \zaporylie\Vipps\Api\v3\RecurringPayment::createAgreement()
      */
     public function testInvalidCreateAgreement()
     {
@@ -90,7 +90,7 @@ class RecurringPaymentsTest extends IntegrationTestBase
     }
 
     /**
-     * @covers \zaporylie\Vipps\Api\RecurringPayment::createCharge()
+     * @covers \zaporylie\Vipps\Api\v3\RecurringPayment::createCharge()
      */
     public function testValidCreateCharge()
     {
@@ -115,7 +115,7 @@ class RecurringPaymentsTest extends IntegrationTestBase
     }
 
     /**
-     * @covers \zaporylie\Vipps\Api\RecurringPayment::cancelCharge()
+     * @covers \zaporylie\Vipps\Api\v3\RecurringPayment::cancelCharge()
      */
     public function testValidCancelCharge()
     {
@@ -134,7 +134,7 @@ class RecurringPaymentsTest extends IntegrationTestBase
     }
 
     /**
-     * @covers \zaporylie\Vipps\Api\RecurringPayment::refundCharge()
+     * @covers \zaporylie\Vipps\Api\v3\RecurringPayment::refundCharge()
      */
     public function testValidRefundCharge()
     {
@@ -156,7 +156,7 @@ class RecurringPaymentsTest extends IntegrationTestBase
     }
 
     /**
-     * @covers \zaporylie\Vipps\Api\RecurringPayment::getAgreement()
+     * @covers \zaporylie\Vipps\Api\v3\RecurringPayment::getAgreement()
      */
     public function testValidGetAgreement()
     {
@@ -208,7 +208,7 @@ class RecurringPaymentsTest extends IntegrationTestBase
     }
 
     /**
-     * @covers \zaporylie\Vipps\Api\RecurringPayment::getCharge()
+     * @covers \zaporylie\Vipps\Api\v3\RecurringPayment::getCharge()
      */
     public function testValidGetCharge()
     {
