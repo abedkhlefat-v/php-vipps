@@ -25,7 +25,7 @@ class CreateCharge extends RecurringPaymentResourceBase
     /**
      * @var string
      */
-    protected $path = '/recurring/v2/agreements/{id}/charges';
+    protected $path = '/recurring/v3/agreements/{id}/charges';
 
     /**
      * InitiatePayment constructor.

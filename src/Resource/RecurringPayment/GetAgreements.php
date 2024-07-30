@@ -21,7 +21,7 @@ class GetAgreements extends RecurringPaymentResourceBase
     /**
      * @var string
      */
-    protected $path = '/recurring/v2/agreements';
+    protected $path = '/recurring/v3/agreements';
 
     /**
      * @return \zaporylie\Vipps\Model\RecurringPayment\ResponseGetAgreement[]

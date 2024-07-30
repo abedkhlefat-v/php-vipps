@@ -18,10 +18,10 @@ class Charge
     protected $amount;
 
     /**
-     * @var int
-     * @Serializer\Type("integer")
+     * @var \zaporylie\Vipps\Model\RecurringPayment\Summary
+     * @Serializer\Type("zaporylie\Vipps\Model\RecurringPayment\Summary")
      */
-    protected $amountRefunded;
+    protected $summary;
 
     /**
      * @var string
@@ -84,11 +84,11 @@ class Charge
     /**
      * Gets amountRefunded value.
      *
-     * @return int
+     * @return \zaporylie\Vipps\Model\RecurringPayment\Summary
      */
-    public function getAmountRefunded()
+    public function getSummary()
     {
-        return $this->amountRefunded;
+        return $this->summary;
     }
 
     /**

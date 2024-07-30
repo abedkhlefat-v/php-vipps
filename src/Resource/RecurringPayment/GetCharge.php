@@ -21,7 +21,7 @@ class GetCharge extends RecurringPaymentResourceBase
     /**
      * @var string
      */
-    protected $path = '/recurring/v2/agreements/{id}/charges/{charge_id}';
+    protected $path = '/recurring/v3/agreements/{id}/charges/{charge_id}';
 
     public function __construct(
         \zaporylie\Vipps\VippsInterface $vipps,

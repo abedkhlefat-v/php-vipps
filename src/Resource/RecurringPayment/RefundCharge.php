@@ -27,7 +27,7 @@ class RefundCharge extends RecurringPaymentResourceBase
     /**
      * @var string
      */
-    protected $path = '/recurring/v2/agreements/{id}/charges/{charge_id}/refund';
+    protected $path = '/recurring/v3/agreements/{id}/charges/{charge_id}/refund';
 
     /**
      * RefundCharge constructor.

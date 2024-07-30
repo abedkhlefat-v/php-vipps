@@ -22,7 +22,7 @@ class GetAgreement extends RecurringPaymentResourceBase
     /**
      * @var string
      */
-    protected $path = '/recurring/v2/agreements/{id}';
+    protected $path = '/recurring/v3/agreements/{id}';
 
     /**
      * InitiatePayment constructor.

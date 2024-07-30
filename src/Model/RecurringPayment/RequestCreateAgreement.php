@@ -21,12 +21,6 @@ class RequestCreateAgreement
      * @var string
      * @Serializer\Type("string")
      */
-    protected $currency;
-
-    /**
-     * @var string
-     * @Serializer\Type("string")
-     */
     protected $customerPhoneNumber;
 
     /**
@@ -36,16 +30,10 @@ class RequestCreateAgreement
     protected $initialCharge;
 
     /**
-     * @var string
-     * @Serializer\Type("string")
+     * @var \zaporylie\Vipps\Model\RecurringPayment\AgreementInterval
+     * @Serializer\Type("zaporylie\Vipps\Model\RecurringPayment\AgreementInterval")
      */
     protected $interval;
-
-    /**
-     * @var int
-     * @Serializer\Type("integer")
-     */
-    protected $intervalCount;
 
     /**
      * @var bool
@@ -66,10 +54,10 @@ class RequestCreateAgreement
     protected $merchantRedirectUrl;
 
     /**
-     * @var int
-     * @Serializer\Type("integer")
+     * @var \zaporylie\Vipps\Model\RecurringPayment\Pricing
+     * @Serializer\Type("zaporylie\Vipps\Model\RecurringPayment\Pricing")
      */
-    protected $price;
+    protected $pricing;
 
     /**
      * @var string
@@ -103,19 +91,6 @@ class RequestCreateAgreement
     }
 
     /**
-     * Sets currency variable.
-     *
-     * @param string $currency
-     *
-     * @return $this
-     */
-    public function setCurrency($currency)
-    {
-        $this->currency = $currency;
-        return $this;
-    }
-
-    /**
      * Sets customerPhoneNumber variable.
      *
      * @param string $customerPhoneNumber
@@ -144,26 +119,13 @@ class RequestCreateAgreement
     /**
      * Sets interval variable.
      *
-     * @param string $interval
+     * @param \zaporylie\Vipps\Model\RecurringPayment\AgreementInterval $interval
      *
      * @return $this
      */
-    public function setInterval($interval)
+    public function setInterval(AgreementInterval $interval)
     {
         $this->interval = $interval;
-        return $this;
-    }
-
-    /**
-     * Sets intervalCount variable.
-     *
-     * @param int $intervalCount
-     *
-     * @return $this
-     */
-    public function setIntervalCount($intervalCount)
-    {
-        $this->intervalCount = $intervalCount;
         return $this;
     }
 
@@ -209,13 +171,13 @@ class RequestCreateAgreement
     /**
      * Sets price variable.
      *
-     * @param int $price
+     * @param \zaporylie\Vipps\Model\RecurringPayment\Pricing
      *
      * @return $this
      */
-    public function setPrice($price)
+    public function setPricing(Pricing $pricing)
     {
-        $this->price = $price;
+        $this->pricing = $pricing;
         return $this;
     }
 

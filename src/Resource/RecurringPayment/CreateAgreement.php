@@ -5,6 +5,7 @@ namespace zaporylie\Vipps\Resource\RecurringPayment;
 use zaporylie\Vipps\Model\RecurringPayment\RequestCreateAgreement;
 use zaporylie\Vipps\Model\RecurringPayment\ResponseCreateAgreement;
 use zaporylie\Vipps\Resource\HttpMethod;
+use zaporylie\Vipps\Resource\IdempotencyKeyFactory;
 use zaporylie\Vipps\VippsInterface;
 
 /**
@@ -23,7 +24,7 @@ class CreateAgreement extends RecurringPaymentResourceBase
     /**
      * @var string
      */
-    protected $path = '/recurring/v2/agreements';
+    protected $path = '/recurring/v3/agreements';
 
     /**
      * InitiatePayment constructor.
@@ -34,7 +35,9 @@ class CreateAgreement extends RecurringPaymentResourceBase
      */
     public function __construct(VippsInterface $vipps, $subscription_key, RequestCreateAgreement $requestObject)
     {
-        parent::__construct($vipps, $subscription_key);
+      // By default RequestID is different for each Resource object.
+      $this->headers['Idempotency-Key'] = IdempotencyKeyFactory::generate();
+      parent::__construct($vipps, $subscription_key);
         $this->body = $this
             ->getSerializer()
             ->serialize(

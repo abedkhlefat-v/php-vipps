@@ -22,31 +22,19 @@ class Agreement
      * @var string
      * @Serializer\Type("string")
      */
-    protected $currency;
-
-    /**
-     * @var string
-     * @Serializer\Type("string")
-     */
     protected $id;
 
     /**
-     * @var string
-     * @Serializer\Type("string")
+     * @var \zaporylie\Vipps\Model\RecurringPayment\AgreementInterval
+     * @Serializer\Type("zaporylie\Vipps\Model\RecurringPayment\AgreementInterval")
      */
     protected $interval;
 
     /**
-     * @var int
-     * @Serializer\Type("integer")
+     * @var \zaporylie\Vipps\Model\RecurringPayment\Pricing
+     * @Serializer\Type("zaporylie\Vipps\Model\RecurringPayment\Pricing")
      */
-    protected $intervalCount;
-
-    /**
-     * @var int
-     * @Serializer\Type("integer")
-     */
-    protected $price;
+    protected $pricing;
 
     /**
      * @var string
@@ -107,16 +95,6 @@ class Agreement
     }
 
     /**
-     * Gets currency value.
-     *
-     * @return string
-     */
-    public function getCurrency()
-    {
-        return $this->currency;
-    }
-
-    /**
      * Gets id value.
      *
      * @return string
@@ -129,7 +107,7 @@ class Agreement
     /**
      * Gets interval value.
      *
-     * @return string
+     * @return \zaporylie\Vipps\Model\RecurringPayment\AgreementInterval
      */
     public function getInterval()
     {
@@ -137,23 +115,13 @@ class Agreement
     }
 
     /**
-     * Gets intervalCount value.
-     *
-     * @return int
-     */
-    public function getIntervalCount()
-    {
-        return $this->intervalCount;
-    }
-
-    /**
      * Gets price value.
      *
-     * @return int
+     * @return \zaporylie\Vipps\Model\RecurringPayment\Pricing
      */
-    public function getPrice()
+    public function getPricing()
     {
-        return $this->price;
+        return $this->pricing;
     }
 
     /**

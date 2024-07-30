@@ -11,17 +11,12 @@ use JMS\Serializer\Annotation as Serializer;
  */
 class RequestUpdateAgreement
 {
-    /**
-     * @var \zaporylie\Vipps\Model\RecurringPayment\CampaignRequest
-     * @Serializer\Type("zaporylie\Vipps\Model\RecurringPayment\CampaignRequest")
-     */
-    protected $campaign;
 
     /**
-     * @var int
-     * @Serializer\Type("integer")
+     * @var \zaporylie\Vipps\Model\RecurringPayment\Pricing
+     * @Serializer\Type("zaporylie\Vipps\Model\RecurringPayment\Pricing")
      */
-    protected $price;
+    protected $pricing;
 
     /**
      * @var string
@@ -42,26 +37,13 @@ class RequestUpdateAgreement
     protected $status;
 
     /**
-     * Sets campaign variable.
-     *
-     * @param \zaporylie\Vipps\Model\RecurringPayment\CampaignRequest $campaign
-     *
-     * @return $this
-     */
-    public function setCampaign(CampaignRequest $campaign)
-    {
-        $this->campaign = $campaign;
-        return $this;
-    }
-
-    /**
      * Sets price variable.
      *
-     * @param int $price
+     * @param \zaporylie\Vipps\Model\RecurringPayment\Pricing $price
      *
      * @return $this
      */
-    public function setPrice($price)
+    public function setPricing(Pricing $price)
     {
         $this->price = $price;
         return $this;

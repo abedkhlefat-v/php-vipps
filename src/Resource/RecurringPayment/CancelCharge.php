@@ -26,7 +26,7 @@ class CancelCharge extends RecurringPaymentResourceBase
     /**
      * @var string
      */
-    protected $path = '/recurring/v2/agreements/{id}/charges/{charge_id}';
+    protected $path = '/recurring/v3/agreements/{id}/charges/{charge_id}';
 
     /**
      * CancelCharge constructor.
@@ -44,6 +44,8 @@ class CancelCharge extends RecurringPaymentResourceBase
     ) {
         $this->id = $agreement_id;
         $this->charge_id = $charge_id;
+        // By default RequestID is different for each Resource object.
+        $this->headers['Idempotency-Key'] = IdempotencyKeyFactory::generate();
         parent::__construct($vipps, $subscription_key);
     }
 

@@ -21,7 +21,7 @@ class RequestCreateCharge
      * @var string
      * @Serializer\Type("string")
      */
-    protected $currency;
+    protected $transactionType;
 
     /**
      * @var string
@@ -67,9 +67,9 @@ class RequestCreateCharge
      *
      * @return $this
      */
-    public function setCurrency($currency)
+    public function setTransactionType($transactionType)
     {
-        $this->currency = $currency;
+        $this->transactionType = $transactionType;
         return $this;
     }
 
