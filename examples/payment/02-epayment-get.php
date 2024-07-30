@@ -16,8 +16,11 @@ try {
     $authorization = new \zaporylie\Vipps\Api\Authorization($vipps, $settings['subscription_key']);
     $authorization->getToken($settings['client_secret']);
     $payment = new \zaporylie\Vipps\Api\v1\EPayment($vipps, $settings['subscription_key'], $settings['merchant_serial_number']);
-    $result = $payment->getPayment('test-12121212-3');
-    $result = $payment->getPaymentEvents('test-12121212-3');
+    $result = $payment->getPayment('test-12121212-4');
+    echo '<pre>';
+    var_dump($result);
+    echo '</pre>';
+    $result = $payment->getPaymentEvents('test-12121212-4');
     echo '<pre>';
     var_dump($result);
     echo '</pre>';
