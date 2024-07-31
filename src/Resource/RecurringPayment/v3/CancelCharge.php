@@ -34,8 +34,8 @@ class CancelCharge extends RecurringPaymentResourceBase
     public function __construct(
         ClientInterface $client,
         string $agreement_id,
-        string $idempotency_key,
-        string $charge_id
+        string $charge_id,
+        string $idempotency_key
     ) {
         $this->id = $agreement_id;
         $this->charge_id = $charge_id;
