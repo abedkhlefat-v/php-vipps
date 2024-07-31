@@ -55,13 +55,13 @@ class Agreement
     protected $created;
 
     /**
-     * @var \DateTimeInterface
+     * @var \DateTimeInterface|null
      * @Serializer\Type("DateTime<'Y-m-d\TH:i:s\Z'>")
      */
     protected $start;
 
     /**
-     * @var \DateTimeInterface
+     * @var \DateTimeInterface|null
      * @Serializer\Type("DateTime<'Y-m-d\TH:i:s\Z'>")
      */
     protected $stop;
@@ -85,13 +85,13 @@ class Agreement
     protected $merchantRedirectUrl;
 
     /**
-     * @var string
+     * @var string|null
      * @Serializer\Type("string")
      */
     protected $sub;
 
     /**
-     * @var string
+     * @var string|null
      * @Serializer\Type("string")
      */
     protected $userinfoUrl;
@@ -173,18 +173,18 @@ class Agreement
     /**
      * Gets start value.
      *
-     * @return \DateTimeInterface
+     * @return \DateTimeInterface|null
      */
-    public function getStart(): \DateTimeInterface {
+    public function getStart(): ?\DateTimeInterface {
         return $this->start;
     }
 
     /**
      * Gets stop value.
      *
-     * @return \DateTimeInterface
+     * @return \DateTimeInterface|null
      */
-    public function getStop(): \DateTimeInterface {
+    public function getStop(): ?\DateTimeInterface {
         return $this->stop;
     }
 
@@ -211,9 +211,9 @@ class Agreement
     /**
      * Gets sub value.
      *
-     * @return string
+     * @return string|null
      */
-    public function getSub(): string
+    public function getSub(): ?string
     {
         return $this->sub;
     }
@@ -221,9 +221,9 @@ class Agreement
     /**
      * Gets userInfoUrl value.
      *
-     * @return string
+     * @return string|null
      */
-    public function getUserInfoUrl(): string
+    public function getUserInfoUrl(): ?string
     {
         return $this->userinfoUrl;
     }
