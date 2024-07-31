@@ -43,7 +43,7 @@ class Agreement
     protected $productName;
 
     /**
-     * @var string
+     * @var string|null
      * @Serializer\Type("string")
      */
     protected $productDescription;
@@ -163,9 +163,9 @@ class Agreement
     /**
      * Gets productDescription value.
      *
-     * @return string
+     * @return string|null
      */
-    public function getProductDescription(): string
+    public function getProductDescription(): ?string
     {
         return $this->productDescription;
     }
