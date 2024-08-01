@@ -20,7 +20,7 @@ class CreateCheckoutSessionResponse
     protected $checkoutFrontendUrl;
 
     /**
-     * @var string
+     * @var string|null
      * @Serializer\Type("string")
      */
     protected $poolingUrl;
@@ -37,9 +37,9 @@ class CreateCheckoutSessionResponse
     /**
      * Gets poolingUrl value.
      *
-     * @return string
+     * @return string|null
      */
-    public function getPoolingUrl(): string {
+    public function getPoolingUrl(): ?string {
         return $this->poolingUrl;
     }
 
