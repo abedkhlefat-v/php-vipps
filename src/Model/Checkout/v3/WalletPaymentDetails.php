@@ -14,13 +14,13 @@ class WalletPaymentDetails
     protected $amount;
 
     /**
-     * @var int
+     * @var string
      * @Serializer\Type("integer")
      */
     protected $state;
 
     /**
-     * @var \zaporylie\Vipps\Model\Checkout\v3\Aggregate
+     * @var \zaporylie\Vipps\Model\Checkout\v3\Aggregate|null
      * @Serializer\Type("zaporylie\Vipps\Model\Checkout\v3\Aggregate")
      */
     protected $aggregate;
@@ -43,18 +43,18 @@ class WalletPaymentDetails
     /**
      * Gets state value.
      *
-     * @return int
+     * @return string
      */
-    public function getState(): int {
+    public function getState(): string {
         return $this->state;
     }
 
     /**
      * Gets aggregate value.
      *
-     * @return \zaporylie\Vipps\Model\Checkout\v3\Aggregate
+     * @return \zaporylie\Vipps\Model\Checkout\v3\Aggregate|null
      */
-    public function getAggregate(): Aggregate {
+    public function getAggregate(): ?Aggregate {
         return $this->aggregate;
     }
 
