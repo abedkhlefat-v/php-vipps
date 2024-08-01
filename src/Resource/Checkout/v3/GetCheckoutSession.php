@@ -29,7 +29,6 @@ class GetCheckoutSession extends PaymentResourceBase
      * InitiatePayment constructor.
      *
      * @param \zaporylie\Vipps\ClientInterface $client
-     * @param string $subscription_key
      * @param string $reference
      */
     public function __construct(ClientInterface $client, string $reference)

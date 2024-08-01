@@ -45,7 +45,7 @@ class Checkout extends ApiBase implements CheckoutInterface
      */
     public function createCheckoutSession(CreateCheckoutSessionRequest $request): CreateCheckoutSessionResponse
     {
-        $resource = new CreateCheckoutSession($this->client, $this->clientSecret, $request);
+        $resource = new CreateCheckoutSession($this->client, $request);
         return $resource->call();
     }
 
@@ -54,7 +54,7 @@ class Checkout extends ApiBase implements CheckoutInterface
      */
     public function getCheckoutSession(string $reference): GetCheckoutSessionResponse
     {
-        $resource = new GetCheckoutSession($this->client, $this->clientSecret, $reference);
+        $resource = new GetCheckoutSession($this->client, $reference);
         return $resource->call();
     }
 }

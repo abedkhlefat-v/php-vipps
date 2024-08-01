@@ -30,8 +30,7 @@ class CreateCheckoutSession extends PaymentResourceBase
      * InitiatePayment constructor.
      *
      * @param \zaporylie\Vipps\ClientInterface $client
-     * @param string $subscription_key
-     * @param \zaporylie\Vipps\Model\EPayment\v1\CreatePaymentRequest $request
+     * @param \zaporylie\Vipps\Model\Checkout\v3\CreateCheckoutSessionRequest $request
      */
     public function __construct(ClientInterface $client, CreateCheckoutSessionRequest $request)
     {
