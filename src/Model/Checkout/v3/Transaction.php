@@ -42,7 +42,7 @@ class Transaction
      *
      * @return $this
      */
-    public function setAmount(\zaporylie\Vipps\Model\Checkout\v3\Amount $amount
+    public function setAmount(Amount $amount
     ) {
         $this->amount = $amount;
         return $this;

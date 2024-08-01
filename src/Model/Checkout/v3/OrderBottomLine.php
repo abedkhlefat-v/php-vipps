@@ -33,7 +33,7 @@ class OrderBottomLine
 
     /**
      * @var \zaporylie\Vipps\Model\Checkout\v3\PaymentSources|null
-     * @Serializer\Type("array<zaporylie\Vipps\Model\Checkout\v3\PaymentSources>")
+     * @Serializer\Type("zaporylie\Vipps\Model\Checkout\v3\PaymentSources")
      */
     protected $paymentSources;
 

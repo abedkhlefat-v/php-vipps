@@ -9,7 +9,7 @@ class OtherLogisticsOption
 
     /**
      * @var \zaporylie\Vipps\Model\Checkout\v3\Amount
-     * @Serializer\Type("array<zaporylie\Vipps\Model\Checkout\v3\OrderLine>")
+     * @Serializer\Type("zaporylie\Vipps\Model\Checkout\v3\Amount")
      */
     protected $amount;
 

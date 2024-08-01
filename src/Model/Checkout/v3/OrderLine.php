@@ -45,7 +45,7 @@ class OrderLine
 
     /**
      * @var \zaporylie\Vipps\Model\Checkout\v3\UnitInfo
-     * @Serializer\Type("array<zaporylie\Vipps\Model\Checkout\v3\UnitInfo>")
+     * @Serializer\Type("zaporylie\Vipps\Model\Checkout\v3\UnitInfo")
      */
     protected $unitInfo;
 

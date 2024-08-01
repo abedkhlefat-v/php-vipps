@@ -11,23 +11,27 @@ class GetCheckoutSessionResponse
      * @Serializer\Type("string")
      */
     protected $sessionId;
+
     /**
-     * @var string
+     * @var string|null
      * @Serializer\Type("string")
      */
     protected $merchantSerialNumber;
+
     /**
      * @var string
      * @Serializer\Type("string")
      */
     protected $reference;
+
     /**
      * @var string
      * @Serializer\Type("string")
      */
     protected $sessionState;
+
     /**
-     * @var string
+     * @var string|null
      * @Serializer\Type("string")
      */
     protected $paymentMethod;
@@ -44,15 +48,22 @@ class GetCheckoutSessionResponse
      */
     protected $paymentDetails;
 
-
     /**
      * @var \zaporylie\Vipps\Model\Checkout\v3\UserInfo
      * @Serializer\Type("zaporylie\Vipps\Model\Checkout\v3\UserInfo")
      */
     protected $userInfo;
 
+    /**
+     * @var \zaporylie\Vipps\Model\Checkout\v3\ShippingDetails
+     * @Serializer\Type("zaporylie\Vipps\Model\Checkout\v3\ShippingDetails")
+     */
     protected $shippingDetails;
 
+    /**
+     * @var \zaporylie\Vipps\Model\Checkout\v3\BillingDetails
+     * @Serializer\Type("zaporylie\Vipps\Model\Checkout\v3\BillingDetails")
+     */
     protected $billingDetails;
 
     /**

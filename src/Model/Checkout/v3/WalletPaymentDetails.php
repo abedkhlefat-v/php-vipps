@@ -9,7 +9,7 @@ class WalletPaymentDetails
 
     /**
      * @var \zaporylie\Vipps\Model\Checkout\v3\Amount
-     * @Serializer\Type("array<zaporylie\Vipps\Model\Checkout\v3\OrderLine>")
+     * @Serializer\Type("zaporylie\Vipps\Model\Checkout\v3\Amount")
      */
     protected $amount;
 
@@ -21,7 +21,7 @@ class WalletPaymentDetails
 
     /**
      * @var \zaporylie\Vipps\Model\Checkout\v3\Aggregate
-     * @Serializer\Type("array<zaporylie\Vipps\Model\Checkout\v3\Aggregate>")
+     * @Serializer\Type("zaporylie\Vipps\Model\Checkout\v3\Aggregate")
      */
     protected $aggregate;
 
