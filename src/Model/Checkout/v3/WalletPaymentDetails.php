@@ -15,7 +15,7 @@ class WalletPaymentDetails
 
     /**
      * @var string
-     * @Serializer\Type("integer")
+     * @Serializer\Type("string")
      */
     protected $state;
 
