@@ -14,12 +14,3 @@ parameters:
 			message: "#^Unsafe usage of new static\\(\\)\\.$#"
 			count: 2
 			path: src/Exceptions/VippsException.php
-
-		-
-			message: """
-				#^Call to deprecated method registerLoader\\(\\) of class Doctrine\\\\Common\\\\Annotations\\\\AnnotationRegistry\\:
-				This method is deprecated and will be removed in
-				            doctrine/annotations 2\\.0\\. Annotations will be autoloaded in 2\\.0\\.$#
-			"""
-			count: 1
-			path: src/Resource/ResourceBase.php
