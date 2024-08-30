@@ -38,10 +38,18 @@ class OrderLine
     protected $totalTaxAmount;
 
     /**
+     * @var int|null
+     * @Serializer\Type("integer")
+     *
+     * @deprecated Use TaxRate property instead
+     */
+    protected $taxPercentago;
+
+    /**
      * @var int
      * @Serializer\Type("integer")
      */
-    protected $taxPercentago;
+    protected $taxRate;
 
     /**
      * @var \zaporylie\Vipps\Model\Checkout\v3\UnitInfo
@@ -151,6 +159,9 @@ class OrderLine
      * @param int $taxPercentago
      *
      * @return $this
+     *
+     * @deprecated
+     * @see self::$taxPercentago
      */
     public function setTaxPercentago(int $taxPercentago) {
         $this->taxPercentago = $taxPercentago;
@@ -202,6 +213,18 @@ class OrderLine
      */
     public function setUnitInfo(UnitInfo $unitInfo) {
         $this->unitInfo = $unitInfo;
+        return $this;
+    }
+
+    /**
+     * Sets taxRate variable.
+     *
+     * @param int $taxRate
+     *
+     * @return $this
+     */
+    public function setTaxRate(int $taxRate) {
+        $this->taxRate = $taxRate;
         return $this;
     }
 
