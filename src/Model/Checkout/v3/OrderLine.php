@@ -43,7 +43,7 @@ class OrderLine
      *
      * @deprecated Use TaxRate property instead
      */
-    protected $taxPercentago;
+    protected $taxPercentage;
 
     /**
      * @var int
@@ -160,18 +160,18 @@ class OrderLine
     }
 
     /**
-     * Sets taxPercentago variable.
+     * Sets taxPercentage variable.
      *
-     * @param int $taxPercentago
+     * @param int $taxPercentage
      *
      * @return $this
      *
      * @deprecated
-     * @see self::$taxPercentago
+     * @see self::$taxPercentage
      */
-    public function setTaxPercentago(int $taxPercentago)
+    public function setTaxPercentage(int $taxPercentage)
     {
-        $this->taxPercentago = $taxPercentago;
+        $this->taxPercentage = $taxPercentage;
         return $this;
     }
 

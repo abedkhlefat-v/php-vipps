@@ -41,7 +41,7 @@ $client = new \zaporylie\Vipps\Client($settings['client_id'], $settings['client_
                 ->setTotalAmount(1000)
                 ->setTotalAmountExcludingTax(800)
                 ->setTotalTaxAmount(200)
-                ->setTaxPercentago(25)]))
+                ->setTaxPercentage(25)]))
         ->setPaymentDescription('This is test checkout order session'));
     $result = $checkout->createCheckoutSession($request);
     echo '<pre>';
