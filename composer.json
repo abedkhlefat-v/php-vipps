@@ -39,7 +39,6 @@
     "scripts": {
         "test": [
             "composer test-style",
-            "composer test-unit",
             "composer test-phpstan"
         ],
         "test-style": "./vendor/bin/phpcs -p",

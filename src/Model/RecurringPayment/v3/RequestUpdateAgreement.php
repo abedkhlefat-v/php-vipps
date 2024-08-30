@@ -37,15 +37,15 @@ class RequestUpdateAgreement
     protected $status;
 
     /**
-     * Sets price variable.
+     * Sets pricing variable.
      *
-     * @param \zaporylie\Vipps\Model\RecurringPayment\v3\Pricing $price
+     * @param \zaporylie\Vipps\Model\RecurringPayment\v3\Pricing $pricing
      *
      * @return $this
      */
-    public function setPricing(Pricing $price)
+    public function setPricing(Pricing $pricing)
     {
-        $this->price = $price;
+        $this->pricing = $pricing;
         return $this;
     }
 
