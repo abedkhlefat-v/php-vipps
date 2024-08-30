@@ -26,7 +26,8 @@ class CustomConsent
      *
      * @return $this
      */
-    public function setRequired(bool $required) {
+    public function setRequired(bool $required)
+    {
         $this->required = $required;
         return $this;
     }
@@ -38,7 +39,8 @@ class CustomConsent
      *
      * @return $this
      */
-    public function setText(string $text) {
+    public function setText(string $text)
+    {
         $this->text = $text;
         return $this;
     }

@@ -26,7 +26,8 @@ class ExternalPaymentMethod
      *
      * @return $this
      */
-    public function setPaymentMethod(string $paymentMethod) {
+    public function setPaymentMethod(string $paymentMethod)
+    {
         $this->paymentMethod = $paymentMethod;
         return $this;
     }
@@ -38,7 +39,8 @@ class ExternalPaymentMethod
      *
      * @return $this
      */
-    public function setRedirectUrl(string $redirectUrl) {
+    public function setRedirectUrl(string $redirectUrl)
+    {
         $this->redirectUrl = $redirectUrl;
         return $this;
     }

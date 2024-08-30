@@ -108,7 +108,8 @@ class BottomLine
      *
      * @return $this
      */
-    public function setBarCode(Barcode $barCode) {
+    public function setBarCode(Barcode $barCode)
+    {
         $this->barCode = $barCode;
         return $this;
     }
@@ -120,7 +121,8 @@ class BottomLine
      *
      * @return $this
      */
-    public function setCurrency(?string $currency) {
+    public function setCurrency(?string $currency)
+    {
         $this->currency = $currency;
         return $this;
     }
@@ -135,7 +137,8 @@ class BottomLine
      * @deprecated
      * @see self::$giftCardAmount
      */
-    public function setGiftCardAmount(?int $giftCardAmount) {
+    public function setGiftCardAmount(?int $giftCardAmount)
+    {
         $this->giftCardAmount = $giftCardAmount;
         return $this;
     }
@@ -147,7 +150,8 @@ class BottomLine
      *
      * @return $this
      */
-    public function setPaymentSources(PaymentSources $paymentSources) {
+    public function setPaymentSources(PaymentSources $paymentSources)
+    {
         $this->paymentSources = $paymentSources;
         return $this;
     }
@@ -159,7 +163,8 @@ class BottomLine
      *
      * @return $this
      */
-    public function setPosId(?string $posId) {
+    public function setPosId(?string $posId)
+    {
         $this->posId = $posId;
         return $this;
     }
@@ -171,7 +176,8 @@ class BottomLine
      *
      * @return $this
      */
-    public function setReceiptNumber(string $receiptNumber) {
+    public function setReceiptNumber(string $receiptNumber)
+    {
         $this->receiptNumber = $receiptNumber;
         return $this;
     }
@@ -186,7 +192,8 @@ class BottomLine
      * @deprecated
      * @see self::$shippingAmount
      */
-    public function setShippingAmount(?int $shippingAmount) {
+    public function setShippingAmount(?int $shippingAmount)
+    {
         $this->shippingAmount = $shippingAmount;
         return $this;
     }
@@ -201,7 +208,8 @@ class BottomLine
      * @deprecated
      * @see self::$shippingInfo
      */
-    public function setShippingInfo(ShippingInfo $shippingInfo) {
+    public function setShippingInfo(ShippingInfo $shippingInfo)
+    {
         $this->shippingInfo = $shippingInfo;
         return $this;
     }
@@ -216,7 +224,8 @@ class BottomLine
      * @deprecated
      * @see self::$terminalId
      */
-    public function setTerminalId(?string $terminalId) {
+    public function setTerminalId(?string $terminalId)
+    {
         $this->terminalId = $terminalId;
         return $this;
     }
@@ -228,7 +237,8 @@ class BottomLine
      *
      * @return $this
      */
-    public function setTipAmount(?int $tipAmount) {
+    public function setTipAmount(?int $tipAmount)
+    {
         $this->tipAmount = $tipAmount;
         return $this;
     }
@@ -243,7 +253,8 @@ class BottomLine
      * @deprecated
      * @see self::$totalAmount
      */
-    public function setTotalAmount(?int $totalAmount) {
+    public function setTotalAmount(?int $totalAmount)
+    {
         $this->totalAmount = $totalAmount;
         return $this;
     }
@@ -258,7 +269,8 @@ class BottomLine
      * @deprecated
      * @see self::$totalDiscount
      */
-    public function setTotalDiscount(?int $totalDiscount) {
+    public function setTotalDiscount(?int $totalDiscount)
+    {
         $this->totalDiscount = $totalDiscount;
         return $this;
     }
@@ -273,9 +285,9 @@ class BottomLine
      * @deprecated
      * @see self::$totalTax
      */
-    public function setTotalTax(?int $totalTax) {
+    public function setTotalTax(?int $totalTax)
+    {
         $this->totalTax = $totalTax;
         return $this;
     }
-
 }

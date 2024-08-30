@@ -36,7 +36,8 @@ class WalletPaymentDetails
      *
      * @return \zaporylie\Vipps\Model\Checkout\v3\Amount
      */
-    public function getAmount(): Amount {
+    public function getAmount(): Amount
+    {
         return $this->amount;
     }
 
@@ -45,7 +46,8 @@ class WalletPaymentDetails
      *
      * @return string
      */
-    public function getState(): string {
+    public function getState(): string
+    {
         return $this->state;
     }
 
@@ -54,7 +56,8 @@ class WalletPaymentDetails
      *
      * @return \zaporylie\Vipps\Model\Checkout\v3\Aggregate|null
      */
-    public function getAggregate(): ?Aggregate {
+    public function getAggregate(): ?Aggregate
+    {
         return $this->aggregate;
     }
 
@@ -63,7 +66,8 @@ class WalletPaymentDetails
      *
      * @return string
      */
-    public function getType(): string {
+    public function getType(): string
+    {
         return $this->type;
     }
 }

@@ -52,7 +52,8 @@ class CreateCheckoutSessionRequest
      *
      * @return $this
      */
-    public function setConfiguration(Configuration $configuration) {
+    public function setConfiguration(Configuration $configuration)
+    {
         $this->configuration = $configuration;
         return $this;
     }
@@ -64,7 +65,8 @@ class CreateCheckoutSessionRequest
      *
      * @return $this
      */
-    public function setLogistics(int $logistics) {
+    public function setLogistics(int $logistics)
+    {
         $this->logistics = $logistics;
         return $this;
     }
@@ -76,7 +78,8 @@ class CreateCheckoutSessionRequest
      *
      * @return $this
      */
-    public function setMerchantInfo(MerchantInfo $merchantInfo) {
+    public function setMerchantInfo(MerchantInfo $merchantInfo)
+    {
         $this->merchantInfo = $merchantInfo;
         return $this;
     }
@@ -88,7 +91,8 @@ class CreateCheckoutSessionRequest
      *
      * @return $this
      */
-    public function setPrefillCustomer(PrefillCustomer $prefillCustomer) {
+    public function setPrefillCustomer(PrefillCustomer $prefillCustomer)
+    {
         $this->prefillCustomer = $prefillCustomer;
         return $this;
     }
@@ -100,7 +104,8 @@ class CreateCheckoutSessionRequest
      *
      * @return $this
      */
-    public function setTransaction(Transaction $transaction) {
+    public function setTransaction(Transaction $transaction)
+    {
         $this->transaction = $transaction;
         return $this;
     }
@@ -112,9 +117,9 @@ class CreateCheckoutSessionRequest
      *
      * @return $this
      */
-    public function setType(string $type) {
+    public function setType(string $type)
+    {
         $this->type = $type;
         return $this;
     }
-
 }

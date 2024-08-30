@@ -31,7 +31,8 @@ class RegisterWebhookRequest
      *
      * @return $this
      */
-    public function setUrl(string $url) {
+    public function setUrl(string $url)
+    {
         $this->url = $url;
         return $this;
     }
@@ -43,7 +44,8 @@ class RegisterWebhookRequest
      *
      * @return $this
      */
-    public function setEvents(array $events) {
+    public function setEvents(array $events)
+    {
         $this->events = $events;
         return $this;
     }

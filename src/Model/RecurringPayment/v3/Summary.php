@@ -15,45 +15,47 @@ class Summary
    * @var int
    * @Serializer\Type("integer")
    */
-  protected $captured;
+    protected $captured;
 
   /**
    * @var int
    * @Serializer\Type("integer")
    */
-  protected $refunded;
+    protected $refunded;
 
   /**
    * @var int
    * @Serializer\Type("integer")
    */
-  protected $cancelled;
+    protected $cancelled;
 
   /**
    * Gets captured value.
    *
    * @return int
    */
-  public function getCaptured(): int {
-    return $this->captured;
-  }
+    public function getCaptured(): int
+    {
+        return $this->captured;
+    }
 
   /**
    * Gets refunded value.
    *
    * @return int
    */
-  public function getRefunded(): int {
-    return $this->refunded;
-  }
+    public function getRefunded(): int
+    {
+        return $this->refunded;
+    }
 
   /**
    * Gets cancelled value.
    *
    * @return int
    */
-  public function getCancelled(): int {
-    return $this->cancelled;
-  }
-
+    public function getCancelled(): int
+    {
+        return $this->cancelled;
+    }
 }

@@ -23,7 +23,8 @@ class GetWebhooksResponse
      *
      * @return \zaporylie\Vipps\Model\Webhook\v1\Webhook[]
      */
-    public function getWebhooks(): array {
+    public function getWebhooks(): array
+    {
         return $this->webhooks;
     }
 }

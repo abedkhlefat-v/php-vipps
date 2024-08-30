@@ -100,8 +100,13 @@ class Client implements ClientInterface
      *
      * @param string $client_id
      */
-    public function __construct(string $client_id, string $client_secret, string $subscription_key, string $merchant_serial_number, array $options = [])
-    {
+    public function __construct(
+        string $client_id,
+        string $client_secret,
+        string $subscription_key,
+        string $merchant_serial_number,
+        array $options = []
+    ) {
         // Set Vipps MobilePay credentials.
         $this->clientId = $client_id;
         $this->clientSecret = $client_secret;
@@ -192,7 +197,8 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function getClientSecret(): string {
+    public function getClientSecret(): string
+    {
         if (!isset($this->clientSecret)) {
             throw new InvalidArgumentException('Missing Client Secret');
         }
@@ -202,7 +208,8 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function getSubscriptionKey(): string {
+    public function getSubscriptionKey(): string
+    {
         if (!isset($this->subscriptionKey)) {
             throw new InvalidArgumentException('Missing Subscription Key');
         }
@@ -212,7 +219,8 @@ class Client implements ClientInterface
     /**
      * {@inheritdoc}
      */
-    public function getMerchantSerialNumber(): string {
+    public function getMerchantSerialNumber(): string
+    {
         if (!isset($this->merchantSerialNumber)) {
             throw new InvalidArgumentException('Missing Merchant Serial Number');
         }
@@ -249,7 +257,8 @@ class Client implements ClientInterface
      *
      * @return string
      */
-    public function getVippsSystemName(): string {
+    public function getVippsSystemName(): string
+    {
         return $this->vippsSystemName;
     }
 
@@ -258,7 +267,8 @@ class Client implements ClientInterface
      *
      * @return string
      */
-    public function getVippsSystemVersion(): string {
+    public function getVippsSystemVersion(): string
+    {
         return $this->vippsSystemVersion;
     }
 
@@ -267,7 +277,8 @@ class Client implements ClientInterface
      *
      * @return string
      */
-    public function getVippsSystemPluginName(): string {
+    public function getVippsSystemPluginName(): string
+    {
         return $this->vippsSystemPluginName;
     }
 
@@ -276,7 +287,8 @@ class Client implements ClientInterface
      *
      * @return string
      */
-    public function getVippsSystemPluginVersion(): string {
+    public function getVippsSystemPluginVersion(): string
+    {
         return $this->vippsSystemPluginVersion;
     }
 

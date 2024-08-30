@@ -50,5 +50,4 @@ class OtherLogisticsOption
      * @Serializer\Type("string")
      */
     protected $description;
-
 }

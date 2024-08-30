@@ -18,5 +18,4 @@ class Integrations
      * @Serializer\Type("zaporylie\Vipps\Model\Checkout\v3\HeltHjem")
      */
     protected $helthjem;
-
 }

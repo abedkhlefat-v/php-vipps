@@ -77,7 +77,8 @@ class GetCheckoutSessionResponse
      *
      * @return string|null
      */
-    public function getMerchantSerialNumber(): ?string {
+    public function getMerchantSerialNumber(): ?string
+    {
         return $this->merchantSerialNumber;
     }
 
@@ -86,7 +87,8 @@ class GetCheckoutSessionResponse
      *
      * @return string
      */
-    public function getReference(): string {
+    public function getReference(): string
+    {
         return $this->reference;
     }
 
@@ -95,7 +97,8 @@ class GetCheckoutSessionResponse
      *
      * @return string|null
      */
-    public function getPaymentMethod(): ?string {
+    public function getPaymentMethod(): ?string
+    {
         return $this->paymentMethod;
     }
 
@@ -104,7 +107,8 @@ class GetCheckoutSessionResponse
      *
      * @return \zaporylie\Vipps\Model\Checkout\v3\BillingDetails
      */
-    public function getBillingDetails(): BillingDetails {
+    public function getBillingDetails(): BillingDetails
+    {
         return $this->billingDetails;
     }
 
@@ -113,7 +117,8 @@ class GetCheckoutSessionResponse
      *
      * @return \zaporylie\Vipps\Model\Checkout\v3\WalletPaymentDetails
      */
-    public function getPaymentDetails(): WalletPaymentDetails {
+    public function getPaymentDetails(): WalletPaymentDetails
+    {
         return $this->paymentDetails;
     }
 
@@ -122,7 +127,8 @@ class GetCheckoutSessionResponse
      *
      * @return string
      */
-    public function getSessionId(): string {
+    public function getSessionId(): string
+    {
         return $this->sessionId;
     }
 
@@ -131,7 +137,8 @@ class GetCheckoutSessionResponse
      *
      * @return string
      */
-    public function getSessionState(): string {
+    public function getSessionState(): string
+    {
         return $this->sessionState;
     }
 
@@ -140,7 +147,8 @@ class GetCheckoutSessionResponse
      *
      * @return \zaporylie\Vipps\Model\Checkout\v3\ShippingDetails
      */
-    public function getShippingDetails(): ShippingDetails {
+    public function getShippingDetails(): ShippingDetails
+    {
         return $this->shippingDetails;
     }
 
@@ -149,7 +157,8 @@ class GetCheckoutSessionResponse
      *
      * @return \zaporylie\Vipps\Model\Checkout\v3\SubscriptionDetails
      */
-    public function getSubscriptionDetails(): SubscriptionDetails {
+    public function getSubscriptionDetails(): SubscriptionDetails
+    {
         return $this->subscriptionDetails;
     }
 
@@ -158,7 +167,8 @@ class GetCheckoutSessionResponse
      *
      * @return \zaporylie\Vipps\Model\Checkout\v3\UserInfo
      */
-    public function getUserInfo(): UserInfo {
+    public function getUserInfo(): UserInfo
+    {
         return $this->userInfo;
     }
 }

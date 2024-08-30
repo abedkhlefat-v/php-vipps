@@ -26,7 +26,10 @@ interface RecurringPaymentInterface
      *
      * @return \zaporylie\Vipps\Model\RecurringPayment\v3\ResponseCreateAgreement
      */
-    public function createAgreement(RequestCreateAgreement $requestCreateAgreement, ?string $idempotency_key = null): ResponseCreateAgreement;
+    public function createAgreement(
+        RequestCreateAgreement $requestCreateAgreement,
+        ?string $idempotency_key = null
+    ): ResponseCreateAgreement;
 
     /**
      * @return \zaporylie\Vipps\Model\RecurringPayment\v3\ResponseGetAgreement[]
@@ -45,7 +48,11 @@ interface RecurringPaymentInterface
      * @param \zaporylie\Vipps\Model\RecurringPayment\v3\RequestUpdateAgreement $request
      * @param
      */
-    public function updateAgreement(string $agreement_id, RequestUpdateAgreement $request, ?string $idempotency_key = null): void;
+    public function updateAgreement(
+        string $agreement_id,
+        RequestUpdateAgreement $request,
+        ?string $idempotency_key = null
+    ): void;
 
     /**
      * @param string $agreement_id
@@ -69,14 +76,22 @@ interface RecurringPaymentInterface
      *
      * @return \zaporylie\Vipps\Model\RecurringPayment\v3\ResponseCreateCharge
      */
-    public function createCharge(string $agreement_id, RequestCreateCharge $request, ?string $idempotency_key = null): ResponseCreateCharge;
+    public function createCharge(
+        string $agreement_id,
+        RequestCreateCharge $request,
+        ?string $idempotency_key = null
+    ): ResponseCreateCharge;
 
     /**
      * @param string $agreement_id
      * @param string $charge_id
      * @param string|null $idempotency_key
      */
-    public function cancelCharge(string $agreement_id, string $charge_id, ?string $idempotency_key = null): void;
+    public function cancelCharge(
+        string $agreement_id,
+        string $charge_id,
+        ?string $idempotency_key = null
+    ): void;
 
     /**
      * @param string $agreement_id
@@ -84,7 +99,12 @@ interface RecurringPaymentInterface
      * @param \zaporylie\Vipps\Model\RecurringPayment\v3\RequestCaptureCharge $request
      * @param string|null $idempotency_key
      */
-    public function captureCharge(string $agreement_id, string $charge_id, RequestCaptureCharge $request, ?string $idempotency_key = null): void;
+    public function captureCharge(
+        string $agreement_id,
+        string $charge_id,
+        RequestCaptureCharge $request,
+        ?string $idempotency_key = null
+    ): void;
 
     /**
      * @param string $agreement_id
@@ -92,5 +112,10 @@ interface RecurringPaymentInterface
      * @param \zaporylie\Vipps\Model\RecurringPayment\v3\RequestRefundCharge $requestObject
      * @param string|null $idempotency_key
      */
-    public function refundCharge(string $agreement_id, string $charge_id, RequestRefundCharge $requestObject, ?string $idempotency_key = null): void;
+    public function refundCharge(
+        string $agreement_id,
+        string $charge_id,
+        RequestRefundCharge $requestObject,
+        ?string $idempotency_key = null
+    ): void;
 }

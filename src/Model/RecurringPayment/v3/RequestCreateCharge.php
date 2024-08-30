@@ -149,7 +149,8 @@ class RequestCreateCharge
      *
      * @return $this
      */
-    public function setType(string $type) {
+    public function setType(string $type)
+    {
         $this->type = $type;
         return $this;
     }
@@ -161,7 +162,8 @@ class RequestCreateCharge
      *
      * @return $this
      */
-    public function setExternalIdn(string $externalIdn) {
+    public function setExternalIdn(string $externalIdn)
+    {
         $this->externalIdn = $externalIdn;
         return $this;
     }

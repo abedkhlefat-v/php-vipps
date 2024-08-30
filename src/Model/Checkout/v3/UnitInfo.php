@@ -32,7 +32,8 @@ class UnitInfo
      *
      * @return $this
      */
-    public function setQuantity(string $quantity) {
+    public function setQuantity(string $quantity)
+    {
         $this->quantity = $quantity;
         return $this;
     }
@@ -44,7 +45,8 @@ class UnitInfo
      *
      * @return $this
      */
-    public function setQuantityUnit(string $quantityUnit) {
+    public function setQuantityUnit(string $quantityUnit)
+    {
         $this->quantityUnit = $quantityUnit;
         return $this;
     }
@@ -56,7 +58,8 @@ class UnitInfo
      *
      * @return $this
      */
-    public function setUnitPrice(int $unitPrice) {
+    public function setUnitPrice(int $unitPrice)
+    {
         $this->unitPrice = $unitPrice;
         return $this;
     }

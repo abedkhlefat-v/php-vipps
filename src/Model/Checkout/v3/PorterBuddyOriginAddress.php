@@ -38,7 +38,8 @@ class PorterBuddyOriginAddress
      *
      * @return $this
      */
-    public function setCity(string $city) {
+    public function setCity(string $city)
+    {
         $this->city = $city;
         return $this;
     }
@@ -50,7 +51,8 @@ class PorterBuddyOriginAddress
      *
      * @return $this
      */
-    public function setCountry(string $country) {
+    public function setCountry(string $country)
+    {
         $this->country = $country;
         return $this;
     }
@@ -62,7 +64,8 @@ class PorterBuddyOriginAddress
      *
      * @return $this
      */
-    public function setPostalCode(string $postalCode) {
+    public function setPostalCode(string $postalCode)
+    {
         $this->postalCode = $postalCode;
         return $this;
     }
@@ -74,9 +77,9 @@ class PorterBuddyOriginAddress
      *
      * @return $this
      */
-    public function setStreetAddress(string $streetAddress) {
+    public function setStreetAddress(string $streetAddress)
+    {
         $this->streetAddress = $streetAddress;
         return $this;
     }
-
 }

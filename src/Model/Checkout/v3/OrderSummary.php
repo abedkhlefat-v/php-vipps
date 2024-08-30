@@ -26,7 +26,8 @@ class OrderSummary
      *
      * @return $this
      */
-    public function setOrderBottomLine(OrderBottomLine $orderBottomLine) {
+    public function setOrderBottomLine(OrderBottomLine $orderBottomLine)
+    {
         $this->orderBottomLine = $orderBottomLine;
         return $this;
     }
@@ -38,9 +39,9 @@ class OrderSummary
      *
      * @return $this
      */
-    public function setOrderLines(array $orderLines) {
+    public function setOrderLines(array $orderLines)
+    {
         $this->orderLines = $orderLines;
         return $this;
     }
-
 }

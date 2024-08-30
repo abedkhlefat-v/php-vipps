@@ -54,7 +54,8 @@ class PickupPoint
      *
      * @return string
      */
-    public function getPostalCode(): string {
+    public function getPostalCode(): string
+    {
         return $this->postalCode;
     }
 
@@ -63,7 +64,8 @@ class PickupPoint
      *
      * @return string
      */
-    public function getCountry(): string {
+    public function getCountry(): string
+    {
         return $this->country;
     }
 
@@ -72,7 +74,8 @@ class PickupPoint
      *
      * @return string
      */
-    public function getCity(): string {
+    public function getCity(): string
+    {
         return $this->city;
     }
 
@@ -81,7 +84,8 @@ class PickupPoint
      *
      * @return string
      */
-    public function getId(): string {
+    public function getId(): string
+    {
         return $this->id;
     }
 
@@ -90,7 +94,8 @@ class PickupPoint
      *
      * @return int
      */
-    public function getName(): int {
+    public function getName(): int
+    {
         return $this->name;
     }
 
@@ -99,7 +104,8 @@ class PickupPoint
      *
      * @return string
      */
-    public function getAddress(): string {
+    public function getAddress(): string
+    {
         return $this->address;
     }
 
@@ -108,7 +114,8 @@ class PickupPoint
      *
      * @return array
      */
-    public function getOpeningHours(): array {
+    public function getOpeningHours(): array
+    {
         return $this->openingHours;
     }
 }

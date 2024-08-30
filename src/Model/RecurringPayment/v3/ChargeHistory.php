@@ -47,7 +47,8 @@ class ChargeHistory
      *
      * @return \DateTimeInterface
      */
-    public function getOccurred(): \DateTimeInterface {
+    public function getOccurred(): \DateTimeInterface
+    {
         return $this->occurred;
     }
 
@@ -56,7 +57,8 @@ class ChargeHistory
      *
      * @return string
      */
-    public function getEvent(): string {
+    public function getEvent(): string
+    {
         return $this->event;
     }
 
@@ -65,7 +67,8 @@ class ChargeHistory
      *
      * @return int
      */
-    public function getAmount(): int {
+    public function getAmount(): int
+    {
         return $this->amount;
     }
 
@@ -74,7 +77,8 @@ class ChargeHistory
      *
      * @return string
      */
-    public function getIdempotencyKey(): string {
+    public function getIdempotencyKey(): string
+    {
         return $this->idempotencyKey;
     }
 
@@ -83,7 +87,8 @@ class ChargeHistory
      *
      * @return bool
      */
-    public function getSuccess(): bool {
+    public function getSuccess(): bool
+    {
         return $this->success;
     }
 }

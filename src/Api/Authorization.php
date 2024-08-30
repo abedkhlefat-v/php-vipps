@@ -13,7 +13,8 @@ class Authorization extends ApiBase implements AuthorizationInterface
      *
      * @return \zaporylie\Vipps\Model\Authorization\ResponseGetToken
      */
-    public function getToken(): ResponseGetToken {
+    public function getToken(): ResponseGetToken
+    {
         // Initiate GetToken resource.
         $resource = new GetToken($this->client);
 

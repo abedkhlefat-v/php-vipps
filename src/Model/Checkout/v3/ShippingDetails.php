@@ -78,7 +78,8 @@ class ShippingDetails
      *
      * @return string|null
      */
-    public function getEmail(): ?string {
+    public function getEmail(): ?string
+    {
         return $this->email;
     }
 
@@ -87,7 +88,8 @@ class ShippingDetails
      *
      * @return string|null
      */
-    public function getCity(): ?string {
+    public function getCity(): ?string
+    {
         return $this->city;
     }
 
@@ -96,7 +98,8 @@ class ShippingDetails
      *
      * @return string|null
      */
-    public function getCountry(): ?string {
+    public function getCountry(): ?string
+    {
         return $this->country;
     }
 
@@ -105,7 +108,8 @@ class ShippingDetails
      *
      * @return string|null
      */
-    public function getFirstName(): ?string {
+    public function getFirstName(): ?string
+    {
         return $this->firstName;
     }
 
@@ -114,7 +118,8 @@ class ShippingDetails
      *
      * @return string|null
      */
-    public function getLastName(): ?string {
+    public function getLastName(): ?string
+    {
         return $this->lastName;
     }
 
@@ -123,7 +128,8 @@ class ShippingDetails
      *
      * @return string|null
      */
-    public function getPhoneNumber(): ?string {
+    public function getPhoneNumber(): ?string
+    {
         return $this->phoneNumber;
     }
 
@@ -132,7 +138,8 @@ class ShippingDetails
      *
      * @return string|null
      */
-    public function getPostalCode(): ?string {
+    public function getPostalCode(): ?string
+    {
         return $this->postalCode;
     }
 
@@ -141,7 +148,8 @@ class ShippingDetails
      *
      * @return string|null
      */
-    public function getStreetAddress(): ?string {
+    public function getStreetAddress(): ?string
+    {
         return $this->streetAddress;
     }
 
@@ -150,7 +158,8 @@ class ShippingDetails
      *
      * @return \zaporylie\Vipps\Model\Checkout\v3\Amount
      */
-    public function getAmount(): Amount {
+    public function getAmount(): Amount
+    {
         return $this->amount;
     }
 
@@ -159,7 +168,8 @@ class ShippingDetails
      *
      * @return \zaporylie\Vipps\Model\Checkout\v3\PickupPoint
      */
-    public function getPickupPoint(): PickupPoint {
+    public function getPickupPoint(): PickupPoint
+    {
         return $this->pickupPoint;
     }
 
@@ -168,7 +178,8 @@ class ShippingDetails
      *
      * @return string|null
      */
-    public function getShippingMethodId(): ?string {
+    public function getShippingMethodId(): ?string
+    {
         return $this->shippingMethodId;
     }
 }

@@ -43,7 +43,8 @@ class Pricing
      *
      * @return $this
      */
-    public function setAmount(int $amount) {
+    public function setAmount(int $amount)
+    {
         $this->amount = $amount;
         return $this;
     }
@@ -53,7 +54,8 @@ class Pricing
      *
      * @return int
      */
-    public function getAmount(): int {
+    public function getAmount(): int
+    {
         return $this->amount;
     }
 
@@ -64,7 +66,8 @@ class Pricing
      *
      * @return $this
      */
-    public function setSuggestedMaxAmount(int $suggestedMaxAmount) {
+    public function setSuggestedMaxAmount(int $suggestedMaxAmount)
+    {
         $this->suggestedMaxAmount = $suggestedMaxAmount;
         return $this;
     }
@@ -74,7 +77,8 @@ class Pricing
      *
      * @return int
      */
-    public function getSuggestedMaxAmount(): int {
+    public function getSuggestedMaxAmount(): int
+    {
         return $this->suggestedMaxAmount;
     }
 
@@ -85,7 +89,8 @@ class Pricing
      *
      * @return $this
      */
-    public function setType(string $type) {
+    public function setType(string $type)
+    {
         $this->type = $type;
         return $this;
     }
@@ -95,7 +100,8 @@ class Pricing
      *
      * @return string
      */
-    public function getType(): string {
+    public function getType(): string
+    {
         return $this->type;
     }
 
@@ -106,7 +112,8 @@ class Pricing
      *
      * @return $this
      */
-    public function setCurrency(string $currency) {
+    public function setCurrency(string $currency)
+    {
         $this->currency = $currency;
         return $this;
     }
@@ -116,7 +123,8 @@ class Pricing
      *
      * @return string
      */
-    public function getCurrency(): string {
+    public function getCurrency(): string
+    {
         return $this->currency;
     }
 }

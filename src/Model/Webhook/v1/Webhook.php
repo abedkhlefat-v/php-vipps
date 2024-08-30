@@ -35,7 +35,8 @@ class Webhook
      *
      * @return string
      */
-    public function getId(): string {
+    public function getId(): string
+    {
         return $this->id;
     }
 
@@ -44,7 +45,8 @@ class Webhook
      *
      * @return string
      */
-    public function getUrl(): string {
+    public function getUrl(): string
+    {
         return $this->url;
     }
 
@@ -53,7 +55,8 @@ class Webhook
      *
      * @return array
      */
-    public function getEvents(): array {
+    public function getEvents(): array
+    {
         return $this->events;
     }
 }

@@ -88,7 +88,9 @@ class UnitInfo
     {
       // Less equal 10 characters and marches regex pattern "^\d+([\.]\d{1,8})?$".
         if (strlen($quantity) > 10 || !preg_match('/^\d+([\.]\d{1,8})?$/', $quantity)) {
-            throw new \InvalidArgumentException('Quantity must be less equal 10 characters and marches regex pattern "^\d+([\.]\d{1,8})?$".');
+            throw new \InvalidArgumentException(
+                'Quantity must be less equal 10 characters and marches regex pattern "^\d+([\.]\d{1,8})?$".'
+            );
         }
         $this->quantity = $quantity;
         return $this;

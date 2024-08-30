@@ -150,7 +150,8 @@ class GetPaymentResponse
      *
      * @return array
      */
-    public function getMetadata(): array {
+    public function getMetadata(): array
+    {
         return $this->metadata;
     }
 }

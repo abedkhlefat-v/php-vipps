@@ -50,7 +50,8 @@ class OrderBottomLine
      *
      * @return $this
      */
-    public function setCurrency(string $currency) {
+    public function setCurrency(string $currency)
+    {
         $this->currency = $currency;
         return $this;
     }
@@ -62,7 +63,8 @@ class OrderBottomLine
      *
      * @return $this
      */
-    public function setGiftCardAmount(?int $giftCardAmount) {
+    public function setGiftCardAmount(?int $giftCardAmount)
+    {
         $this->giftCardAmount = $giftCardAmount;
         return $this;
     }
@@ -74,7 +76,8 @@ class OrderBottomLine
      *
      * @return $this
      */
-    public function setPaymentSources(?PaymentSources $paymentSources) {
+    public function setPaymentSources(?PaymentSources $paymentSources)
+    {
         $this->paymentSources = $paymentSources;
         return $this;
     }
@@ -86,7 +89,8 @@ class OrderBottomLine
      *
      * @return $this
      */
-    public function setReceiptNumber(?string $receiptNumber) {
+    public function setReceiptNumber(?string $receiptNumber)
+    {
         $this->receiptNumber = $receiptNumber;
         return $this;
     }
@@ -98,7 +102,8 @@ class OrderBottomLine
      *
      * @return $this
      */
-    public function setTerminalId(?string $terminalId) {
+    public function setTerminalId(?string $terminalId)
+    {
         $this->terminalId = $terminalId;
         return $this;
     }
@@ -110,9 +115,9 @@ class OrderBottomLine
      *
      * @return $this
      */
-    public function setTipAmount(?int $tipAmount) {
+    public function setTipAmount(?int $tipAmount)
+    {
         $this->tipAmount = $tipAmount;
         return $this;
     }
-
 }

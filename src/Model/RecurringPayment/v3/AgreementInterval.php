@@ -37,8 +37,9 @@ class AgreementInterval
      *
      * @return string
      */
-    public function getUnit(): string {
-      return $this->unit;
+    public function getUnit(): string
+    {
+        return $this->unit;
     }
 
     /**
@@ -46,8 +47,9 @@ class AgreementInterval
      *
      * @return int
      */
-    public function getCount(): int {
-      return $this->count;
+    public function getCount(): int
+    {
+        return $this->count;
     }
 
     /**
@@ -55,8 +57,9 @@ class AgreementInterval
      *
      * @return string
      */
-    public function getText(): string {
-      return $this->text;
+    public function getText(): string
+    {
+        return $this->text;
     }
 
     /**
@@ -66,9 +69,10 @@ class AgreementInterval
      *
      * @return $this
      */
-    public function setUnit(string $unit) {
-      $this->unit = $unit;
-      return $this;
+    public function setUnit(string $unit)
+    {
+        $this->unit = $unit;
+        return $this;
     }
 
     /**
@@ -78,9 +82,10 @@ class AgreementInterval
      *
      * @return $this
      */
-    public function setCount(int $count) {
-      $this->count = $count;
-      return $this;
+    public function setCount(int $count)
+    {
+        $this->count = $count;
+        return $this;
     }
 
     /**
@@ -90,8 +95,9 @@ class AgreementInterval
      *
      * @return $this
      */
-    public function setText(string $text) {
-      $this->text = $text;
-      return $this;
+    public function setText(string $text)
+    {
+        $this->text = $text;
+        return $this;
     }
 }

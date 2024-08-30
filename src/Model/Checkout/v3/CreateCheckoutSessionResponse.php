@@ -30,7 +30,8 @@ class CreateCheckoutSessionResponse
      *
      * @return string
      */
-    public function getCheckoutFrontendUrl(): string {
+    public function getCheckoutFrontendUrl(): string
+    {
         return $this->checkoutFrontendUrl;
     }
 
@@ -39,7 +40,8 @@ class CreateCheckoutSessionResponse
      *
      * @return string|null
      */
-    public function getPoolingUrl(): ?string {
+    public function getPoolingUrl(): ?string
+    {
         return $this->poolingUrl;
     }
 
@@ -48,8 +50,8 @@ class CreateCheckoutSessionResponse
      *
      * @return string
      */
-    public function getToken(): string {
+    public function getToken(): string
+    {
         return $this->token;
     }
-
 }

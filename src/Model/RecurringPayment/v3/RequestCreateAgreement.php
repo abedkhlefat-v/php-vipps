@@ -102,7 +102,8 @@ class RequestCreateAgreement
      *
      * @return $this
      */
-    public function setExternalId(string $externalId) {
+    public function setExternalId(string $externalId)
+    {
         $this->externalId = $externalId;
         return $this;
     }
@@ -114,7 +115,8 @@ class RequestCreateAgreement
      *
      * @return $this
      */
-    public function setCountryCode(string $countryCode) {
+    public function setCountryCode(string $countryCode)
+    {
         $this->countryCode = $countryCode;
         return $this;
     }
@@ -126,7 +128,8 @@ class RequestCreateAgreement
      *
      * @return $this
      */
-    public function setSkipLandingPage(bool $skipLandingPage) {
+    public function setSkipLandingPage(bool $skipLandingPage)
+    {
         $this->skipLandingPage = $skipLandingPage;
         return $this;
     }
@@ -138,7 +141,8 @@ class RequestCreateAgreement
      *
      * @return $this
      */
-    public function setCampaign(CampaignRequest $campaign) {
+    public function setCampaign(CampaignRequest $campaign)
+    {
         $this->campaign = $campaign;
         return $this;
     }
@@ -150,7 +154,8 @@ class RequestCreateAgreement
      *
      * @return $this
      */
-    public function setCustomerPhoneNumber(string $customerPhoneNumber) {
+    public function setCustomerPhoneNumber(string $customerPhoneNumber)
+    {
         $this->customerPhoneNumber = $customerPhoneNumber;
         return $this;
     }
@@ -162,7 +167,8 @@ class RequestCreateAgreement
      *
      * @return $this
      */
-    public function setInitialCharge(InitialCharge $initialCharge) {
+    public function setInitialCharge(InitialCharge $initialCharge)
+    {
         $this->initialCharge = $initialCharge;
         return $this;
     }
@@ -174,7 +180,8 @@ class RequestCreateAgreement
      *
      * @return $this
      */
-    public function setInterval(AgreementInterval $interval) {
+    public function setInterval(AgreementInterval $interval)
+    {
         $this->interval = $interval;
         return $this;
     }
@@ -186,7 +193,8 @@ class RequestCreateAgreement
      *
      * @return $this
      */
-    public function setIsApp(bool $isApp) {
+    public function setIsApp(bool $isApp)
+    {
         $this->isApp = $isApp;
         return $this;
     }
@@ -198,7 +206,8 @@ class RequestCreateAgreement
      *
      * @return $this
      */
-    public function setMerchantAgreementUrl(string $merchantAgreementUrl) {
+    public function setMerchantAgreementUrl(string $merchantAgreementUrl)
+    {
         $this->merchantAgreementUrl = $merchantAgreementUrl;
         return $this;
     }
@@ -210,7 +219,8 @@ class RequestCreateAgreement
      *
      * @return $this
      */
-    public function setMerchantRedirectUrl(string $merchantRedirectUrl) {
+    public function setMerchantRedirectUrl(string $merchantRedirectUrl)
+    {
         $this->merchantRedirectUrl = $merchantRedirectUrl;
         return $this;
     }
@@ -222,7 +232,8 @@ class RequestCreateAgreement
      *
      * @return $this
      */
-    public function setPricing(Pricing $pricing) {
+    public function setPricing(Pricing $pricing)
+    {
         $this->pricing = $pricing;
         return $this;
     }
@@ -234,7 +245,8 @@ class RequestCreateAgreement
      *
      * @return $this
      */
-    public function setProductDescription(string $productDescription) {
+    public function setProductDescription(string $productDescription)
+    {
         $this->productDescription = $productDescription;
         return $this;
     }
@@ -246,7 +258,8 @@ class RequestCreateAgreement
      *
      * @return $this
      */
-    public function setProductName(string $productName) {
+    public function setProductName(string $productName)
+    {
         $this->productName = $productName;
         return $this;
     }
@@ -258,7 +271,8 @@ class RequestCreateAgreement
      *
      * @return $this
      */
-    public function setScope(string $scope) {
+    public function setScope(string $scope)
+    {
         $this->scope = $scope;
         return $this;
     }

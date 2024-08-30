@@ -52,7 +52,8 @@ class MerchantInfo
      *
      * @return $this
      */
-    public function setCallbackUrl(string $callbackUrl) {
+    public function setCallbackUrl(string $callbackUrl)
+    {
         $this->callbackUrl = $callbackUrl;
         return $this;
     }
@@ -64,7 +65,8 @@ class MerchantInfo
      *
      * @return $this
      */
-    public function setReturnUrl(string $returnUrl) {
+    public function setReturnUrl(string $returnUrl)
+    {
         $this->returnUrl = $returnUrl;
         return $this;
     }
@@ -76,7 +78,8 @@ class MerchantInfo
      *
      * @return $this
      */
-    public function setTermsAndConditionsUrl(string $termsAndConditionsUrl) {
+    public function setTermsAndConditionsUrl(string $termsAndConditionsUrl)
+    {
         $this->termsAndConditionsUrl = $termsAndConditionsUrl;
         return $this;
     }

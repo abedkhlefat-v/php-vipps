@@ -24,5 +24,4 @@ class HeltHjem
      * @Serializer\Type("integer")
      */
     protected $shopId;
-
 }

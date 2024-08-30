@@ -42,8 +42,8 @@ class Transaction
      *
      * @return $this
      */
-    public function setAmount(Amount $amount
-    ) {
+    public function setAmount(Amount $amount)
+    {
         $this->amount = $amount;
         return $this;
     }
@@ -69,7 +69,8 @@ class Transaction
      *
      * @return $this
      */
-    public function setPaymentDescription(string $paymentDescription) {
+    public function setPaymentDescription(string $paymentDescription)
+    {
         $this->paymentDescription = $paymentDescription;
         return $this;
     }
@@ -81,7 +82,8 @@ class Transaction
      *
      * @return $this
      */
-    public function setReference(string $reference) {
+    public function setReference(string $reference)
+    {
         $this->reference = $reference;
         return $this;
     }

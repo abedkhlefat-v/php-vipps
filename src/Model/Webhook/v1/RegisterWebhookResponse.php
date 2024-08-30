@@ -29,7 +29,8 @@ class RegisterWebhookResponse
      *
      * @return string
      */
-    public function getId(): string {
+    public function getId(): string
+    {
         return $this->id;
     }
 
@@ -38,7 +39,8 @@ class RegisterWebhookResponse
      *
      * @return string
      */
-    public function getSecret(): string {
+    public function getSecret(): string
+    {
         return $this->secret;
     }
 }

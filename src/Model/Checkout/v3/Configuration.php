@@ -62,7 +62,8 @@ class Configuration
      *
      * @return $this
      */
-    public function setUserFlow(?string $userFlow) {
+    public function setUserFlow(?string $userFlow)
+    {
         $this->userFlow = $userFlow;
         return $this;
     }
@@ -74,7 +75,8 @@ class Configuration
      *
      * @return $this
      */
-    public function setShowOrderSummary(?bool $showOrderSummary) {
+    public function setShowOrderSummary(?bool $showOrderSummary)
+    {
         $this->showOrderSummary = $showOrderSummary;
         return $this;
     }
@@ -86,7 +88,8 @@ class Configuration
      *
      * @return $this
      */
-    public function setRequireUserInfo(?bool $requireUserInfo) {
+    public function setRequireUserInfo(?bool $requireUserInfo)
+    {
         $this->requireUserInfo = $requireUserInfo;
         return $this;
     }
@@ -98,7 +101,8 @@ class Configuration
      *
      * @return $this
      */
-    public function setExternalPaymentMethods(?array $externalPaymentMethods) {
+    public function setExternalPaymentMethods(?array $externalPaymentMethods)
+    {
         $this->externalPaymentMethods = $externalPaymentMethods;
         return $this;
     }
@@ -110,7 +114,8 @@ class Configuration
      *
      * @return $this
      */
-    public function setElements(?string $elements) {
+    public function setElements(?string $elements)
+    {
         $this->elements = $elements;
         return $this;
     }
@@ -122,7 +127,8 @@ class Configuration
      *
      * @return $this
      */
-    public function setCustomerInteraction(?string $customerInteraction) {
+    public function setCustomerInteraction(?string $customerInteraction)
+    {
         $this->customerInteraction = $customerInteraction;
         return $this;
     }
@@ -134,7 +140,8 @@ class Configuration
      *
      * @return $this
      */
-    public function setCustomConsent(?CustomConsent $customConsent) {
+    public function setCustomConsent(?CustomConsent $customConsent)
+    {
         $this->customConsent = $customConsent;
         return $this;
     }
@@ -146,7 +153,8 @@ class Configuration
      *
      * @return $this
      */
-    public function setCountries(?Countries $countries) {
+    public function setCountries(?Countries $countries)
+    {
         $this->countries = $countries;
         return $this;
     }

@@ -30,5 +30,4 @@ class PorterBuddyOrigin
      * @Serializer\Type("zaporylie\Vipps\Model\Checkout\v3\PorterBuddyOriginAddress")
      */
     protected $address;
-
 }

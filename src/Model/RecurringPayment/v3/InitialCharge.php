@@ -48,7 +48,8 @@ class InitialCharge
      *
      * @return $this
      */
-    public function setExternalId(string $externalId) {
+    public function setExternalId(string $externalId)
+    {
         $this->externalId = $externalId;
         return $this;
     }
@@ -58,7 +59,8 @@ class InitialCharge
      *
      * @return string
      */
-    public function getExternalId(): string {
+    public function getExternalId(): string
+    {
         return $this->externalId;
     }
 
@@ -69,7 +71,8 @@ class InitialCharge
      *
      * @return $this
      */
-    public function setAmount(int $amount) {
+    public function setAmount(int $amount)
+    {
         $this->amount = $amount;
         return $this;
     }
@@ -79,7 +82,8 @@ class InitialCharge
      *
      * @return int
      */
-    public function getAmount(): int {
+    public function getAmount(): int
+    {
         return $this->amount;
     }
 
@@ -90,7 +94,8 @@ class InitialCharge
      *
      * @return $this
      */
-    public function setDescription(string $description) {
+    public function setDescription(string $description)
+    {
         $this->description = $description;
         return $this;
     }
@@ -100,7 +105,8 @@ class InitialCharge
      *
      * @return string
      */
-    public function getDescription(): string {
+    public function getDescription(): string
+    {
         return $this->description;
     }
 
@@ -111,7 +117,8 @@ class InitialCharge
      *
      * @return $this
      */
-    public function setOrderId(string $orderId) {
+    public function setOrderId(string $orderId)
+    {
         $this->orderId = $orderId;
         return $this;
     }
@@ -121,7 +128,8 @@ class InitialCharge
      *
      * @return string
      */
-    public function getOrderId(): string {
+    public function getOrderId(): string
+    {
         return $this->orderId;
     }
 
@@ -132,7 +140,8 @@ class InitialCharge
      *
      * @return $this
      */
-    public function setTransactionType(string $transactionType) {
+    public function setTransactionType(string $transactionType)
+    {
         $this->transactionType = $transactionType;
         return $this;
     }
@@ -142,7 +151,8 @@ class InitialCharge
      *
      * @return string
      */
-    public function getTransactionType(): string {
+    public function getTransactionType(): string
+    {
         return $this->transactionType;
     }
 }

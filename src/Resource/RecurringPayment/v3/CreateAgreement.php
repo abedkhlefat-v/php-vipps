@@ -34,8 +34,8 @@ class CreateAgreement extends RecurringPaymentResourceBase
      */
     public function __construct(ClientInterface $client, string $idempotency_key, RequestCreateAgreement $requestObject)
     {
-      $this->headers['Idempotency-Key'] = $idempotency_key;
-      parent::__construct($client);
+        $this->headers['Idempotency-Key'] = $idempotency_key;
+        parent::__construct($client);
         $this->body = $this
             ->getSerializer()
             ->serialize(

@@ -26,7 +26,8 @@ class SubscriptionDetails
      *
      * @return $this
      */
-    public function setAgreementId(string $agreementId) {
+    public function setAgreementId(string $agreementId)
+    {
         $this->agreementId = $agreementId;
         return $this;
     }
@@ -38,7 +39,8 @@ class SubscriptionDetails
      *
      * @return $this
      */
-    public function setState(string $state) {
+    public function setState(string $state)
+    {
         $this->state = $state;
         return $this;
     }

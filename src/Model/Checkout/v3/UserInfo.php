@@ -24,7 +24,8 @@ class UserInfo
      *
      * @return string
      */
-    public function getSub(): string {
+    public function getSub(): string
+    {
         return $this->sub;
     }
 
@@ -33,7 +34,8 @@ class UserInfo
      *
      * @return string
      */
-    public function getEmail(): string {
+    public function getEmail(): string
+    {
         return $this->email;
     }
 }

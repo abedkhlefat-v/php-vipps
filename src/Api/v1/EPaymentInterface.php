@@ -19,7 +19,10 @@ interface EPaymentInterface
      *
      * @return \zaporylie\Vipps\Model\EPayment\v1\CreatePaymentResponse
      */
-    public function createPayment(CreatePaymentRequest $request, ?string $idempotency_key = null) : CreatePaymentResponse;
+    public function createPayment(
+        CreatePaymentRequest $request,
+        ?string $idempotency_key = null
+    ) : CreatePaymentResponse;
 
     /**
      * @param string $reference

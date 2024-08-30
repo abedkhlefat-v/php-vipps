@@ -88,7 +88,8 @@ class OrderLine
      *
      * @return $this
      */
-    public function setDiscount(?int $discount) {
+    public function setDiscount(?int $discount)
+    {
         $this->discount = $discount;
         return $this;
     }
@@ -100,7 +101,8 @@ class OrderLine
      *
      * @return $this
      */
-    public function setId(string $id) {
+    public function setId(string $id)
+    {
         $this->id = $id;
         return $this;
     }
@@ -112,7 +114,8 @@ class OrderLine
      *
      * @return $this
      */
-    public function setIsReturn(bool $isReturn) {
+    public function setIsReturn(bool $isReturn)
+    {
         $this->isReturn = $isReturn;
         return $this;
     }
@@ -124,7 +127,8 @@ class OrderLine
      *
      * @return $this
      */
-    public function setIsShipping(bool $isShipping) {
+    public function setIsShipping(bool $isShipping)
+    {
         $this->isShipping = $isShipping;
         return $this;
     }
@@ -136,7 +140,8 @@ class OrderLine
      *
      * @return $this
      */
-    public function setName(string $name) {
+    public function setName(string $name)
+    {
         $this->name = $name;
         return $this;
     }
@@ -148,7 +153,8 @@ class OrderLine
      *
      * @return $this
      */
-    public function setProductUrl(string $productUrl) {
+    public function setProductUrl(string $productUrl)
+    {
         $this->productUrl = $productUrl;
         return $this;
     }
@@ -163,7 +169,8 @@ class OrderLine
      * @deprecated
      * @see self::$taxPercentago
      */
-    public function setTaxPercentago(int $taxPercentago) {
+    public function setTaxPercentago(int $taxPercentago)
+    {
         $this->taxPercentago = $taxPercentago;
         return $this;
     }
@@ -175,7 +182,8 @@ class OrderLine
      *
      * @return $this
      */
-    public function setTotalAmount(int $totalAmount) {
+    public function setTotalAmount(int $totalAmount)
+    {
         $this->totalAmount = $totalAmount;
         return $this;
     }
@@ -187,7 +195,8 @@ class OrderLine
      *
      * @return $this
      */
-    public function setTotalAmountExcludingTax(int $totalAmountExcludingTax) {
+    public function setTotalAmountExcludingTax(int $totalAmountExcludingTax)
+    {
         $this->totalAmountExcludingTax = $totalAmountExcludingTax;
         return $this;
     }
@@ -199,7 +208,8 @@ class OrderLine
      *
      * @return $this
      */
-    public function setTotalTaxAmount(int $totalTaxAmount) {
+    public function setTotalTaxAmount(int $totalTaxAmount)
+    {
         $this->totalTaxAmount = $totalTaxAmount;
         return $this;
     }
@@ -211,7 +221,8 @@ class OrderLine
      *
      * @return $this
      */
-    public function setUnitInfo(UnitInfo $unitInfo) {
+    public function setUnitInfo(UnitInfo $unitInfo)
+    {
         $this->unitInfo = $unitInfo;
         return $this;
     }
@@ -223,9 +234,9 @@ class OrderLine
      *
      * @return $this
      */
-    public function setTaxRate(int $taxRate) {
+    public function setTaxRate(int $taxRate)
+    {
         $this->taxRate = $taxRate;
         return $this;
     }
-
 }

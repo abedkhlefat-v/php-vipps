@@ -218,7 +218,8 @@ class Charge
      *
      * @return string
      */
-    public function getExternalId(): string {
+    public function getExternalId(): string
+    {
         return $this->externalId;
     }
 
@@ -227,7 +228,8 @@ class Charge
      *
      * @return string
      */
-    public function getAgreementId(): string {
+    public function getAgreementId(): string
+    {
         return $this->agreementId;
     }
 
@@ -236,7 +238,8 @@ class Charge
      *
      * @return string
      */
-    public function getCurrency(): string {
+    public function getCurrency(): string
+    {
         return $this->currency;
     }
 
@@ -245,7 +248,8 @@ class Charge
      *
      * @return string
      */
-    public function getExternalAgreementId(): string {
+    public function getExternalAgreementId(): string
+    {
         return $this->externalAgreementId;
     }
 
@@ -254,7 +258,8 @@ class Charge
      *
      * @return \zaporylie\Vipps\Model\RecurringPayment\v3\ChargeHistory[]
      */
-    public function getHistory(): array {
+    public function getHistory(): array
+    {
         return $this->history;
     }
 
@@ -263,7 +268,8 @@ class Charge
      *
      * @return int
      */
-    public function getRetryDays(): int {
+    public function getRetryDays(): int
+    {
         return $this->retryDays;
     }
 
@@ -272,7 +278,8 @@ class Charge
      *
      * @return string
      */
-    public function getTransactionType(): string {
+    public function getTransactionType(): string
+    {
         return $this->transactionType;
     }
 }

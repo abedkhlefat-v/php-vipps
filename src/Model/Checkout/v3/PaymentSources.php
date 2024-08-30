@@ -39,7 +39,8 @@ class PaymentSources
      *
      * @return $this
      */
-    public function setCard(int $card) {
+    public function setCard(int $card)
+    {
         $this->card = $card;
         return $this;
     }
@@ -51,7 +52,8 @@ class PaymentSources
      *
      * @return $this
      */
-    public function setCash(int $cash) {
+    public function setCash(int $cash)
+    {
         $this->cash = $cash;
         return $this;
     }
@@ -63,7 +65,8 @@ class PaymentSources
      *
      * @return $this
      */
-    public function setGiftCard(int $giftCard) {
+    public function setGiftCard(int $giftCard)
+    {
         $this->giftCard = $giftCard;
         return $this;
     }
@@ -75,7 +78,8 @@ class PaymentSources
      *
      * @return $this
      */
-    public function setVoucher(int $voucher) {
+    public function setVoucher(int $voucher)
+    {
         $this->voucher = $voucher;
         return $this;
     }

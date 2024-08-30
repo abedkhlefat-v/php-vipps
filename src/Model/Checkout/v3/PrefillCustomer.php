@@ -62,7 +62,8 @@ class PrefillCustomer
      *
      * @return $this
      */
-    public function setStreetAddress(?string $streetAddress) {
+    public function setStreetAddress(?string $streetAddress)
+    {
         $this->streetAddress = $streetAddress;
         return $this;
     }
@@ -74,7 +75,8 @@ class PrefillCustomer
      *
      * @return $this
      */
-    public function setPostalCode(?string $postalCode) {
+    public function setPostalCode(?string $postalCode)
+    {
         $this->postalCode = $postalCode;
         return $this;
     }
@@ -86,7 +88,8 @@ class PrefillCustomer
      *
      * @return $this
      */
-    public function setCountry(?string $country) {
+    public function setCountry(?string $country)
+    {
         $this->country = $country;
         return $this;
     }
@@ -98,7 +101,8 @@ class PrefillCustomer
      *
      * @return $this
      */
-    public function setCity(?string $city) {
+    public function setCity(?string $city)
+    {
         $this->city = $city;
         return $this;
     }
@@ -110,7 +114,8 @@ class PrefillCustomer
      *
      * @return $this
      */
-    public function setEmail(?string $email) {
+    public function setEmail(?string $email)
+    {
         $this->email = $email;
         return $this;
     }
@@ -122,7 +127,8 @@ class PrefillCustomer
      *
      * @return $this
      */
-    public function setFirstName(?string $firstName) {
+    public function setFirstName(?string $firstName)
+    {
         $this->firstName = $firstName;
         return $this;
     }
@@ -134,7 +140,8 @@ class PrefillCustomer
      *
      * @return $this
      */
-    public function setLastName(?string $lastName) {
+    public function setLastName(?string $lastName)
+    {
         $this->lastName = $lastName;
         return $this;
     }
@@ -146,7 +153,8 @@ class PrefillCustomer
      *
      * @return $this
      */
-    public function setPhoneNumber(?string $phoneNumber) {
+    public function setPhoneNumber(?string $phoneNumber)
+    {
         $this->phoneNumber = $phoneNumber;
         return $this;
     }

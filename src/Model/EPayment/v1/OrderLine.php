@@ -238,7 +238,8 @@ class OrderLine
      *
      * @return $this
      */
-    public function setTaxRate(?int $taxRate) {
+    public function setTaxRate(?int $taxRate)
+    {
         $this->taxRate = $taxRate;
         return $this;
     }

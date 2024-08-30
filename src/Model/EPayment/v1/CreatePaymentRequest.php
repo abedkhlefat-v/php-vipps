@@ -366,10 +366,16 @@ class CreatePaymentRequest
    */
     public function setUserFlow(string $userFlow)
     {
-        assert(in_array($userFlow, ['PUSH_MESSAGE', 'NATIVE_REDIRECT', 'WEB_REDIRECT', 'QR']), 'User flow must be one of PUSH_MESSAGE, NATIVE_REDIRECT, WEB_REDIRECT or QR.');
+        assert(in_array($userFlow, [
+            'PUSH_MESSAGE',
+            'NATIVE_REDIRECT',
+            'WEB_REDIRECT',
+            'QR',
+        ]), 'User flow must be one of PUSH_MESSAGE, NATIVE_REDIRECT, WEB_REDIRECT or QR.');
       // If user flow is PUSH_MESSAGE the value for customer.phoneNumber is
       // required.
-        if ($userFlow === 'PUSH_MESSAGE' && (!$this->customer instanceof Customer || !$this->customer->getPhoneNumber())) {
+        if ($userFlow === 'PUSH_MESSAGE'
+            && (!$this->customer instanceof Customer || !$this->customer->getPhoneNumber())) {
             throw new \InvalidArgumentException('Customer phone number is required for PUSH_MESSAGE user flow.');
         }
         $this->userFlow = $userFlow;
@@ -395,7 +401,9 @@ class CreatePaymentRequest
         }
         // User flow must be set to PUSH_MESSAGE or QR
         if ($expiresAt && $this->userFlow !== 'PUSH_MESSAGE' && $this->userFlow !== 'QR') {
-            throw new \InvalidArgumentException('Expiration date can only be set when user flow is PUSH_MESSAGE or QR.');
+            throw new \InvalidArgumentException(
+                'Expiration date can only be set when user flow is PUSH_MESSAGE or QR.'
+            );
         }
         $this->expiresAt = $expiresAt;
         return $this;
@@ -451,7 +459,8 @@ class CreatePaymentRequest
      *
      * @return $this
      */
-    public function setMetadata(array $metadata) {
+    public function setMetadata(array $metadata)
+    {
         $this->metadata = $metadata;
         return $this;
     }

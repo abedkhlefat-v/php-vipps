@@ -58,7 +58,8 @@ class CampaignRequest
      *
      * @return int
      */
-    public function getPrice(): int {
+    public function getPrice(): int
+    {
         return $this->price;
     }
 
@@ -69,7 +70,8 @@ class CampaignRequest
      *
      * @return $this
      */
-    public function setPrice(int $price) {
+    public function setPrice(int $price)
+    {
         $this->price = $price;
         return $this;
     }
@@ -79,7 +81,8 @@ class CampaignRequest
      *
      * @return string
      */
-    public function getType(): string {
+    public function getType(): string
+    {
         return $this->type;
     }
 
@@ -90,7 +93,8 @@ class CampaignRequest
      *
      * @return $this
      */
-    public function setType(string $type) {
+    public function setType(string $type)
+    {
         $this->type = $type;
         return $this;
     }

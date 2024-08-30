@@ -20,7 +20,8 @@ class Countries
      *
      * @return $this
      */
-    public function setSupported(array $supported) {
+    public function setSupported(array $supported)
+    {
         $this->supported = $supported;
         return $this;
     }

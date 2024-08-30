@@ -24,5 +24,4 @@ class Logistics
      * @Serializer\Type("zaporylie\Vipps\Model\Checkout\v3\Integrations")
      */
     protected $integrations;
-
 }

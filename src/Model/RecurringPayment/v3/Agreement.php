@@ -175,7 +175,8 @@ class Agreement
      *
      * @return \DateTimeInterface|null
      */
-    public function getStart(): ?\DateTimeInterface {
+    public function getStart(): ?\DateTimeInterface
+    {
         return $this->start;
     }
 
@@ -184,7 +185,8 @@ class Agreement
      *
      * @return \DateTimeInterface|null
      */
-    public function getStop(): ?\DateTimeInterface {
+    public function getStop(): ?\DateTimeInterface
+    {
         return $this->stop;
     }
 
@@ -233,7 +235,8 @@ class Agreement
      *
      * @return string
      */
-    public function getUuid(): string {
+    public function getUuid(): string
+    {
         return $this->uuid;
     }
 
@@ -242,7 +245,8 @@ class Agreement
      *
      * @return string
      */
-    public function getCountryCode(): string {
+    public function getCountryCode(): string
+    {
         return $this->countryCode;
     }
 
@@ -251,7 +255,8 @@ class Agreement
      *
      * @return \DateTimeInterface
      */
-    public function getCreated(): \DateTimeInterface {
+    public function getCreated(): \DateTimeInterface
+    {
         return $this->created;
     }
 
@@ -260,7 +265,8 @@ class Agreement
      *
      * @return string
      */
-    public function getExternalId(): string {
+    public function getExternalId(): string
+    {
         return $this->externalId;
     }
 
@@ -269,7 +275,8 @@ class Agreement
      *
      * @return string
      */
-    public function getMerchantAgreementUrl(): string {
+    public function getMerchantAgreementUrl(): string
+    {
         return $this->merchantAgreementUrl;
     }
 
@@ -278,7 +285,8 @@ class Agreement
      *
      * @return string
      */
-    public function getMerchantRedirectUrl(): string {
+    public function getMerchantRedirectUrl(): string
+    {
         return $this->merchantRedirectUrl;
     }
 
@@ -287,7 +295,8 @@ class Agreement
      *
      * @return string
      */
-    public function getVippsConfirmationUrl(): string {
+    public function getVippsConfirmationUrl(): string
+    {
         return $this->vippsConfirmationUrl;
     }
 }
