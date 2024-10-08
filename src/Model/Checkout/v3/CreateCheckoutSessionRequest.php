@@ -14,8 +14,8 @@ class CreateCheckoutSessionRequest
     protected $transaction;
 
     /**
-     * @var int
-     * @Serializer\Type("integer")
+     * @var \zaporylie\Vipps\Model\Checkout\v3\Logistics
+     * @Serializer\Type("\zaporylie\Vipps\Model\Checkout\v3\Logistics")
      */
     protected $logistics;
 
@@ -61,12 +61,11 @@ class CreateCheckoutSessionRequest
     /**
      * Sets logistics variable.
      *
-     * @param int $logistics
+     * @param \zaporylie\Vipps\Model\Checkout\v3\Logistics $logistics
      *
      * @return $this
      */
-    public function setLogistics(int $logistics)
-    {
+    public function setLogistics(Logistics $logistics) {
         $this->logistics = $logistics;
         return $this;
     }
