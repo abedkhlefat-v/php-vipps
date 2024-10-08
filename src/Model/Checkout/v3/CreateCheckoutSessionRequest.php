@@ -15,7 +15,7 @@ class CreateCheckoutSessionRequest
 
     /**
      * @var \zaporylie\Vipps\Model\Checkout\v3\Logistics
-     * @Serializer\Type("\zaporylie\Vipps\Model\Checkout\v3\Logistics")
+     * @Serializer\Type("zaporylie\Vipps\Model\Checkout\v3\Logistics")
      */
     protected $logistics;
 

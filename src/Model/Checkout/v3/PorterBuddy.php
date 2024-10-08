@@ -21,7 +21,7 @@ class PorterBuddy
 
     /**
      * @var \zaporylie\Vipps\Model\Checkout\v3\PorterBuddyOrigin
-     * @Serializer\Type("\zaporylie\Vipps\Model\Checkout\v3\PorterBuddyOrigin")
+     * @Serializer\Type("zaporylie\Vipps\Model\Checkout\v3\PorterBuddyOrigin")
      */
     protected $origin;
 
